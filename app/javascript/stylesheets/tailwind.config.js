@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
@@ -12,12 +14,19 @@ module.exports = {
       animation: {
         'slide-up-once': 'slide-up 5s ease-in-out'
       },
-      height: {
-        'w-screen': { height: '100vw'}
+      boxShadow: {
+        'glitch-top-right': `5px -5px 0 5px ${colors.emerald['400']},   -5px 5px 0 5px${colors.purple['300']}`,
+        'glitch-bottom-right': `5px 5px 0 5px ${colors.emerald['400']}, -5px -5px 0 5px ${colors.purple['300']}`,
+        'glitch-bottom-left': `-5px 5px 0 5px ${colors.emerald['400']}, 5px -5px 0 5px ${colors.purple['300']}`,
+        'glitch-top-left': `-5px -5px 0 5px ${colors.emerald['400']},   5px 5px 0 5px ${colors.purple['300']}`,
       },
-      width: {
-        'h-screen': { width: '100vh'}
-      }
+      height: theme => ({
+        "screen/2": "50vh",
+        "screen/3": "calc(100vh / 3)",
+        "screen/4": "calc(100vh / 4)",
+        "screen/5": "calc(100vh / 5)",
+        "screen/6": "calc(100vh / 6)"
+      })
     },
   },
   variants: {
