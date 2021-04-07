@@ -18,5 +18,10 @@ module OmargarciaDev
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.hosts << ".omargarcia.dev"
+    config.hosts << ".omargarcia.mx"
+    config.hosts << ".omargarcia-dev.local"
+    config.hosts << ".omargarcia-mx.local"
   end
 end
