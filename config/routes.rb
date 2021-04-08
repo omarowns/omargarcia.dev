@@ -28,5 +28,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :profiles
+    resources :abouts
   end
 end
