@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<article>
-  <section>
+<h1>Profile <%= @profile.id %></h1>
+<%= render Admin::ArticleComponent.new do |c| %>
+  <% c.section do %>
     <p>
       <strong>Type:</strong>
       <%= @profile.type %>
@@ -21,9 +22,9 @@
       <strong>Animoji:</strong>
       <%= @profile.animoji %>
     </p>
-  </section>
-  <footer>
+  <% end %>
+  <% c.footer do %>
     <%= link_to 'Edit', edit_profile_path(@profile) %>
     <%= link_to 'Back', :profiles %>
-  </footer>
-</article>
+  <% end %>
+<% end %>

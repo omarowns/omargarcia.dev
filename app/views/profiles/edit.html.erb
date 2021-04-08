@@ -1,11 +1,10 @@
-<h1>Editing Profile</h1>
-
-<article>
-  <section>
+<h1>Editing Profile <%= @profile.id %></h1>
+<%= render Admin::ArticleComponent.new do |c| %>
+  <% c.section do %>
     <%= render 'form', profile: @profile %>
-  </section>
-  <footer>
+  <% end %>
+  <% c.footer do %>
     <%= link_to 'Show', @profile %>
-    <%= link_to 'Back', @profile %>
-  </footer>
-</article>
+    <%= link_to 'Back', :profiles %>
+  <% end %>
+<% end %>
