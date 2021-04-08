@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Works</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Additional</th>
+      <th>Link</th>
+      <th>Duration</th>
+      <th>Image pack tag</th>
+      <th>Work group</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @works.each do |work| %>
+      <tr>
+        <td><%= work.title %></td>
+        <td><%= work.additional %></td>
+        <td><%= work.link %></td>
+        <td><%= work.duration %></td>
+        <td><%= work.image_pack_tag %></td>
+        <td><%= work.work_group_id %></td>
+        <td><%= link_to 'Show', work %></td>
+        <td><%= link_to 'Edit', [:edit, work] %></td>
+        <td><%= link_to 'Destroy', work, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Work', [:new, :work_group, :work] %>

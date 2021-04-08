@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Line:</strong>
+  <%= @about_line.line %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @about_line.position %>
+</p>
+
+<p>
+  <strong>About:</strong>
+  <%= @about_line.about_id %>
+</p>
+
+<%= link_to 'Edit', [:edit, @about_line] %> |
+<%= link_to 'Back', [@about, :about_lines] %>

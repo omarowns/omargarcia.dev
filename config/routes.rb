@@ -26,20 +26,18 @@ Rails.application.routes.draw do
     'https://www.agencymvp.com/'
   end
 
-  namespace :admin do
+  scope '/admin' do
     resources :profiles
     resources :abouts do
-      resources :about_lines
+      resources :about_lines, shallow: true
     end
-    resources :about_lines
+    resources :about_lines, only: :create
 
     resources :work_groups do
       resources :works, shallow: true
     end
     resources :works, only: :create
-  end
 
-  scope '/admin' do
     resources :interest_groups
   end
 end

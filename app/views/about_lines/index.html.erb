@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>About Lines</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Line</th>
+      <th>Position</th>
+      <th>About</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @about_lines.each do |about_line| %>
+      <tr>
+        <td><%= about_line.line %></td>
+        <td><%= about_line.position %></td>
+        <td><%= about_line.about_id %></td>
+        <td><%= link_to 'Show', about_line %></td>
+        <td><%= link_to 'Edit', [:edit, about_line] %></td>
+        <td><%= link_to 'Destroy', about_line, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New About Line', [:new, @about, :about_line] %>

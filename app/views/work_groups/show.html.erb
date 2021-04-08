@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @work_group.title %>
+</p>
+
+<p>
+  <strong>Profile:</strong>
+  <%= @work_group.profile_id %>
+</p>
+
+<%= link_to 'Edit', [:edit, @work_group] %> |
+<%= link_to 'Back', :work_groups %>
