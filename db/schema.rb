@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_08_041816) do
+ActiveRecord::Schema.define(version: 2021_04_08_052244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,15 @@ ActiveRecord::Schema.define(version: 2021_04_08_041816) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["profile_id"], name: "index_interest_groups_on_profile_id"
+  end
+
+  create_table "interests", force: :cascade do |t|
+    t.string "value"
+    t.integer "profile_position"
+    t.bigint "interest_group_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["interest_group_id"], name: "index_interests_on_interest_group_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -72,6 +81,7 @@ ActiveRecord::Schema.define(version: 2021_04_08_041816) do
   add_foreign_key "about_lines", "abouts"
   add_foreign_key "abouts", "profiles"
   add_foreign_key "interest_groups", "profiles"
+  add_foreign_key "interests", "interest_groups"
   add_foreign_key "work_groups", "profiles"
   add_foreign_key "works", "work_groups"
 end

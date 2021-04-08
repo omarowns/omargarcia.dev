@@ -38,6 +38,9 @@ Rails.application.routes.draw do
     end
     resources :works, only: :create
 
-    resources :interest_groups
+    resources :interest_groups do
+      resources :interests, shallow: true
+    end
+    resources :interests, only: :create
   end
 end

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @interest.value %>
+</p>
+
+<p>
+  <strong>interest_group position:</strong>
+  <%= @interest.profile_position %>
+</p>
+
+<p>
+  <strong>interest_group:</strong>
+  <%= @interest.interest_group_id %>
+</p>
+
+<%= link_to 'Edit', [:edit, @interest] %> |
+<%= link_to 'Back', [@interest_group, :interests] %>
