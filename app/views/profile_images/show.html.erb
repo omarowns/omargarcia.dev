@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Main:</strong>
+  <%= @profile_image.main %>
+</p>
+
+<p>
+  <strong>Featured:</strong>
+  <%= @profile_image.featured %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @profile_image.position %>
+</p>
+
+<p>
+  <strong>Profile:</strong>
+  <%= @profile_image.profile_id %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @profile_image.image_id %>
+</p>
+
+<%= link_to 'Edit', [:edit, @profile_image] %> |
+<%= link_to 'Back', [@profile, :profile_images] %>

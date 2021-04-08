@@ -27,7 +27,10 @@ Rails.application.routes.draw do
   end
 
   scope '/admin' do
-    resources :profiles
+    resources :profiles do
+      resources :profile_images, shallow: true
+    end
+
     resources :abouts do
       resources :about_lines, shallow: true
     end
@@ -49,5 +52,7 @@ Rails.application.routes.draw do
       resources :location_proxies, shallow: true
     end
     resources :location_proxies, only: :create
+
+    resources :images
   end
 end
