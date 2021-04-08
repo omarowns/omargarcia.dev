@@ -1,24 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Type:</strong>
-  <%= @profile.type %>
-</p>
+<article>
+  <section>
+    <p>
+      <strong>Type:</strong>
+      <%= @profile.type %>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @profile.name %>
-</p>
+    <p>
+      <strong>Name:</strong>
+      <%= @profile.name %>
+    </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @profile.title %>
-</p>
+    <p>
+      <strong>Title:</strong>
+      <%= @profile.title %>
+    </p>
 
-<p>
-  <strong>Animoji:</strong>
-  <%= @profile.animoji %>
-</p>
-
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', :profiles %>
+    <p>
+      <strong>Animoji:</strong>
+      <%= @profile.animoji %>
+    </p>
+  </section>
+  <footer>
+    <%= link_to 'Edit', edit_profile_path(@profile) %>
+    <%= link_to 'Back', :profiles %>
+  </footer>
+</article>
