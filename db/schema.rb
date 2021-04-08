@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_08_060454) do
+ActiveRecord::Schema.define(version: 2021_04_08_061611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,23 @@ ActiveRecord::Schema.define(version: 2021_04_08_060454) do
     t.index ["profile_id"], name: "index_location_groups_on_profile_id"
   end
 
+  create_table "location_proxies", force: :cascade do |t|
+    t.integer "position"
+    t.string "parent_type", null: false
+    t.bigint "parent_id", null: false
+    t.bigint "location_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["location_id"], name: "index_location_proxies_on_location_id"
+    t.index ["parent_type", "parent_id"], name: "index_location_proxies_on_parent"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.string "type"
     t.string "name"
@@ -91,6 +108,7 @@ ActiveRecord::Schema.define(version: 2021_04_08_060454) do
   add_foreign_key "interest_groups", "profiles"
   add_foreign_key "interests", "interest_groups"
   add_foreign_key "location_groups", "profiles"
+  add_foreign_key "location_proxies", "locations"
   add_foreign_key "work_groups", "profiles"
   add_foreign_key "works", "work_groups"
 end

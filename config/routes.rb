@@ -43,6 +43,11 @@ Rails.application.routes.draw do
     end
     resources :interests, only: :create
 
-    resources :location_groups
+    resources :locations
+
+    resources :location_groups do
+      resources :location_proxies, shallow: true
+    end
+    resources :location_proxies, only: :create
   end
 end
