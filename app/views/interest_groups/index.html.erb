@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Interest Groups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Profile</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @interest_groups.each do |interest_group| %>
+      <tr>
+        <td><%= interest_group.title %></td>
+        <td><%= interest_group.profile_id %></td>
+        <td><%= link_to 'Show', interest_group %></td>
+        <td><%= link_to 'Edit', edit_interest_group_path(interest_group) %></td>
+        <td><%= link_to 'Destroy', interest_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Interest Group', new_interest_group_path %>

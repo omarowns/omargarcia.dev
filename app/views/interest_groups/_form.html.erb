@@ -1,0 +1,27 @@
+<%= form_with(model: interest_group) do |form| %>
+  <% if interest_group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(interest_group.errors.count, "error") %> prohibited this interest_group from being saved:</h2>
+
+      <ul>
+        <% interest_group.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :profile_id %>
+    <%= form.text_field :profile_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @interest_group.title %>
+</p>
+
+<p>
+  <strong>Profile:</strong>
+  <%= @interest_group.profile_id %>
+</p>
+
+<%= link_to 'Edit', edit_interest_group_path(@interest_group) %> |
+<%= link_to 'Back', interest_groups_path %>

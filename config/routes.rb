@@ -38,4 +38,8 @@ Rails.application.routes.draw do
     end
     resources :works, only: :create
   end
+
+  scope '/admin' do
+    resources :interest_groups
+  end
 end
