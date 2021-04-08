@@ -42,5 +42,7 @@ Rails.application.routes.draw do
       resources :interests, shallow: true
     end
     resources :interests, only: :create
+
+    resources :location_groups
   end
 end

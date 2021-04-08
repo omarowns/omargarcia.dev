@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @location_group.title %>
+</p>
+
+<p>
+  <strong>Profile:</strong>
+  <%= @location_group.profile_id %>
+</p>
+
+<%= link_to 'Edit', edit_location_group_path(@location_group) %> |
+<%= link_to 'Back', location_groups_path %>
