@@ -1,0 +1,32 @@
+<%= form_with(model: [:admin, about_line]) do |form| %>
+  <% if about_line.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(about_line.errors.count, "error") %> prohibited this about_line from being saved:</h2>
+
+      <ul>
+        <% about_line.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :line %>
+    <%= form.text_field :line %>
+  </div>
+
+  <div class="field">
+    <%= form.label :position %>
+    <%= form.number_field :position %>
+  </div>
+
+  <div class="field">
+    <%= form.label :about_id %>
+    <%= form.text_field :about_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
