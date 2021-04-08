@@ -1,0 +1,27 @@
+<%= form_with(model: [:admin, work_group]) do |form| %>
+  <% if work_group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(work_group.errors.count, "error") %> prohibited this work_group from being saved:</h2>
+
+      <ul>
+        <% work_group.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :profile_id %>
+    <%= form.text_field :profile_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

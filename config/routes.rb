@@ -32,5 +32,7 @@ Rails.application.routes.draw do
       resources :about_lines
     end
     resources :about_lines
+
+    resources :work_groups
   end
 end
