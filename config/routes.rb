@@ -33,6 +33,9 @@ Rails.application.routes.draw do
     end
     resources :about_lines
 
-    resources :work_groups
+    resources :work_groups do
+      resources :works, shallow: true
+    end
+    resources :works, only: :create
   end
 end
