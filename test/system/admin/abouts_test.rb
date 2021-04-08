@@ -3,7 +3,8 @@ require "application_system_test_case"
 module Admin
   class AboutsTest < ApplicationSystemTestCase
     setup do
-      @about = abouts(:one)
+      @about = create(:about)
+      @new_profile = create(:profile)
     end
 
     test "visiting the index" do
@@ -16,6 +17,7 @@ module Admin
       click_on "New About"
 
       fill_in "Title", with: @about.title
+      fill_in "Profile", with: @new_profile.id
       click_on "Create About"
 
       assert_text "About was successfully created"

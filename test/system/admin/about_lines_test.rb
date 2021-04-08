@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class AboutLinesTest < ApplicationSystemTestCase
   setup do
-    @about_line = about_lines(:one)
+    @about_line = create(:about_line)
   end
 
   test "visiting the index" do

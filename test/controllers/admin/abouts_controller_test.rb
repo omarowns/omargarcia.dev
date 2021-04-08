@@ -3,7 +3,7 @@ require "test_helper"
 module Admin
   class AboutsControllerTest < ActionDispatch::IntegrationTest
     setup do
-      @about = abouts(:one)
+      @about = create(:about)
     end
 
     test "should get index" do
@@ -17,8 +17,14 @@ module Admin
     end
 
     test "should create about" do
+      params = {
+        about: {
+          title: @about.title,
+          profile_id: @about.profile_id
+        }
+      }
       assert_difference('About.count') do
-        post admin_abouts_url, params: { about: { title: @about.title } }
+        post admin_abouts_url, params: params
       end
 
       assert_redirected_to admin_about_url(About.last)

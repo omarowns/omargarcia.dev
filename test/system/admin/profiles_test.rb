@@ -3,7 +3,7 @@ require "application_system_test_case"
 module Admin
   class ProfilesTest < ApplicationSystemTestCase
     setup do
-      @profile = profiles(:one)
+      @profile = create(:profile)
     end
 
     test "visiting the index" do
