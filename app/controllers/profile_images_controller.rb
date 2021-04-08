@@ -1,6 +1,6 @@
 class ProfileImagesController < ApplicationController
   before_action :profile_image, only: [:show, :edit, :update, :destroy]
-  before_action :profile, only: [:index, :new, :create, :show, :destroy]
+  before_action :profile, only: [:index, :new, :show, :destroy]
 
   # GET /profile_images
   def index
@@ -18,6 +18,7 @@ class ProfileImagesController < ApplicationController
 
   # GET /profile_images/1/edit
   def edit
+    @profile = @profile_image.profile
   end
 
   # POST /profile_images

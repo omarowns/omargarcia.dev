@@ -2,7 +2,8 @@ require "test_helper"
 
 class ImagesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @image = create(:images)
+    @image = create(:image)
+    @file = fixture_file_upload(Rails.root.join('test', 'fixtures', 'files', 'omaru.jpeg'))
   end
 
   test "should get index" do
@@ -17,7 +18,7 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create image" do
     assert_difference('Image.count') do
-      post images_url, params: { image: {  } }
+      post images_url, params: { image: { file: @file } }
     end
 
     assert_redirected_to image_url(Image.last)
@@ -34,7 +35,7 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update image" do
-    patch image_url(@image), params: { image: {  } }
+    patch image_url(@image), params: { image: { file: @file } }
     assert_redirected_to image_url(@image)
   end
 

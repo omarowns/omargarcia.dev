@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     resources :profiles do
       resources :profile_images, shallow: true
     end
+    resources :profile_images, only: :create
 
     resources :abouts do
       resources :about_lines, shallow: true

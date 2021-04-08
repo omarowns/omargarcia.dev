@@ -3,6 +3,7 @@ require "application_system_test_case"
 class ImagesTest < ApplicationSystemTestCase
   setup do
     @image = create(:image)
+    @file = @image.file
   end
 
   test "visiting the index" do
@@ -14,6 +15,7 @@ class ImagesTest < ApplicationSystemTestCase
     visit images_url
     click_on "New Image"
 
+    attach_file "image_file", Rails.root.join('test', 'fixtures', 'files', 'omaru.jpeg')
     click_on "Create Image"
 
     assert_text "Image was successfully created"
@@ -24,6 +26,7 @@ class ImagesTest < ApplicationSystemTestCase
     visit images_url
     click_on "Edit", match: :first
 
+    attach_file "image_file", Rails.root.join('test', 'fixtures', 'files', 'omaru.jpeg')
     click_on "Update Image"
 
     assert_text "Image was successfully updated"

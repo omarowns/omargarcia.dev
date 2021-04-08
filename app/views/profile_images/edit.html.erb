@@ -1,6 +1,6 @@
 <h1>Editing Profile Image</h1>
 
-<%= render 'form', profile_image: @profile_image, profile: @profile_image.profile %>
+<%= render 'form', profile_image: @profile_image, profile: @profile %>
 
 <%= link_to 'Show', @profile_image %> |
-<%= link_to 'Back', [@profile_image.profile, :profile_images] %>
+<%= link_to 'Back', [@profile, :profile_images] %>

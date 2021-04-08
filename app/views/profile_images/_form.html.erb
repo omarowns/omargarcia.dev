@@ -1,4 +1,4 @@
-<%= form_with(model: [profile, profile_image]) do |form| %>
+<%= form_with(model: [profile_image]) do |form| %>
   <% if profile_image.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(profile_image.errors.count, "error") %> prohibited this profile_image from being saved:</h2>

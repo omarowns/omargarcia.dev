@@ -18,7 +18,7 @@ class ProfileImagesTest < ApplicationSystemTestCase
     check "Featured" if @profile_image.featured
     fill_in "Image", with: @profile_image.image_id
     check "Main" if @profile_image.main
-    fill_in "Position", with: @profile_image.position
+    fill_in "Position", with: @profile_image.position + 1
     fill_in "Profile", with: @profile_image.profile_id
     click_on "Create Profile image"
 
