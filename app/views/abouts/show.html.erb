@@ -1,9 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @about.title %>
-</p>
-
-<%= link_to 'Edit', [:edit, @about] %> |
-<%= link_to 'Back', :abouts %>
+<h1>About <%= @about.id %></h1>
+<%= render Admin::ArticleComponent.new do |c| %>
+  <% c.section do %>
+    <p>
+      <strong>Title:</strong>
+      <%= @about.title %>
+    </p>
+  <% end %>
+  <% c.footer do %>
+    <%= link_to 'Edit', [:edit, @about] %>
+    <%= link_to 'Back', :abouts %>
+  <% end %>
+<% end %>

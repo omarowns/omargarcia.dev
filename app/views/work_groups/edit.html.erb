@@ -1,6 +1,11 @@
-<h1>Editing Work Group</h1>
+<h1>Editing Work Group <%= @work_group.id %></h1>
 
-<%= render 'form', work_group: @work_group %>
-
-<%= link_to 'Show', @work_group %> |
-<%= link_to 'Back', :work_groups %>
+<%= render Admin::ArticleComponent.new do |c| %>
+  <% c.section do %>
+    <%= render 'form', work_group: @work_group %>
+  <% end %>
+  <% c.footer do %>
+    <%= link_to 'Show', @work_group %>
+    <%= link_to 'Back', :work_groups %>
+  <% end %>
+<% end %>

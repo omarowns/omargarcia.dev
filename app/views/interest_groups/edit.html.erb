@@ -1,6 +1,11 @@
-<h1>Editing Interest Group</h1>
+<h1>Editing Interest Group <%= @interest_group.id %></h1>
 
-<%= render 'form', interest_group: @interest_group %>
-
-<%= link_to 'Show', @interest_group %> |
-<%= link_to 'Back', interest_groups_path %>
+<%= render Admin::ArticleComponent.new do |c| %>
+  <% c.section do %>
+    <%= render 'form', interest_group: @interest_group %>
+  <% end %>
+  <% c.footer do %>
+    <%= link_to 'Show', @interest_group %>
+    <%= link_to 'Back', interest_groups_path %>
+  <% end %>
+<% end %>

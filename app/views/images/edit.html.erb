@@ -1,6 +1,10 @@
-<h1>Editing Image</h1>
-
-<%= render 'form', image: @image %>
-
-<%= link_to 'Show', @image %> |
-<%= link_to 'Back', images_path %>
+<h1>Editing Image <%= @image.id %></h1>
+<%= render Admin::ArticleComponent.new do |c| %>
+  <% c.section do %>
+    <%= render 'form', image: @image %>
+  <% end %>
+  <% c.footer do %>
+    <%= link_to 'Show', @image %>
+    <%= link_to 'Back', images_path %>
+  <% end %>
+<% end %>

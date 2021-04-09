@@ -1,6 +1,11 @@
-<h1>Editing Work</h1>
+<h1>Editing Work <%= @work.id %></h1>
 
-<%= render 'form', work: @work, work_group: @work_group %>
-
-<%= link_to 'Show', @work %> |
-<%= link_to 'Back', [@work_group, :works] %>
+<%= render Admin::ArticleComponent.new do |c| %>
+  <% c.section do %>
+    <%= render 'form', work: @work, work_group: @work_group %>
+  <% end %>
+  <% c.footer do %>
+    <%= link_to 'Show', @work %>
+    <%= link_to 'Back', [@work_group, :works] %>
+  <% end %>
+<% end %>

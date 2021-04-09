@@ -1,6 +1,11 @@
-<h1>Editing Location Group</h1>
+<h1>Editing Location Group <%= @location_group.id %></h1>
 
-<%= render 'form', location_group: @location_group %>
-
-<%= link_to 'Show', @location_group %> |
-<%= link_to 'Back', location_groups_path %>
+<%= render Admin::ArticleComponent.new do |c| %>
+  <% c.section do %>
+    <%= render 'form', location_group: @location_group %>
+  <% end %>
+  <% c.footer do %>
+    <%= link_to 'Show', @location_group %>
+    <%= link_to 'Back', location_groups_path %>
+  <% end %>
+<% end %>

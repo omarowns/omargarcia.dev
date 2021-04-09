@@ -1,35 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Profile Images</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Main</th>
-      <th>Featured</th>
-      <th>Position</th>
-      <th>Profile</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @profile_images.each do |profile_image| %>
-      <tr>
-        <td><%= profile_image.main %></td>
-        <td><%= profile_image.featured %></td>
-        <td><%= profile_image.position %></td>
-        <td><%= profile_image.profile_id %></td>
-        <td><%= profile_image.image_id %></td>
-        <td><%= link_to 'Show', profile_image %></td>
-        <td><%= link_to 'Edit', [:edit, profile_image] %></td>
-        <td><%= link_to 'Destroy', profile_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Profile Image', [:new, :profile, :profile_image] %>
+<%= render Admin::TableComponent.new(records: @profile_images, model: ProfileImage) do |c| %>
+  <%= c.new_link do %>
+    <%= link_to 'New Profile Image', [:new, :profile, :profile_image] %>
+  <% end %>
+<% end %>

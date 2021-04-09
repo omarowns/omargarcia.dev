@@ -1,5 +1,9 @@
 <h1>New About Line</h1>
-
-<%= render 'form', about_line: @about_line, about: @about %>
-
-<%= link_to 'Back', [@about, :about_lines] %>
+<%= render Admin::ArticleComponent.new do |c| %>
+  <% c.section do %>
+    <%= render 'form', about_line: @about_line, about: @about %>
+  <% end %>
+  <% c.footer do %>
+    <%= link_to 'Back', [@about, :about_lines] %>
+  <% end %>
+<% end %>

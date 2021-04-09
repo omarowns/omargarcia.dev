@@ -1,5 +1,10 @@
 <h1>New About</h1>
 
-<%= render 'form', about: @about %>
-
-<%= link_to 'Back', :abouts %>
+<%= render Admin::ArticleComponent.new do |c| %>
+  <% c.section do %>
+    <%= render 'form', about: @about %>
+  <% end %>
+  <% c.footer do %>
+    <%= link_to 'Back', :abouts %>
+  <% end %>
+<% end %>

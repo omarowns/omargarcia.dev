@@ -1,6 +1,11 @@
-<h1>Editing Interest</h1>
+<h1>Editing Interest <%= @interest.id %></h1>
 
-<%= render 'form', interest: @interest, interest_group: @interest_group %>
-
-<%= link_to 'Show', @interest %> |
-<%= link_to 'Back', [@interest_group, :interests] %>
+<%= render Admin::ArticleComponent.new do |c| %>
+  <% c.section do %>
+    <%= render 'form', interest: @interest, interest_group: @interest_group %>
+  <% end %>
+  <% c.footer do %>
+    <%= link_to 'Show', @interest %>
+    <%= link_to 'Back', [@interest_group, :interests] %>
+  <% end %>
+<% end %>

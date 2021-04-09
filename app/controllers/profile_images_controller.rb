@@ -1,4 +1,4 @@
-class ProfileImagesController < ApplicationController
+class ProfileImagesController < AdminController
   before_action :profile_image, only: [:show, :edit, :update, :destroy]
   before_action :profile, only: [:index, :new, :show, :destroy]
 

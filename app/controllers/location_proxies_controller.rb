@@ -1,4 +1,4 @@
-class LocationProxiesController < ApplicationController
+class LocationProxiesController < AdminController
   before_action :location_proxy, only: [:show, :edit, :update, :destroy]
   before_action :location_group, only: [:index, :new, :create, :show, :destroy]
 

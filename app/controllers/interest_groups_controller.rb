@@ -1,4 +1,4 @@
-class InterestGroupsController < ApplicationController
+class InterestGroupsController < AdminController
   before_action :set_interest_group, only: [:show, :edit, :update, :destroy]
 
   # GET /interest_groups

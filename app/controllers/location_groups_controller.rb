@@ -1,4 +1,4 @@
-class LocationGroupsController < ApplicationController
+class LocationGroupsController < AdminController
   before_action :set_location_group, only: [:show, :edit, :update, :destroy]
 
   # GET /location_groups

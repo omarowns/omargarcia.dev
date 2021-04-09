@@ -1,4 +1,4 @@
-class AboutLinesController < ApplicationController
+class AboutLinesController < AdminController
   before_action :about_line, only: [:show, :edit, :update, :destroy]
   before_action :about, only: [:index, :new, :create, :show, :destroy]
 

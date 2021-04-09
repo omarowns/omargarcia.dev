@@ -1,4 +1,4 @@
-class WorksController < ApplicationController
+class WorksController < AdminController
   before_action :work, only: [:show, :edit, :update, :destroy]
   before_action :work_group, only: [:index, :new, :create, :show, :destroy]
 

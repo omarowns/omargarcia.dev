@@ -1,5 +1,9 @@
 <h1>New Work</h1>
-
-<%= render 'form', work: @work, work_group: @work_group %>
-
-<%= link_to 'Back', [@work_group, :works] %>
+<%= render Admin::ArticleComponent.new do |c| %>
+  <% c.section do %>
+    <%= render 'form', work: @work, work_group: @work_group %>
+  <% end %>
+  <% c.footer do %>
+    <%= link_to 'Back', [@work_group, :works] %>
+  <% end %>
+<% end %>

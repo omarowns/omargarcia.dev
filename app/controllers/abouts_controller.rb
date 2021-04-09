@@ -1,4 +1,4 @@
-class AboutsController < ApplicationController
+class AboutsController < AdminController
   before_action :set_about, only: [:show, :edit, :update, :destroy]
 
   # GET /abouts

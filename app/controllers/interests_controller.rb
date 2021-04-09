@@ -1,4 +1,4 @@
-class InterestsController < ApplicationController
+class InterestsController < AdminController
   before_action :interest, only: [:show, :edit, :update, :destroy]
   before_action :interest_group, only: [:index, :new, :create, :show, :destroy]
 

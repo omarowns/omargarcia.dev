@@ -1,14 +1,19 @@
 <p id="notice"><%= notice %></p>
+<h1>Work Group <%= @work_group.id %></h1>
+<%= render Admin::ArticleComponent.new do |c| %>
+  <% c.section do %>
+    <p>
+      <strong>Title:</strong>
+      <%= @work_group.title %>
+    </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @work_group.title %>
-</p>
-
-<p>
-  <strong>Profile:</strong>
-  <%= @work_group.profile_id %>
-</p>
-
-<%= link_to 'Edit', [:edit, @work_group] %> |
-<%= link_to 'Back', :work_groups %>
+    <p>
+      <strong>Profile:</strong>
+      <%= @work_group.profile_id %>
+    </p>
+  <% end %>
+  <% c.footer do %>
+    <%= link_to 'Edit', [:edit, @work_group] %>
+    <%= link_to 'Back', :work_groups %>
+  <% end %>
+<% end %>

@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Image</strong>
-  <%= image_tag @image.file %>
-</p>
-
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
+<h1>Image <%= @image.id %></h1>
+<%= render Admin::ArticleComponent.new do |c| %>
+  <% c.section do %>
+    <p>
+      <strong>Image</strong>
+      <%= image_tag @image.file %>
+    </p>
+  <% end %>
+  <% c.footer do %>
+    <%= link_to 'Edit', edit_image_path(@image) %>
+    <%= link_to 'Back', images_path %>
+  <% end %>
+<% end %>

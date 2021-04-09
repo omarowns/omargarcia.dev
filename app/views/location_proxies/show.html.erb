@@ -1,24 +1,29 @@
 <p id="notice"><%= notice %></p>
+<h1>Location Proxy <%= @location_proxy.id %></h1>
+<%= render Admin::ArticleComponent.new do |c| %>
+  <% c.section do %>
+    <p>
+      <strong>Position:</strong>
+      <%= @location_proxy.position %>
+    </p>
 
-<p>
-  <strong>Position:</strong>
-  <%= @location_proxy.position %>
-</p>
+    <p>
+      <strong>Parent:</strong>
+      <%= @location_proxy.parent_id %>
+    </p>
 
-<p>
-  <strong>Parent:</strong>
-  <%= @location_proxy.parent_id %>
-</p>
+    <p>
+      <strong>Parent type:</strong>
+      <%= @location_proxy.parent_type %>
+    </p>
 
-<p>
-  <strong>Parent type:</strong>
-  <%= @location_proxy.parent_type %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @location_proxy.location_id %>
-</p>
-
-<%= link_to 'Edit', [:edit, @location_proxy] %> |
-<%= link_to 'Back', [@location_group, :location_proxies] %>
+    <p>
+      <strong>Location:</strong>
+      <%= @location_proxy.location_id %>
+    </p>
+  <% end %>
+  <% c.footer do %>
+    <%= link_to 'Edit', [:edit, @location_proxy] %> |
+    <%= link_to 'Back', [@location_group, :location_proxies] %>
+  <% end %>
+<% end %>

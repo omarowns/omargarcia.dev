@@ -5,9 +5,9 @@ class Admin::TableComponent < ViewComponent::Base
 
   renders_one :new_link
 
-  def initialize(records:)
-    @records = records
-    @attributes = @records&.first&.attribute_names - %w(id created_at updated_at) || []
+  def initialize(records:, model:)
+    @records = records || []
+    @attributes = model.column_names - %w(id created_at updated_at) || []
   end
 
   class NewLinkComponent < ViewComponent::Base; end

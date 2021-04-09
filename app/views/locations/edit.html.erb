@@ -1,6 +1,11 @@
-<h1>Editing Location</h1>
+<h1>Editing Location <%= @location.id %></h1>
 
-<%= render 'form', location: @location %>
-
-<%= link_to 'Show', @location %> |
-<%= link_to 'Back', locations_path %>
+<%= render Admin::ArticleComponent.new do |c| %>
+  <% c.section do %>
+    <%= render 'form', location: @location %>
+  <% end %>
+  <% c.footer do %>
+    <%= link_to 'Show', @location %>
+    <%= link_to 'Back', locations_path %>
+  <% end %>
+<% end %>
