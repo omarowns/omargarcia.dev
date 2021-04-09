@@ -39,12 +39,29 @@ body.admin {
     @apply px-3 rounded-md shadow-md border border-gray-500;
   }
 
-  article {
+  article:not(.image) {
     @apply w-4/5 mx-auto;
     @apply p-16 border-4 border-gray-900 shadow-glitch-top-left;
 
     p {
       @apply p-4;
+    }
+
+    footer {
+      @apply text-right;
+    }
+  }
+
+  article.image {
+    @apply w-4/5 mx-auto;
+    @apply p-3;
+
+    img {
+      @apply mx-auto;
+    }
+
+    p {
+      @apply p-4 text-center;
     }
 
     footer {

@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Images</h1>
-<%= render Admin::TableComponent.new(records: @images, model: Image) do |c| %>
-  <%= c.new_link do %>
-    <%= link_to 'New Image', new_image_path %>
-  <% end %>
-<% end %>
+
+<p class="text-center">
+  <%= link_to 'New Image', new_image_path %>
+</p>
+
+<%= render Admin::ImageGridComponent.new(images: @images) %>

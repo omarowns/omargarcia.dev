@@ -19,6 +19,7 @@ module.exports = {
         'glitch-bottom-right': `5px 5px 0 5px ${colors.emerald['400']}, -5px -5px 0 5px ${colors.purple['300']}`,
         'glitch-bottom-left': `-5px 5px 0 5px ${colors.emerald['400']}, 5px -5px 0 5px ${colors.purple['300']}`,
         'glitch-top-left': `-5px -5px 0 5px ${colors.emerald['400']},   5px 5px 0 5px ${colors.purple['300']}`,
+        'image-frame': `0 0 0 10px ${colors.black} inset, 0 0 0 15px ${colors.gray['800']} inset`,
       },
       height: theme => ({
         "screen/2": "50vh",
