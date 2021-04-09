@@ -16,11 +16,16 @@
     <%= form.text_field :title %>
   </div>
 
-  <div class="field">
-    <%= form.label :profile_id %>
-    <%= form.text_field :profile_id %>
-  </div>
+  <%= render Admin::BelongsToComponent.new(
+        form: form,
+        model: about,
+        attribute: :profile_id,
+        select_model: Profile,
+        select_attrs: [:type, :id]
+      )
+  %>
 
+  
   <div class="actions">
     <%= form.submit %>
   </div>

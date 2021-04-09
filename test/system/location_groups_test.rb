@@ -14,7 +14,7 @@ class LocationGroupsTest < ApplicationSystemTestCase
     visit location_groups_url
     click_on "New Location Group"
 
-    fill_in "Profile", with: @location_group.profile_id
+    select @location_group.profile.type, from: "Profile"
     fill_in "Title", with: @location_group.title
     click_on "Create Location group"
 
@@ -26,7 +26,6 @@ class LocationGroupsTest < ApplicationSystemTestCase
     visit location_groups_url
     click_on "Edit", match: :first
 
-    fill_in "Profile", with: @location_group.profile_id
     fill_in "Title", with: @location_group.title
     click_on "Update Location group"
 

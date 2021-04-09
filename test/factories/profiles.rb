@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :profile do
+    sequence(:type) { |i| i }
     name { "Omar Garcia" }
     title { "Sr Software Engineer" }
     animoji { "(∩｀-´)⊃━☆ﾟ.*･｡ﾟ" }

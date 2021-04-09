@@ -26,10 +26,14 @@
     <%= form.text_field :parent_type %>
   </div>
 
-  <div class="field">
-    <%= form.label :location_id %>
-    <%= form.text_field :location_id %>
-  </div>
+  <%= render Admin::BelongsToComponent.new(
+        form: form,
+        model: location_proxy,
+        attribute: :location_id,
+        select_model: Location,
+        select_attrs: [:value, :id]
+      )
+  %>
 
   <div class="actions">
     <%= form.submit %>

@@ -16,7 +16,7 @@ class AboutsTest < ApplicationSystemTestCase
     click_on "New About"
 
     fill_in "Title", with: @about.title
-    fill_in "Profile", with: @new_profile.id
+    select @new_profile.type, from: "Profile"
     click_on "Create About"
 
     assert_text "About was successfully created"

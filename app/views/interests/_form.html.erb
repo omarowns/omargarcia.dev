@@ -21,10 +21,14 @@
     <%= form.number_field :profile_position %>
   </div>
 
-  <div class="field">
-    <%= form.label :interest_group_id %>
-    <%= form.text_field :interest_group_id %>
-  </div>
+  <%= render Admin::BelongsToComponent.new(
+        form: form,
+        model: interest,
+        attribute: :interest_group_id,
+        select_model: InterestGroup,
+        select_attrs: [:title, :id]
+      )
+  %>
 
   <div class="actions">
     <%= form.submit %>

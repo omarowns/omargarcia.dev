@@ -14,7 +14,7 @@ class InterestGroupsTest < ApplicationSystemTestCase
     visit interest_groups_url
     click_on "New Interest Group"
 
-    fill_in "Profile", with: @interest_group.profile_id
+    select @interest_group.profile.type, from: "Profile"
     fill_in "Title", with: @interest_group.title
     click_on "Create Interest group"
 
@@ -26,7 +26,6 @@ class InterestGroupsTest < ApplicationSystemTestCase
     visit interest_groups_url
     click_on "Edit", match: :first
 
-    fill_in "Profile", with: @interest_group.profile_id
     fill_in "Title", with: @interest_group.title
     click_on "Update Interest group"
 

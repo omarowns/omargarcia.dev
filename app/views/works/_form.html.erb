@@ -36,10 +36,14 @@
     <%= form.text_field :image_pack_tag %>
   </div>
 
-  <div class="field">
-    <%= form.label :work_group_id %>
-    <%= form.text_field :work_group_id %>
-  </div>
+  <%= render Admin::BelongsToComponent.new(
+        form: form,
+        model: work,
+        attribute: :work_group_id,
+        select_model: WorkGroup,
+        select_attrs: [:title, :id]
+      )
+  %>
 
   <div class="actions">
     <%= form.submit %>

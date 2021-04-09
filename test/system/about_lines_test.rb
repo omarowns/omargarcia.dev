@@ -15,7 +15,7 @@ class AboutLinesTest < ApplicationSystemTestCase
     visit about_about_lines_url(@about)
     click_on "New About Line"
 
-    fill_in "About", with: @about_line.about_id
+    select @about_line.about.title, from: "About"
     fill_in "Line", with: @about_line.line
     fill_in "Position", with: @about_line.position
     click_on "Create About line"
@@ -28,7 +28,6 @@ class AboutLinesTest < ApplicationSystemTestCase
     visit about_about_lines_url(@about)
     click_on "Edit", match: :first
 
-    fill_in "About", with: @about_line.about_id
     fill_in "Line", with: @about_line.line
     fill_in "Position", with: @about_line.position
     click_on "Update About line"

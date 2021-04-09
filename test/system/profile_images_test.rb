@@ -16,10 +16,10 @@ class ProfileImagesTest < ApplicationSystemTestCase
     click_on "New Profile Image"
 
     check "Featured" if @profile_image.featured
-    fill_in "Image", with: @profile_image.image_id
+    select @profile_image.image.id, from: "Image"
     check "Main" if @profile_image.main
     fill_in "Position", with: @profile_image.position + 1
-    fill_in "Profile", with: @profile_image.profile_id
+    select @profile_image.profile.type, from: "Profile"
     click_on "Create Profile image"
 
     assert_text "Profile image was successfully created"
@@ -31,10 +31,9 @@ class ProfileImagesTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     check "Featured" if @profile_image.featured
-    fill_in "Image", with: @profile_image.image_id
+    select @profile_image.image.id, from: "Image"
     check "Main" if @profile_image.main
     fill_in "Position", with: @profile_image.position
-    fill_in "Profile", with: @profile_image.profile_id
     click_on "Update Profile image"
 
     assert_text "Profile image was successfully updated"

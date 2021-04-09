@@ -20,7 +20,7 @@ class WorksTest < ApplicationSystemTestCase
     fill_in "Image pack tag", with: @work.image_pack_tag
     fill_in "Link", with: @work.link
     fill_in "Title", with: @work.title
-    fill_in "Work group", with: @work_group.id
+    select @work_group.title, from: "Work group"
     click_on "Create Work"
 
     assert_text "Work was successfully created"
@@ -36,7 +36,6 @@ class WorksTest < ApplicationSystemTestCase
     fill_in "Image pack tag", with: @work.image_pack_tag
     fill_in "Link", with: @work.link
     fill_in "Title", with: @work.title
-    fill_in "Work group", with: @work.work_group_id
     click_on "Update Work"
 
     assert_text "Work was successfully updated"

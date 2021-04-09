@@ -21,10 +21,14 @@
     <%= form.number_field :position %>
   </div>
 
-  <div class="field">
-    <%= form.label :about_id %>
-    <%= form.text_field :about_id %>
-  </div>
+  <%= render Admin::BelongsToComponent.new(
+        form: form,
+        model: about_line,
+        attribute: :about_id,
+        select_model: About,
+        select_attrs: [:title, :id]
+      )
+  %>
 
   <div class="actions">
     <%= form.submit %>

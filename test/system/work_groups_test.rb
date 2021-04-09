@@ -14,7 +14,7 @@ class WorkGroupsTest < ApplicationSystemTestCase
     visit work_groups_url
     click_on "New Work Group"
 
-    fill_in "Profile", with: @work_group.profile_id
+    select @work_group.profile.type, from: "Profile"
     fill_in "Title", with: @work_group.title
     click_on "Create Work group"
 
@@ -26,7 +26,6 @@ class WorkGroupsTest < ApplicationSystemTestCase
     visit work_groups_url
     click_on "Edit", match: :first
 
-    fill_in "Profile", with: @work_group.profile_id
     fill_in "Title", with: @work_group.title
     click_on "Update Work group"
 

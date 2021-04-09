@@ -15,7 +15,7 @@ class LocationProxiesTest < ApplicationSystemTestCase
     visit location_group_location_proxies_url(@location_group)
     click_on "New Location Proxy"
 
-    fill_in "Location", with: @location_proxy.location_id
+    select @location_proxy.location.value, from: "Location"
     fill_in "Parent", with: @location_proxy.parent_id
     fill_in "Parent type", with: @location_proxy.parent_type
     fill_in "Position", with: @location_proxy.position
@@ -29,7 +29,6 @@ class LocationProxiesTest < ApplicationSystemTestCase
     visit location_group_location_proxies_url(@location_group)
     click_on "Edit", match: :first
 
-    fill_in "Location", with: @location_proxy.location_id
     fill_in "Parent", with: @location_proxy.parent_id
     fill_in "Parent type", with: @location_proxy.parent_type
     fill_in "Position", with: @location_proxy.position
