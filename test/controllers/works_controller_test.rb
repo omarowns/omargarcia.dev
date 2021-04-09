@@ -7,6 +7,11 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
+    get works_url
+    assert_response :success
+  end
+
+  test "should get work group's index" do
     get work_group_works_url(@work_group)
     assert_response :success
   end

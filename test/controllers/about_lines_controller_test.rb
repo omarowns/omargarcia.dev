@@ -7,6 +7,11 @@ class AboutLinesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
+    get about_lines_url
+    assert_response :success
+  end
+
+  test "should get about index" do
     get about_about_lines_url(@about)
     assert_response :success
   end

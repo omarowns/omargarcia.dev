@@ -7,6 +7,11 @@ class InterestsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
+    get interests_url
+    assert_response :success
+  end
+
+  test "should get the interest group's index" do
     get interest_group_interests_url(@interest_group)
     assert_response :success
   end

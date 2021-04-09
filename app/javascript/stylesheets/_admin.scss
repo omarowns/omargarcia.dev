@@ -1,11 +1,29 @@
 body.admin {
+  @apply min-h-screen flex flex-auto flex-shrink-0 antialiased;
+
+  nav {
+    @apply flex flex-col p-8 w-64 bg-gray-900 h-screen shadow-lg text-green-100;
+
+    ul {
+      @apply text-xl;
+    }
+
+    li {
+      @apply my-4 overflow-ellipsis;
+    }
+
+    ul > li > a {
+      @apply p-0 shadow-none border-none;
+    }
+  }
+
   h1 {
     @apply p-4 text-3xl text-center;
   }
 
   table {
     @apply table-auto border-collapse border-4 border-gray-900 shadow-glitch-bottom-left;
-    @apply w-4/5 mx-auto;
+    @apply w-4/5 my-4 mx-auto;
 
     th, td {
       @apply border border-green-600;

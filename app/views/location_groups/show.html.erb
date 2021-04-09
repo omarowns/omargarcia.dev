@@ -17,3 +17,9 @@
     <%= link_to 'Back', location_groups_path %>
   <% end %>
 <% end %>
+
+<%= render Admin::TableComponent.new(records: @location_group.location_proxies, model: LocationProxy) do |c| %>
+  <%= c.new_link do %>
+    <%= link_to 'New Location Proxy', [:new, @location_group, :location_proxy] %>
+  <% end %>
+<% end %>

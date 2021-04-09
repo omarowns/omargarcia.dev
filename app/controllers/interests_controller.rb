@@ -1,6 +1,5 @@
 class InterestsController < AdminController
   before_action :interest, only: [:show, :edit, :update, :destroy]
-  before_action :interest_group, only: [:index, :new, :create, :show, :destroy]
 
   # GET /interests
   def index
@@ -33,8 +32,8 @@ class InterestsController < AdminController
 
   # PATCH/PUT /interests/1
   def update
-    if @interest.update(interest_params)
-      redirect_to @interest, notice: 'Interest was successfully updated.'
+    if interest.update(interest_params)
+      redirect_to interest, notice: 'Interest was successfully updated.'
     else
       render :edit
     end
@@ -42,18 +41,14 @@ class InterestsController < AdminController
 
   # DELETE /interests/1
   def destroy
-    @interest.destroy
-    redirect_to [@interest_group, :interests], notice: 'Interest was successfully destroyed.'
+    interest.destroy
+    redirect_to [helpers.interest_group, :interests], notice: 'Interest was successfully destroyed.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def interest
       @interest ||= Interest.find(params[:id])
-    end
-
-    def interest_group
-      @interest_group ||= InterestGroup.find_by(id: params[:interest_group_id]) || interest.interest_group
     end
 
     # Only allow a list of trusted parameters through.

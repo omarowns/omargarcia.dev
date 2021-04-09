@@ -1,4 +1,4 @@
-<%= form_with(model: [about, about_line]) do |form| %>
+<%= form_with(model: about_line) do |form| %>
   <% if about_line.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(about_line.errors.count, "error") %> prohibited this about_line from being saved:</h2>

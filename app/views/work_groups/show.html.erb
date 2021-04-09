@@ -17,3 +17,9 @@
     <%= link_to 'Back', :work_groups %>
   <% end %>
 <% end %>
+
+<%= render Admin::TableComponent.new(records: @work_group.works, model: Work) do |c| %>
+  <%= c.new_link do %>
+    <%= link_to 'New Work', [:new, @work_group, :work] %>
+  <% end %>
+<% end %>

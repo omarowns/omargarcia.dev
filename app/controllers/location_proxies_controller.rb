@@ -1,6 +1,5 @@
 class LocationProxiesController < AdminController
   before_action :location_proxy, only: [:show, :edit, :update, :destroy]
-  before_action :location_group, only: [:index, :new, :create, :show, :destroy]
 
   # GET /location_proxies
   def index
@@ -33,8 +32,8 @@ class LocationProxiesController < AdminController
 
   # PATCH/PUT /location_proxies/1
   def update
-    if @location_proxy.update(location_proxy_params)
-      redirect_to @location_proxy, notice: 'Location proxy was successfully updated.'
+    if location_proxy.update(location_proxy_params)
+      redirect_to location_proxy, notice: 'Location proxy was successfully updated.'
     else
       render :edit
     end
@@ -42,18 +41,14 @@ class LocationProxiesController < AdminController
 
   # DELETE /location_proxies/1
   def destroy
-    @location_proxy.destroy
-    redirect_to [@location_group, :location_proxies], notice: 'Location proxy was successfully destroyed.'
+    location_proxy.destroy
+    redirect_to [helpers.location_group, :location_proxies], notice: 'Location proxy was successfully destroyed.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def location_proxy
       @location_proxy ||= LocationProxy.find(params[:id])
-    end
-
-    def location_group
-      @location_group ||= LocationGroup.find_by(id: params[:location_group_id]) || location_proxy.parent
     end
 
     # Only allow a list of trusted parameters through.

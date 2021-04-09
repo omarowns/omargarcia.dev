@@ -8,6 +8,11 @@ class ProfileImagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
+    get profile_images_url
+    assert_response :success
+  end
+
+  test "should get profile's index" do
     get profile_profile_images_url(@profile)
     assert_response :success
   end

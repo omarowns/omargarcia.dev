@@ -27,33 +27,33 @@ Rails.application.routes.draw do
   end
 
   scope '/admin' do
+    resources :profile_images, only: [:index, :new, :create]
     resources :profiles do
       resources :profile_images, shallow: true
     end
-    resources :profile_images, only: :create
 
+    resources :about_lines, only: [:index, :new, :create]
     resources :abouts do
       resources :about_lines, shallow: true
     end
-    resources :about_lines, only: :create
 
+    resources :works, only: [:index, :new, :create]
     resources :work_groups do
       resources :works, shallow: true
     end
-    resources :works, only: :create
 
+    resources :interests, only: [:index, :new, :create]
     resources :interest_groups do
       resources :interests, shallow: true
     end
-    resources :interests, only: :create
 
-    resources :locations
 
+    resources :location_proxies, only: [:index, :new, :create]
     resources :location_groups do
       resources :location_proxies, shallow: true
     end
-    resources :location_proxies, only: :create
 
+    resources :locations
     resources :images
   end
 end

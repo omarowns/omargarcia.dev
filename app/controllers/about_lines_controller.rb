@@ -1,6 +1,5 @@
 class AboutLinesController < AdminController
   before_action :about_line, only: [:show, :edit, :update, :destroy]
-  before_action :about, only: [:index, :new, :create, :show, :destroy]
 
   # GET /about_lines
   def index
@@ -33,8 +32,8 @@ class AboutLinesController < AdminController
 
   # PATCH/PUT /about_lines/1
   def update
-    if @about_line.update(about_line_params)
-      redirect_to @about_line, notice: 'About line was successfully updated.'
+    if about_line.update(about_line_params)
+      redirect_to about_line, notice: 'About line was successfully updated.'
     else
       render :edit
     end
@@ -42,18 +41,14 @@ class AboutLinesController < AdminController
 
   # DELETE /about_lines/1
   def destroy
-    @about_line.destroy
-    redirect_to [@about, :about_lines], notice: 'About line was successfully destroyed.'
+    about_line.destroy
+    redirect_to [helpers.about, :about_lines], notice: 'About line was successfully destroyed.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def about_line
       @about_line ||= AboutLine.find(params[:id])
-    end
-
-    def about
-      @about ||= About.find_by(id: params[:about_id]) || about_line.about
     end
 
     # Only allow a list of trusted parameters through.

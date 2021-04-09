@@ -1,6 +1,5 @@
 class ProfileImagesController < AdminController
   before_action :profile_image, only: [:show, :edit, :update, :destroy]
-  before_action :profile, only: [:index, :new, :show, :destroy]
 
   # GET /profile_images
   def index
@@ -34,8 +33,8 @@ class ProfileImagesController < AdminController
 
   # PATCH/PUT /profile_images/1
   def update
-    if @profile_image.update(profile_image_params)
-      redirect_to @profile_image, notice: 'Profile image was successfully updated.'
+    if profile_image.update(profile_image_params)
+      redirect_to profile_image, notice: 'Profile image was successfully updated.'
     else
       render :edit
     end
@@ -43,18 +42,14 @@ class ProfileImagesController < AdminController
 
   # DELETE /profile_images/1
   def destroy
-    @profile_image.destroy
-    redirect_to [@profile, :profile_images], notice: 'Profile image was successfully destroyed.'
+    profile_image.destroy
+    redirect_to [helpers.profile, :profile_images], notice: 'Profile image was successfully destroyed.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def profile_image
       @profile_image ||= ProfileImage.find(params[:id])
-    end
-
-    def profile
-      @profile ||= Profile.find_by(id: params[:profile_id]) || profile_image.profile
     end
 
     # Only allow a list of trusted parameters through.

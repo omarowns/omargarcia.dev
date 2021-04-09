@@ -3,6 +3,10 @@
 <h1>Works</h1>
 <%= render Admin::TableComponent.new(records: @works, model: Work) do |c| %>
   <%= c.new_link do %>
-    <%= link_to 'New Work', [:new, :work_group, :work] %>
+    <% if work_group %>
+      <%= link_to 'New Work', [:new, work_group, :work] %>
+    <% else %>
+      <%= link_to 'New Work', [:new, :work] %>
+    <% end %>
   <% end %>
 <% end %>

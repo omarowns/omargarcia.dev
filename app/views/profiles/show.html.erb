@@ -28,3 +28,9 @@
     <%= link_to 'Back', :profiles %>
   <% end %>
 <% end %>
+
+<%= render Admin::TableComponent.new(records: @profile.profile_images, model: ProfileImage) do |c| %>
+  <%= c.new_link do %>
+    <%= link_to 'New Profile Image', [:new, @profile, :profile_image] %>
+  <% end %>
+<% end %>

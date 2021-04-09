@@ -12,6 +12,42 @@
   </head>
 
   <body class="admin">
-    <%= yield %>
+    <nav>
+      <header class="bg-gray-50 mb-4">
+        <p class="text-3xl text-gray-800 text-center shadow-glitch-bottom-right">@omarowns</p>
+      </header>
+      <ul>
+        <li><%= link_to 'Profiles', profiles_path %></li>
+        <li>
+          <%= link_to 'Abouts', abouts_path %>
+          <ul class="pl-4">
+            <li><%= link_to 'About Lines', about_lines_path %></li>
+          </ul>
+        </li>
+        <li>
+          <%= link_to 'Work Groups', work_groups_path %>
+          <ul class="pl-4">
+            <li><%= link_to 'Works', works_path %></li>
+          </ul>
+        </li>
+        <li>
+          <%= link_to 'Interest Groups', interest_groups_path %>
+          <ul class="pl-4">
+            <li><%= link_to 'Interest', interests_path %></li>
+          </ul>
+        </li>
+        <li>
+          <%= link_to 'Location Groups', location_groups_path %>
+          <ul class="pl-4">
+            <li><%= link_to 'Location Proxies', location_proxies_path %></li>
+          </ul>
+        </li>
+        <li><%= link_to 'Locations', locations_path %></li>
+        <li><%= link_to 'Images', images_path %></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

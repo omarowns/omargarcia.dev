@@ -7,6 +7,11 @@ class LocationProxiesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
+    get location_proxies_url
+    assert_response :success
+  end
+
+  test "should get location group's index" do
     get location_group_location_proxies_url(@location_group)
     assert_response :success
   end
