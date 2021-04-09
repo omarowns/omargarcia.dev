@@ -1,17 +1,3 @@
 <section class="grid grid-cols-2 auto-rows-auto">
-  <% @images.each do |image| %>
-  <article class="image">
-    <section>
-      <div class="shadow-image-frame p-8">
-        <%= image_tag image.file %>
-      </div>
-      <p><%= image.filename %></p>
-    </section>
-    <footer>
-      <%= link_to 'Show', image %>
-      <%= link_to 'Edit', [:edit, image] %>
-      <%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </footer>
-  </article>
-  <% end %>
+  <%= render Admin::ImageComponent.with_collection(@images) %>
 </section>

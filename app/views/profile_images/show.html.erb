@@ -22,10 +22,7 @@
       <%= @profile_image.profile_id %>
     </p>
 
-    <p>
-      <strong>Image:</strong>
-      <%= @profile_image.image_id %>
-    </p>
+    <%= render Admin::ImageComponent.new(image: @profile_image.image) %>
   <% end %>
   <% c.footer do %>
     <%= link_to 'Edit', [:edit, @profile_image] %>

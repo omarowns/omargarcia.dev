@@ -1,0 +1,13 @@
+<article class="image">
+  <section>
+    <div class="shadow-image-frame p-8 pb-10">
+      <%= image_tag @image.file %>
+      <p><%= @image.filename %></p>
+    </div>
+  </section>
+  <footer>
+    <%= link_to 'Show', @image %>
+    <%= link_to 'Edit', [:edit, @image] %>
+    <%= link_to 'Destroy', @image, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </footer>
+</article>
