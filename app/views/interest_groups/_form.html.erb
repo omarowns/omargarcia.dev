@@ -16,14 +16,7 @@
     <%= form.text_field :title %>
   </div>
 
-  <%= render Admin::BelongsToComponent.new(
-        form: form,
-        model: interest_group,
-        attribute: :profile_id,
-        select_model: Profile,
-        select_attrs: [:type, :id]
-      )
-  %>
+  <%= render Admin::BelongsTo::ProfileComponent.new(form: form, model: interest_group) %>
 
   <div class="actions">
     <%= form.submit %>

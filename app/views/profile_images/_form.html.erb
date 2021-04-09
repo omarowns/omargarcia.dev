@@ -26,14 +26,7 @@
     <%= form.number_field :position %>
   </div>
 
-  <%= render Admin::BelongsToComponent.new(
-        form: form,
-        model: profile_image,
-        attribute: :profile_id,
-        select_model: Profile,
-        select_attrs: [:type, :id]
-      )
-  %>
+  <%= render Admin::BelongsTo::ProfileComponent.new(form: form, model: profile_image) %>
 
   <%= render Admin::BelongsToComponent.new(
         form: form,
