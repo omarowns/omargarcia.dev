@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_09_224358) do
+ActiveRecord::Schema.define(version: 2021_04_12_210906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 2021_04_09_224358) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "profile_id", null: false
+    t.string "additional"
+    t.boolean "active", default: false
     t.index ["profile_id"], name: "index_abouts_on_profile_id"
   end
 
@@ -70,6 +72,8 @@ ActiveRecord::Schema.define(version: 2021_04_09_224358) do
     t.bigint "profile_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "additional"
+    t.boolean "active", default: false
     t.index ["profile_id"], name: "index_interest_groups_on_profile_id"
   end
 
@@ -87,6 +91,8 @@ ActiveRecord::Schema.define(version: 2021_04_09_224358) do
     t.bigint "profile_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "additional"
+    t.boolean "active", default: false
     t.index ["profile_id"], name: "index_location_groups_on_profile_id"
   end
 
@@ -134,6 +140,8 @@ ActiveRecord::Schema.define(version: 2021_04_09_224358) do
     t.bigint "profile_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "additional"
+    t.boolean "active", default: false
     t.index ["profile_id"], name: "index_work_groups_on_profile_id"
   end
 

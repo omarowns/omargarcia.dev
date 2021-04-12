@@ -1,9 +1,9 @@
 <section class="bg-white h-screen flex flex-wrap">
   <div class="flex flex-col flex-grow h-full">
     <div class="mx-auto w-5/6 p-3 border-4 border-gray-900 shadow-glitch-bottom-right">
-      <h1 class="text-center text-5xl lg:text-8xl">Omar Garcia</h1>
-      <p class="text-center lg:text-xl"><i>Sr. Software Engineer</i></p>
-      <p class="text-center lg:text-lg">(∩｀-´)⊃━☆ﾟ.*･｡ﾟ 💎</p>
+      <h1 class="text-center text-5xl lg:text-8xl"><%= @profile.name %></h1>
+      <p class="text-center lg:text-xl"><i><%= @profile.title %></i></p>
+      <p class="text-center lg:text-lg"><%= @profile.animoji %></p>
     </div>
     <div class="mx-auto h-full w-5/6 p-3 flex items-center overflow-hidden">
       <%= image_pack_tag 'media/images/omaru.jpeg', alt: 'profile picture', class: 'md:h-full mx-auto self-center rounded-full' %>
@@ -17,24 +17,23 @@
 </section>
 <section class="bg-white mt-3">
   <div class="w-5/6 p-3 mx-auto border-4 border-gray-900 shadow-glitch-bottom-left">
-    <h2 class="text-center text-4xl lg:text-6xl">About Me</h2>
+    <h2 class="text-center text-4xl lg:text-6xl"><%= @profile.about.title %></h2>
   </div>
   <div class="p-16 md:p-0 md:my-3 mx-auto max-w-prose md:overflow-hidden">
     <%= image_pack_tag 'media/images/omar_disney_squared.jpeg', alt: 'another profile picture', class: 'self-center mx-auto rounded-full md:rounded-none' %>
   </div>
   <div class="max-w-prose px-16 mx-auto text-lg lg:text-3xl">
-    <p class="mt-2">Heylo! I'm Ruby on Rails developer working at CrateBind, a Dallas-based digital product agency.</p>
-    <p class="mt-2">I started my profesional career on 2013 whilst studying to get my degree in Computer Systems Enginnering (graduated 2015).</p>
-    <p class="mt-2">Developing strong and well-founded backend architectures from database design to infrastructure implementation is my jam.</p>
-    <p class="mt-2">I love computers and everything related to them ♥️</p>
-    <p class="mt-2">Outside of work I like to practice rock climbing/bouldering, riding my Onewheel, reading interesting topics on astronomy and playing videogames.</p>
+    <% @profile.active_about_lines.each do |al| %>
+      <p class="mt-2"><%= al.line %></p>
+    <% end %>
   </div>
 </section>
 <section class="bg-white flex flex-col mt-3">
   <div class="w-5/6 p-3 mx-auto border-4 border-gray-900 shadow-glitch-top-left">
-    <h2 class="text-center text-4xl lg:text-6xl">Experience</h2>
+    <h2 class="text-center text-4xl lg:text-6xl"><%= @profile.work_group.title %></h2>
   </div>
   <div class="w-5/6 p-3 mx-auto flex flex-col flex-grow justify-evenly text-center">
+    <%# TODO: Add works %>
     <article class="h-1/5 md:h-full my-3 flex flex-col justify-center text-lg lg:text-3xl">
       <%= image_pack_tag 'media/images/svg/cratebind.svg', alt: 'Cratebind', class: 'h-20 md:h-40 mx-auto' %>
       <h3><%= link_to 'Cratebind', cratebind_homepage_url, target: '_blank' %></h3>
@@ -60,19 +59,13 @@
     <h2 class="text-center text-4xl lg:text-6xl">On a personal side</h2>
   </div>
   <div class="max-w-prose px-16 mx-auto text-lg lg:text-3xl">
-    <p class="mt-4">Currently residing in Aguascalientes, Mexico 🏠</p>
+    <p class="mt-4"><%= @profile.location_group.additional %></p>
     <p class="mt-4">
-      Other interests and hobbies include but not limited to:
+      <%= @profile.interest_group.title %>
       <ul>
-        <li class="my-3">⌚ Horology</li>
-        <li class="my-3">📚 Anime and manga</li>
-        <li class="my-3">🛩️ Travelling <abbr title="pre-CoVID">*</abbr></li>
-        <li class="my-3">🎵 Lo-Fi/CityPop/Synthwave/Hip-Hop/Metal Music</li>
-        <li class="my-3">🧗‍♂️ Bouldering/Sports Climbing</li>
-        <li class="my-3">🪐 Astronomy</li>
-        <li class="my-3">👾 FPS videogames</li>
-        <li class="my-3">🎵 Prog/Power Metal concerts</li>
-        <li class="my-3">🎲 Listening to funny DnD podcasts</li>
+        <% @profile.active_interests.each do |interest| %>
+          <li class="my-3"><%= interest.value.html_safe %></li>
+        <% end %>
       </ul>
     </p>
   </div>

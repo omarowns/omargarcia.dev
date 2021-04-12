@@ -1,9 +1,9 @@
 <section class="bg-white h-screen flex flex-col">
   <div class="flex flex-col flex-grow h-full">
     <div class="mx-auto w-5/6 p-3 border-4 border-gray-900 shadow-glitch-bottom-left">
-      <h1 class="text-center text-5xl lg:text-8xl">Omar Garcia</h1>
-      <p class="text-center lg:text-xl"><i>Eres mas valiente que Brodo</i></p>
-      <p class="text-center lg:text-lg">(∩｀-´)⊃━☆ﾟ.*･｡ﾟ</p>
+      <h1 class="text-center text-5xl lg:text-8xl"><%= @profile.name %></h1>
+      <p class="text-center lg:text-xl"><i><%= @profile.title %></i></p>
+      <p class="text-center lg:text-lg"><%= @profile.animoji %></p>
     </div>
     <div class="mx-auto h-full w-5/6 p-3 flex items-center overflow-hidden">
       <%= image_pack_tag 'media/images/omar_disney_squared.jpeg', size: '4:3', alt: 'profile picture', class: 'sm:h-full mx-auto self-center rounded-full' %>
@@ -17,11 +17,12 @@
 </section>
 <section class="bg-white mt-3">
   <div class="w-5/6 p-3 mx-auto border-4 border-gray-900 shadow-glitch-bottom-right">
-    <h2 class="text-center text-4xl lg:text-6xl">Acerca de mi</h2>
+    <h2 class="text-center text-4xl lg:text-6xl"><%= @profile.about.title %></h2>
   </div>
   <div class="max-w-prose px-16 mx-auto text-lg lg:text-3xl">
-    <p class="mt-2">Hola! Soy un desarrollador web viviendo y trabajando remotamente desde Aguascalientes, México 📍</p>
-    <p class="mt-2">Fuera del trabajo me gusta entrenar bouldering o escalada deportiva, pasear en mi Onewheel, leer temas interesantes sobre astronomía y jugar videojuegos.</p>
+    <% @profile.active_about_lines.each do |al| %>
+      <p class="mt-2"><%= al.line %></p>
+    <% end %>
   </div>
   <div class="max-w-prose p-12 mx-auto md:my-3 md:overflow-hidden sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl">
     <div class="flex flex-wrap justify-evenly">
@@ -33,26 +34,21 @@
   </div>
   <div class="max-w-prose px-16 mx-auto mb-3 text-lg lg:text-3xl">
     <p class="mt-2">
-      Entre mis intereses también están:
+      <%= @profile.interest_group.title %>
       <ul>
-        <li class="my-3">⌚ Horología</li>
-        <li class="my-3">📚 Anime y manga</li>
-        <li class="my-3">🛩️ Viajar <abbr title="pre CoVID">*</abbr></li>
-        <li class="my-3">🧗‍♂️ Bouldering/Escalada Deportiva</li>
-        <li class="my-3">🪐 Astronomía</li>
-        <li class="my-3">👾 Videojuegos (FPS)</li>
-        <li class="my-3">🎵 Conciertos de Prog/Power Metal</li>
-        <li class="my-3">🎲 Escuchar podcasts de DnD</li>
+        <% @profile.active_interests.each do |interest| %>
+          <li class="my-3"><%= interest.value %></li>
+        <% end %>
       </ul>
     </p>
   </div>
 </section>
 <section class="bg-white h-screen/2">
   <div class="w-5/6 p-3 mx-auto border-4 border-gray-900 shadow-glitch-top-right">
-    <h2 class="text-center text-4xl">Trabajo</h2>
+    <h2 class="text-center text-4xl"><%= @profile.work_group.title %></h2>
   </div>
   <div class="max-w-prose px-16 p-3 mx-auto text-lg md:text-3xl">
-    <p class="mt-2">Actualmente trabajo como desarrollador de Ruby on Rails para CrateBind, una agencia de productos digitales basada en Dallas, TX.</p>
+    <p class="mt-2"><%= @profile.work_group.additional %></p>
     <%= link_to cratebind_homepage_url, target: '_blank' do %>
       <%= image_pack_tag 'media/images/svg/cratebind.svg', alt: 'Cratebind', class: 'h-20 md:h-40 mx-auto md:p-8 lg:p-6' %>
     <% end %>
@@ -60,16 +56,15 @@
 </section>
 <section class="bg-white h-screen/2">
   <div class="w-5/6 p-3 mx-auto border-4 border-gray-900 shadow-glitch-top-left">
-    <h2 class="text-center text-4xl">Lugares donde he vivido</h2>
+    <h2 class="text-center text-4xl"><%= @profile.location_group.title %></h2>
   </div>
   <div class="max-w-prose px-16 p-3 mx-auto text-lg md:text-3xl">
     <p class="mt-2">
-      Aparte de mi actual ciudad de residencia también he vivido en:
+      <%= @profile.location_group.additional %>
       <ul>
-        <!-- <li>📍 San Luis Potosi, México</li> -->
-        <li>📍 Oregon, EUA</li>
-        <li>📍 Colima, México</li>
-        <li>📍 Guadalajara, México</li>
+        <% @profile.active_locations.each do |location| %>
+          <li class="my-3"><%= location.value %></li>
+        <% end %>
       </ul>
     </p>
   </div>
