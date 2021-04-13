@@ -48,10 +48,10 @@ Rails.application.routes.draw do
     end
 
 
-    resources :location_proxies, only: [:index, :new, :create]
-    resources :location_groups do
-      resources :location_proxies, shallow: true
-    end
+    resources :location_groups
+
+    resources :image_proxies
+    resources :location_proxies
 
     resources :locations
     resources :images

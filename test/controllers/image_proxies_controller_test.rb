@@ -16,8 +16,18 @@ class ImageProxiesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create image_proxy" do
+    params = {
+      image_proxy: {
+        featured: @image_proxy.featured,
+        image_id: @image_proxy.image_id,
+        imageable_id: @image_proxy.imageable_id,
+        imageable_type: @image_proxy.imageable_type,
+        main: @image_proxy.main,
+        position: (@image_proxy.position + 1)
+      }
+    }
     assert_difference('ImageProxy.count') do
-      post image_proxies_url, params: { image_proxy: { featured: @image_proxy.featured, image_id: @image_proxy.image_id, imageable_id: @image_proxy.imageable_id, imageable_type: @image_proxy.imageable_type, main: @image_proxy.main, position: @image_proxy.position } }
+      post image_proxies_url, params: params
     end
 
     assert_redirected_to image_proxy_url(ImageProxy.last)
@@ -34,7 +44,17 @@ class ImageProxiesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update image_proxy" do
-    patch image_proxy_url(@image_proxy), params: { image_proxy: { featured: @image_proxy.featured, image_id: @image_proxy.image_id, imageable_id: @image_proxy.imageable_id, imageable_type: @image_proxy.imageable_type, main: @image_proxy.main, position: @image_proxy.position } }
+    params = {
+      image_proxy: {
+        featured: @image_proxy.featured,
+        image_id: @image_proxy.image_id,
+        imageable_id: @image_proxy.imageable_id,
+        imageable_type: @image_proxy.imageable_type,
+        main: @image_proxy.main,
+        position: (@image_proxy.position + 1)
+      }
+    }
+    patch image_proxy_url(@image_proxy), params: params
     assert_redirected_to image_proxy_url(@image_proxy)
   end
 

@@ -14,12 +14,7 @@ class Profile < ApplicationRecord
   has_many :location_proxies, through: :location_groups, inverse_of: :profile
   has_many :locations, through: :location_groups, inverse_of: :profile
 
-  has_many :profile_images
-  has_many :images, through: :profile_images
-  has_many :main_images, ->{ where(profile_images: { main: true }) }, through: :profile_images, source: :image, inverse_of: :profile_images
-  has_many :featured_images, ->{ where(profile_images: { featured: true }) }, through: :profile_images, source: :image, inverse_of: :profile_images
-
-  include ActiveFromActivableRecord
+  include HasManyImageable, ActiveFromActivableRecord
 
   has_one_active :about
   has_one_active :work_group
@@ -29,7 +24,7 @@ class Profile < ApplicationRecord
   has_many_active :about_lines, through: :about
   has_many_active :works, through: :work_group
   has_many_active :interests, through: :interest_group
-  has_many_active :location_proxies, through: :location_group, inverse_of: :parent
+  has_many_active :location_proxies, through: :location_group, inverse_of: :location
   has_many_active :locations, through: :location_proxies, source: :location, inverse_of: :location_proxies
 
   delegate :title, :additional, to: :about, prefix: true, allow_nil: true

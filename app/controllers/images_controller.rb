@@ -24,7 +24,7 @@ class ImagesController < AdminController
     @image = Image.new(image_params)
 
     if @image.save
-      redirect_to @image, notice: 'Image was successfully created.'
+      redirect_to images_url, notice: 'Image was successfully created.'
     else
       render :new
     end

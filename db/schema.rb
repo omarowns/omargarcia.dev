@@ -111,13 +111,13 @@ ActiveRecord::Schema.define(version: 2021_04_13_005349) do
 
   create_table "location_proxies", force: :cascade do |t|
     t.integer "position"
-    t.string "parent_type", null: false
-    t.bigint "parent_id", null: false
+    t.string "locatable_type", null: false
+    t.bigint "locatable_id", null: false
     t.bigint "location_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["locatable_type", "locatable_id"], name: "index_location_proxies_on_locatable"
     t.index ["location_id"], name: "index_location_proxies_on_location_id"
-    t.index ["parent_type", "parent_id"], name: "index_location_proxies_on_parent"
   end
 
   create_table "locations", force: :cascade do |t|

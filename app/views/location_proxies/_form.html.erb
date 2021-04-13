@@ -1,4 +1,4 @@
-<%= form_with(model: [location_group, location_proxy]) do |form| %>
+<%= form_with(model: location_proxy) do |form| %>
   <% if location_proxy.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(location_proxy.errors.count, "error") %> prohibited this location_proxy from being saved:</h2>
@@ -17,13 +17,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :parent_id %>
-    <%= form.text_field :parent_id %>
+    <%= form.label :locatable_id %>
+    <%= form.text_field :locatable_id %>
   </div>
 
   <div class="field">
-    <%= form.label :parent_type %>
-    <%= form.text_field :parent_type %>
+    <%= form.label :locatable_type %>
+    <%= form.text_field :locatable_type %>
   </div>
 
   <%= render Admin::BelongsToComponent.new(

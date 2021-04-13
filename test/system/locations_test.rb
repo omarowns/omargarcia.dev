@@ -18,7 +18,6 @@ class LocationsTest < ApplicationSystemTestCase
     click_on "Create Location"
 
     assert_text "Location was successfully created"
-    click_on "Back"
   end
 
   test "updating a Location" do

@@ -21,7 +21,7 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
       post images_url, params: { image: { file: @file } }
     end
 
-    assert_redirected_to image_url(Image.last)
+    assert_redirected_to images_url
   end
 
   test "should show image" do

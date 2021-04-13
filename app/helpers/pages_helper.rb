@@ -17,8 +17,8 @@ module PagesHelper
       work_group: :works,
       interest_group: :interests,
       location_group: :locations,
-      profile_images: {
-        image: {
+      image_proxies: {
+        images: {
           file_attachments: :blob
         }
       }

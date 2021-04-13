@@ -29,8 +29,8 @@
   <% end %>
 <% end %>
 
-<%= render Admin::TableComponent.new(records: @profile.profile_images, model: ProfileImage) do |c| %>
+<%= render Admin::TableComponent.new(records: @profile.image_proxies, model: ImageProxy) do |c| %>
   <%= c.new_link do %>
-    <%= link_to 'New Profile Image', [:new, @profile, :profile_image] %>
+    <%= link_to 'New Image Proxy', [:new, :image_proxy] %>
   <% end %>
 <% end %>

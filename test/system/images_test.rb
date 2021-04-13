@@ -19,7 +19,6 @@ class ImagesTest < ApplicationSystemTestCase
     click_on "Create Image"
 
     assert_text "Image was successfully created"
-    click_on "Back"
   end
 
   test "updating a Image" do

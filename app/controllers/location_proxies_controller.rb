@@ -24,7 +24,7 @@ class LocationProxiesController < AdminController
     @location_proxy = LocationProxy.new(location_proxy_params)
 
     if @location_proxy.save
-      redirect_to @location_proxy, notice: 'Location proxy was successfully created.'
+      redirect_to :location_proxies, notice: 'Location proxy was successfully created.'
     else
       render :new
     end
@@ -42,7 +42,7 @@ class LocationProxiesController < AdminController
   # DELETE /location_proxies/1
   def destroy
     location_proxy.destroy
-    redirect_to [helpers.location_group, :location_proxies], notice: 'Location proxy was successfully destroyed.'
+    redirect_to :location_proxies, notice: 'Location proxy was successfully destroyed.'
   end
 
   private
@@ -53,6 +53,6 @@ class LocationProxiesController < AdminController
 
     # Only allow a list of trusted parameters through.
     def location_proxy_params
-      params.require(:location_proxy).permit(:position, :parent_id, :parent_type, :location_id)
+      params.require(:location_proxy).permit(:position, :locatable_id, :locatable_type, :location_id)
     end
 end
