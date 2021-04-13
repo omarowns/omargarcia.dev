@@ -16,7 +16,7 @@
     <%= form.number_field :position %>
   </div>
 
-  <%= render Admin::Locatable.new(form: form) %>
+  <%= render Admin::LocatableComponent.new(form: form) %>
 
   <%= render Admin::BelongsToComponent.new(
         form: form,

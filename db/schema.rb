@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_13_005349) do
+ActiveRecord::Schema.define(version: 2021_04_13_202740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,19 +126,6 @@ ActiveRecord::Schema.define(version: 2021_04_13_005349) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "profile_images", force: :cascade do |t|
-    t.boolean "main"
-    t.boolean "featured"
-    t.integer "position"
-    t.bigint "profile_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "image_id"
-    t.index ["image_id"], name: "index_profile_images_on_image_id"
-    t.index ["position", "profile_id"], name: "index_profile_images_on_position_and_profile_id", unique: true
-    t.index ["profile_id"], name: "index_profile_images_on_profile_id"
-  end
-
   create_table "profiles", force: :cascade do |t|
     t.string "type"
     t.string "name"
@@ -179,8 +166,6 @@ ActiveRecord::Schema.define(version: 2021_04_13_005349) do
   add_foreign_key "interests", "interest_groups"
   add_foreign_key "location_groups", "profiles"
   add_foreign_key "location_proxies", "locations"
-  add_foreign_key "profile_images", "images"
-  add_foreign_key "profile_images", "profiles"
   add_foreign_key "work_groups", "profiles"
   add_foreign_key "works", "work_groups"
 end
