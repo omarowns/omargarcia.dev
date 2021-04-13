@@ -9,3 +9,5 @@
     <%= link_to 'Back', location_groups_path %>
   <% end %>
 <% end %>
+
+<%= render Admin::HasManyLocationsComponent.new(model: @location_group) %>
