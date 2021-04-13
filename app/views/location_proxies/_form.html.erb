@@ -16,15 +16,7 @@
     <%= form.number_field :position %>
   </div>
 
-  <div class="field">
-    <%= form.label :locatable_id %>
-    <%= form.text_field :locatable_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :locatable_type %>
-    <%= form.text_field :locatable_type %>
-  </div>
+  <%= render Admin::Locatable.new(form: form) %>
 
   <%= render Admin::BelongsToComponent.new(
         form: form,

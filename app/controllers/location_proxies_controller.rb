@@ -1,9 +1,13 @@
-class LocationProxiesController < AdminController
+class LocationProxiesController < PolymorphicController
   before_action :location_proxy, only: [:show, :edit, :update, :destroy]
 
   # GET /location_proxies
   def index
-    @location_proxies = LocationProxy.all
+    @location_proxies = if @polymorphic_model
+                          LocationProxy.all.where(locatable: @polymorphic_model)
+                        else
+                          LocationProxy.all
+                        end
   end
 
   # GET /location_proxies/1
@@ -12,7 +16,11 @@ class LocationProxiesController < AdminController
 
   # GET /location_proxies/new
   def new
-    @location_proxy = LocationProxy.new
+    @location_proxy = if @polymorphic_model
+                        @polymorphic_model.location_proxies.new
+                      else
+                        LocationProxy.new
+                      end
   end
 
   # GET /location_proxies/1/edit

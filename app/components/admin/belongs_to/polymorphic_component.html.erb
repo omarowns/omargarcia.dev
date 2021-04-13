@@ -1,0 +1,14 @@
+<% if hidden? %>
+  <%= @form.hidden_field "#{@references}_id".to_sym %>
+  <%= @form.hidden_field "#{@references}_type".to_sym %>
+<% else %>
+  <div class="field">
+    <%= @form.label "#{@references}_id".to_sym %>
+    <%= @form.text_field "#{@references}_id".to_sym %>
+  </div>
+
+  <div class="field">
+    <%= @form.label "#{@references}_type".to_sym %>
+    <%= @form.text_field "#{@references}_type".to_sym %>
+  </div>
+<% end %>

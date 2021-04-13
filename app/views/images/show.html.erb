@@ -3,8 +3,8 @@
 <%= render Admin::ArticleComponent.new do |c| %>
   <% c.section do %>
     <p>
-      <strong>Image</strong>
       <%= image_tag @image.file %>
+      <strong><%= @image.filename %></strong>
     </p>
   <% end %>
   <% c.footer do %>
@@ -12,3 +12,4 @@
     <%= link_to 'Back', images_path %>
   <% end %>
 <% end %>
+<%= render Admin::HasManyLocationsComponent.new(model: @image) %>

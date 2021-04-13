@@ -27,10 +27,7 @@ Rails.application.routes.draw do
   end
 
   scope '/admin' do
-    resources :profile_images, only: [:index, :new, :create]
-    resources :profiles do
-      resources :profile_images, shallow: true
-    end
+    resources :profiles
 
     resources :about_lines, only: [:index, :new, :create]
     resources :abouts do
@@ -47,12 +44,20 @@ Rails.application.routes.draw do
       resources :interests, shallow: true
     end
 
+    # location proxies polymorphic routes
+    resources :images, only: [] do
+      resources :location_proxies
+    end
+    resources :location_groups, only: [] do
+      resources :location_proxies
+    end
+    resources :works, only: [] do
+      resources :location_proxies
+    end
 
     resources :location_groups
-
     resources :image_proxies
     resources :location_proxies
-
     resources :locations
     resources :images
   end

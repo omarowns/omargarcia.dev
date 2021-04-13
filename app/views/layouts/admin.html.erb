@@ -38,13 +38,20 @@
         </li>
         <li>
           <%= link_to 'Location Groups', location_groups_path %>
+        </li>
+        <li>
+          <%= link_to 'Locations', locations_path %>
           <ul class="pl-4">
             <li><%= link_to 'Location Proxies', location_proxies_path %></li>
           </ul>
         </li>
-        <li><%= link_to 'Locations', locations_path %></li>
-        <li><%= link_to 'Image Proxies', image_proxies_path %></li>
-        <li><%= link_to 'Images', images_path %></li>
+        <li>
+          <%= link_to 'Images', images_path %>
+          <ul class="pl-4">
+            <li><%= link_to 'Image Proxies', image_proxies_path %></li>
+          </ul>
+        </li>
+
       </ul>
     </nav>
     <div class="container">
