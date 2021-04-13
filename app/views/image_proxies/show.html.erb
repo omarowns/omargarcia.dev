@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<h1>Image Proxy <%= @image_proxy.id %></h1>
+<%= render Admin::ArticleComponent.new do |c| %>
+  <% c.section do %>
+    <p>
+      <strong>Main:</strong>
+      <%= @image_proxy.main %>
+    </p>
+
+    <p>
+      <strong>Featured:</strong>
+      <%= @image_proxy.featured %>
+    </p>
+
+    <p>
+      <strong>Position:</strong>
+      <%= @image_proxy.position %>
+    </p>
+
+    <p>
+      <strong>Imageable:</strong>
+      <%= @image_proxy.imageable_id %>
+    </p>
+
+    <p>
+      <strong>Image:</strong>
+      <%= @image_proxy.image_id %>
+    </p>
+  <% end %>
+  <% c.footer do %>
+    <%= link_to 'Edit', [:edit, @image_proxy] %>
+    <%= link_to 'Back', :image_proxies %>
+  <% end %>
+<% end %>

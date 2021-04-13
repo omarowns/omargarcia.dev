@@ -25,7 +25,7 @@ module Activable
 
   class_methods do
     def activable_for(foreign_key)
-      validates_uniqueness_of :active, scope: foreign_key, conditions: -> { activatable_active }
+      validates_uniqueness_of :active, scope: foreign_key, conditions: -> { active }
     end
   end
 end

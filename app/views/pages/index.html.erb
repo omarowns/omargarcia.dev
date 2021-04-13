@@ -17,7 +17,7 @@
 </section>
 <section class="bg-white mt-3">
   <div class="w-5/6 p-3 mx-auto border-4 border-gray-900 shadow-glitch-bottom-right">
-    <h2 class="text-center text-4xl lg:text-6xl"><%= @profile.about.title %></h2>
+    <h2 class="text-center text-4xl lg:text-6xl"><%= @profile.about_title %></h2>
   </div>
   <div class="max-w-prose px-16 mx-auto text-lg lg:text-3xl">
     <% @profile.active_about_lines.each do |al| %>
@@ -34,7 +34,7 @@
   </div>
   <div class="max-w-prose px-16 mx-auto mb-3 text-lg lg:text-3xl">
     <p class="mt-2">
-      <%= @profile.interest_group.title %>
+      <%= @profile.interest_group_title %>
       <ul>
         <% @profile.active_interests.each do |interest| %>
           <li class="my-3"><%= interest.value %></li>
@@ -45,22 +45,27 @@
 </section>
 <section class="bg-white h-screen/2">
   <div class="w-5/6 p-3 mx-auto border-4 border-gray-900 shadow-glitch-top-right">
-    <h2 class="text-center text-4xl"><%= @profile.work_group.title %></h2>
+    <h2 class="text-center text-4xl"><%= @profile.work_group_title %></h2>
   </div>
   <div class="max-w-prose px-16 p-3 mx-auto text-lg md:text-3xl">
-    <p class="mt-2"><%= @profile.work_group.additional %></p>
-    <%= link_to cratebind_homepage_url, target: '_blank' do %>
-      <%= image_pack_tag 'media/images/svg/cratebind.svg', alt: 'Cratebind', class: 'h-20 md:h-40 mx-auto md:p-8 lg:p-6' %>
+    <p class="mt-2"><%= @profile.work_group_additional %></p>
+    <% @profile.active_works.each do |work| %>
+      <% if work.image_pack_tag.present? %>
+        <%= link_to work.link, target: '_blank' do %>
+          <%= image_pack_tag "media/images/#{work.image_pack_tag}", alt: work.title, class: 'h-20 md:h-40 mx-auto md:p-8 lg:p-6' %>
+        <% end %>
+      <% else %>
+      <% end %>
     <% end %>
   </div>
 </section>
 <section class="bg-white h-screen/2">
   <div class="w-5/6 p-3 mx-auto border-4 border-gray-900 shadow-glitch-top-left">
-    <h2 class="text-center text-4xl"><%= @profile.location_group.title %></h2>
+    <h2 class="text-center text-4xl"><%= @profile.location_group_title %></h2>
   </div>
   <div class="max-w-prose px-16 p-3 mx-auto text-lg md:text-3xl">
     <p class="mt-2">
-      <%= @profile.location_group.additional %>
+      <%= @profile.location_group_additional %>
       <ul>
         <% @profile.active_locations.each do |location| %>
           <li class="my-3"><%= location.value %></li>

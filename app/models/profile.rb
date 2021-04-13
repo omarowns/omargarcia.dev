@@ -30,7 +30,12 @@ class Profile < ApplicationRecord
   has_many_active :works, through: :work_group
   has_many_active :interests, through: :interest_group
   has_many_active :location_proxies, through: :location_group, inverse_of: :parent
-  has_many_active :locations, through: :location_group, inverse_of: :location_proxies
+  has_many_active :locations, through: :location_proxies, source: :location, inverse_of: :location_proxies
+
+  delegate :title, :additional, to: :about, prefix: true, allow_nil: true
+  delegate :title, :additional, to: :work_group, prefix: true, allow_nil: true
+  delegate :title, :additional, to: :interest_group, prefix: true, allow_nil: true
+  delegate :title, :additional, to: :location_group, prefix: true, allow_nil: true
 
   def main_image
     main_images.first

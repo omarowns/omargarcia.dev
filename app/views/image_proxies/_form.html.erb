@@ -1,0 +1,51 @@
+<%= form_with(model: image_proxy) do |form| %>
+  <% if image_proxy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(image_proxy.errors.count, "error") %> prohibited this image_proxy from being saved:</h2>
+
+      <ul>
+        <% image_proxy.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :main %>
+    <%= form.check_box :main %>
+  </div>
+
+  <div class="field">
+    <%= form.label :featured %>
+    <%= form.check_box :featured %>
+  </div>
+
+  <div class="field">
+    <%= form.label :position %>
+    <%= form.number_field :position %>
+  </div>
+
+  <div class="field">
+    <%= form.label :imageable_id %>
+    <%= form.text_field :imageable_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :imageable_type %>
+    <%= form.text_field :imageable_type %>
+  </div>
+
+  <%= render Admin::BelongsToComponent.new(
+        form: form,
+        model: image_proxy,
+        attribute: :image_id,
+        select_model: Image,
+        select_attrs: [:id]
+      )
+    %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

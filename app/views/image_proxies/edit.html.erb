@@ -1,0 +1,11 @@
+<h1>Editing Image Proxy <%= @image_proxy.id %></h1>
+
+<%= render Admin::ArticleComponent.new do |c| %>
+  <% c.section do %>
+    <%= render 'form', image_proxy: @image_proxy %>
+  <% end %>
+  <% c.footer do %>
+    <%= link_to 'Show', @image_proxy %>
+    <%= link_to 'Back', image_proxies_path %>
+  <% end %>
+<% end %>

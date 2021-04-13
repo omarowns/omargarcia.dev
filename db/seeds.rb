@@ -55,18 +55,19 @@ mx_profile = Profile.find_or_create_by(type: 'MX') do |profile|
       work.image_pack_tag = 'svg/cratebind.svg'
       work.save
 
-      work.locations << gdl_loc
-      work.locations << rmt_loc
+      work.location_proxies.create(location: gdl_loc)
+      work.location_proxies.create(location: rmt_loc)
     end
   end
 
   profile.location_groups.find_or_create_by(title: 'Lugares donde he vivido') do |location_group|
+    location_group.active = true
     location_group.additional = 'Aparte de mi actual ciudad de residencia también he vivido en:'
     location_group.save
 
-    location_group.locations << ore_loc
-    location_group.locations << col_loc
-    location_group.locations << gdl_loc
+    location_group.location_proxies.create(location: ore_loc)
+    location_group.location_proxies.create(location: col_loc)
+    location_group.location_proxies.create(location: gdl_loc)
   end
 end
 
@@ -98,8 +99,8 @@ dev_profile = Profile.find_or_create_by(type: 'DEV') do |profile|
       work.image_pack_tag = 'svg/cratebind.svg'
       work.save
 
-      work.locations << gdl_loc
-      work.locations << rmt_loc
+      work.location_proxies.create(location: gdl_loc)
+      work.location_proxies.create(location: rmt_loc)
     end
 
     work_group.works.find_or_create_by(title: 'MagmaLabs') do |work|
@@ -108,8 +109,8 @@ dev_profile = Profile.find_or_create_by(type: 'DEV') do |profile|
       work.image_pack_tag = 'svg/magmalabs-min.svg'
       work.save
 
-      work.locations << gdl_loc
-      work.locations << rmt_loc
+      work.location_proxies.create(location: gdl_loc)
+      work.location_proxies.create(location: rmt_loc)
     end
 
     work_group.works.find_or_create_by(title: 'AgencyMVP') do |work|
@@ -118,7 +119,7 @@ dev_profile = Profile.find_or_create_by(type: 'DEV') do |profile|
       work.image_pack_tag = 'agency_mvp.png'
       work.save
 
-      work.locations << rmt_loc
+      work.location_proxies.create(location: rmt_loc)
     end
   end
 
