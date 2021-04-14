@@ -16,7 +16,7 @@
     <%= form.text_field :title %>
   </div>
 
-  <%= render Admin::BelongsTo::ProfileComponent.new(form: form, model: about) %>
+  <%= render Forms::BelongsTo::ProfileComponent.new(form: form, model: about) %>
 
 
   <div class="actions">

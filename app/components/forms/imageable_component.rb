@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Admin::LocatableComponent < ViewComponent::Base
+class Forms::ImageableComponent < ViewComponent::Base
   def initialize(form:)
     @form = form
   end

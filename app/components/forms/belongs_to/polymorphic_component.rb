@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Admin::BelongsTo::PolymorphicComponent < ViewComponent::Base
+class Forms::BelongsTo::PolymorphicComponent < ViewComponent::Base
   def initialize(form:, references:)
     @form = form
     @references = references

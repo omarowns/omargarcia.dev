@@ -26,9 +26,9 @@
     <%= form.number_field :position %>
   </div>
 
-  <%= render Admin::ImageableComponent.new(form: form) %>
+  <%= render Forms::ImageableComponent.new(form: form) %>
 
-  <%= render Admin::BelongsToComponent.new(
+  <%= render Forms::BelongsToComponent.new(
         form: form,
         model: image_proxy,
         attribute: :image_id,

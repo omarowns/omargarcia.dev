@@ -16,9 +16,9 @@
     <%= form.number_field :position %>
   </div>
 
-  <%= render Admin::LocatableComponent.new(form: form) %>
+  <%= render Forms::LocatableComponent.new(form: form) %>
 
-  <%= render Admin::BelongsToComponent.new(
+  <%= render Forms::BelongsToComponent.new(
         form: form,
         model: location_proxy,
         attribute: :location_id,

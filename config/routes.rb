@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     end
 
     resources :location_groups do
-      resources :location_proxies
+      resources :location_proxies, only: [:index, :new]
       resources :image_proxies, only: [:index, :new]
     end
 
@@ -51,7 +51,7 @@ Rails.application.routes.draw do
     resources :image_proxies
 
     resources :images do
-      resources :location_proxies
+      resources :location_proxies, only: [:index, :new]
       resources :image_proxies, only: [:index, :new]
     end
 
@@ -70,7 +70,7 @@ Rails.application.routes.draw do
     end
 
     resources :works, only: [] do
-      resources :location_proxies
+      resources :location_proxies, only: [:index, :new]
       resources :image_proxies, only: [:index, :new]
     end
   end

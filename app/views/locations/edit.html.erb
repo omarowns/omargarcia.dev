@@ -9,5 +9,5 @@
     <%= link_to 'Back', locations_path %>
   <% end %>
 <% end %>
-<%= render Admin::HasMany::LocatableComponent.new(model: @location) %>
+<%= render Admin::LocationProxyComponent.new(record: @location) %>
 <%= render Admin::HasMany::ImagesComponent.new(model: @location) %>

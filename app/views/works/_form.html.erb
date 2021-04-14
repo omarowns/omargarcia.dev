@@ -36,7 +36,7 @@
     <%= form.text_field :image_pack_tag %>
   </div>
 
-  <%= render Admin::BelongsToComponent.new(
+  <%= render Forms::BelongsToComponent.new(
         form: form,
         model: work,
         attribute: :work_group_id,

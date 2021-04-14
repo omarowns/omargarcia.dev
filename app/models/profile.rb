@@ -14,7 +14,7 @@ class Profile < ApplicationRecord
   has_many :location_proxies, through: :location_groups, inverse_of: :profile
   has_many :locations, through: :location_groups, inverse_of: :profile
 
-  include HasManyImageable, ActiveFromActivableRecord
+  include HasManyImageable, ActiveFromActivableRecord, PolymorphicNameable
 
   has_one_active :about
   has_one_active :work_group
@@ -38,5 +38,13 @@ class Profile < ApplicationRecord
 
   def featured_image
     featured_images.first
+  end
+
+  def to_s
+    "#{type} #{name}"
+  end
+
+  def polymorphic_title
+    to_s
   end
 end

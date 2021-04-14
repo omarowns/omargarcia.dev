@@ -7,7 +7,7 @@
         <th>Filename</th>
         <th>Main</th>
         <th>Featured</th>
-        <th colspan="3"></th>
+        <th colspan="3">Image Proxy Actions</th>
       </tr>
     </thead>
 
@@ -15,7 +15,7 @@
       <% image_proxies.each do |image_proxy| %>
         <tr>
           <td><%= image_proxy.position %></td>
-          <td><%= image_proxy.image_filename %></td>
+          <td><%= link_to image_proxy.image_filename, image_proxy.image %></td>
           <td><%= image_proxy.main %></td>
           <td><%= image_proxy.featured %></td>
           <td><%= link_to 'Show', image_proxy %></td>

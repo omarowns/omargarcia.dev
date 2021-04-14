@@ -46,18 +46,6 @@ class LocationProxiesTest < ApplicationSystemTestCase
     assert_text "Location proxy was successfully destroyed"
   end
 
-  test "creating a Image Location proxy" do
-    visit images_url
-    click_on "Edit", match: :first
-    click_on "New Location Proxy"
-
-    select @location_proxy.location.value, from: "Location"
-    fill_in "Position", with: (@location_proxy.position + 1)
-    click_on "Create Location proxy"
-
-    assert_text "Location proxy was successfully created"
-  end
-
   test "creating a Work Location proxy" do
     visit works_url
     click_on "Edit", match: :first

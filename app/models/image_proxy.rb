@@ -11,5 +11,8 @@ class ImageProxy < ApplicationRecord
   validates_uniqueness_of :main, scope: [:imageable_id, :imageable_type], conditions: -> { main }
   validates_uniqueness_of :featured, scope: [:imageable_id, :imageable_type], conditions: -> { featured }
 
+  include PolymorphicNameable
+
   delegate :filename, to: :image, prefix: true, allow_nil: false
+  delegate :polymorphic_title, to: :imageable, allow_nil: false
 end

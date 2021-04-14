@@ -22,8 +22,15 @@ class InterestsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create interest" do
+    params = {
+      interest: {
+        interest_group_id: @interest.interest_group_id,
+        position: @interest.position,
+        value: @interest.value
+      }
+    }
     assert_difference('Interest.count') do
-      post interest_group_interests_url(@interest_group), params: { interest: { interest_group_id: @interest.interest_group_id, profile_position: @interest.profile_position, value: @interest.value } }
+      post interest_group_interests_url(@interest_group), params: params
     end
 
     assert_redirected_to interest_url(Interest.last)
@@ -40,7 +47,14 @@ class InterestsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update interest" do
-    patch interest_url(@interest), params: { interest: { interest_group_id: @interest.interest_group_id, profile_position: @interest.profile_position, value: @interest.value } }
+    params = {
+      interest: {
+        interest_group_id: @interest.interest_group_id,
+        position: @interest.position,
+        value: @interest.value
+      }
+    }
+    patch interest_url(@interest), params: params
     assert_redirected_to interest_url(@interest)
   end
 

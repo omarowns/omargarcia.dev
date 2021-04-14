@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Admin::BelongsTo::ProfileComponent < Admin::BelongsToComponent
+class Forms::BelongsTo::ProfileComponent < Forms::BelongsToComponent
   def initialize(form:, model:, force: false)
     super(
       form: form,

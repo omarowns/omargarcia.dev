@@ -16,7 +16,7 @@ class InterestsTest < ApplicationSystemTestCase
     click_on "New Interest"
 
     select @interest.interest_group.title, from: "Interest group"
-    fill_in "Profile position", with: @interest.profile_position
+    fill_in "Position", with: @interest.position
     fill_in "Value", with: @interest.value
     click_on "Create Interest"
 
@@ -28,7 +28,7 @@ class InterestsTest < ApplicationSystemTestCase
     visit interest_group_interests_url(@interest_group)
     click_on "Edit", match: :first
 
-    fill_in "Profile position", with: @interest.profile_position
+    fill_in "Position", with: @interest.position
     fill_in "Value", with: @interest.value
     click_on "Update Interest"
 

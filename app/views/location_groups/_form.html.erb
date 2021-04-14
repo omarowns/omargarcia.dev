@@ -16,7 +16,7 @@
     <%= form.text_field :title %>
   </div>
 
-  <%= render Admin::BelongsTo::ProfileComponent.new(form: form, model: location_group) %>
+  <%= render Forms::BelongsTo::ProfileComponent.new(form: form, model: location_group) %>
 
   <div class="actions">
     <%= form.submit %>

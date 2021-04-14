@@ -5,7 +5,7 @@
       <tr>
         <th>Position</th>
         <th>Location</th>
-        <th colspan="3"></th>
+        <th colspan="3">Location Proxy Actions</th>
       </tr>
     </thead>
 
@@ -13,7 +13,7 @@
       <% location_proxies.each do |location_proxy| %>
         <tr>
           <td><%= location_proxy.position %></td>
-          <td><%= location_proxy.location_value %></td>
+          <td><%= link_to location_proxy.location_value, location_proxy.location %></td>
           <td><%= link_to 'Show', location_proxy %></td>
           <td><%= link_to 'Edit', [:edit, location_proxy] %></td>
           <td><%= link_to 'Destroy', location_proxy, method: :delete, data: { confirm: 'Are you sure?' } %></td>

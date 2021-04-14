@@ -5,4 +5,8 @@ class WorkGroup < ApplicationRecord
   include HasManyImageable, Activable
 
   activable_for :profile_id
+
+  def to_s
+    "#{id}: #{title}"
+  end
 end

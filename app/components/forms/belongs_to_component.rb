@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Admin::BelongsToComponent < ViewComponent::Base
+class Forms::BelongsToComponent < ViewComponent::Base
 
   def initialize(form:, model:, attribute:, select_model:, select_attrs:, force: false)
     @form = form

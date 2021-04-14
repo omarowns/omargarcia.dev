@@ -21,7 +21,7 @@
     <%= form.number_field :position %>
   </div>
 
-  <%= render Admin::BelongsToComponent.new(
+  <%= render Forms::BelongsToComponent.new(
         form: form,
         model: about_line,
         attribute: :about_id,

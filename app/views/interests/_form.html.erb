@@ -17,11 +17,11 @@
   </div>
 
   <div class="field">
-    <%= form.label :profile_position %>
-    <%= form.number_field :profile_position %>
+    <%= form.label :position %>
+    <%= form.number_field :position %>
   </div>
 
-  <%= render Admin::BelongsToComponent.new(
+  <%= render Forms::BelongsToComponent.new(
         form: form,
         model: interest,
         attribute: :interest_group_id,
