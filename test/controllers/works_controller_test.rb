@@ -4,6 +4,7 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
   setup do
     @work = create(:work)
     @work_group = @work.work_group
+    login
   end
 
   test "should get index" do

@@ -4,6 +4,7 @@ class ImagesTest < ApplicationSystemTestCase
   setup do
     @image = create(:image)
     @file = @image.file
+    login
   end
 
   test "visiting the index" do

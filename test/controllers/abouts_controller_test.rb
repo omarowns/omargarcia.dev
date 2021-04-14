@@ -3,6 +3,7 @@ require "test_helper"
 class AboutsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @about = create(:about)
+    login
   end
 
   test "should get index" do

@@ -4,6 +4,7 @@ class AboutLinesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @about_line = create(:about_line)
     @about = @about_line.about
+    login
   end
 
   test "should get index" do

@@ -3,6 +3,7 @@ require "application_system_test_case"
 class InterestGroupsTest < ApplicationSystemTestCase
   setup do
     @interest_group = create(:interest_group)
+    login
   end
 
   test "visiting the index" do

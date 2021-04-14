@@ -4,6 +4,7 @@ class ImageProxiesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @image_proxy = create(:image_proxy)
     @imageable = @image_proxy.imageable
+    login
   end
 
   test "should get index" do

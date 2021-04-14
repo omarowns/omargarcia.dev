@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Works</h1>
 <%= render Admin::TableComponent.new(records: @works, model: Work) do |c| %>
   <%= c.new_link do %>

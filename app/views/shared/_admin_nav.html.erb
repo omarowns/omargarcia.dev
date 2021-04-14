@@ -1,0 +1,61 @@
+<aside class="fixed p-8 w-64 bg-gray-900 h-screen shadow-lg text-green-100">
+  <nav class="h-full flex flex-col">
+    <header class="bg-gray-50 mb-4">
+      <p class="text-3xl text-gray-800 text-center shadow-glitch-bottom-right">@omarowns</p>
+    </header>
+    <ul class="text-xl flex flex-col">
+      <li class="admin-nav-li">
+        <%= link_to 'Profiles', profiles_path, class: 'admin-nav-link' %>
+      </li>
+      <li class="admin-nav-li">
+        <%= link_to 'Abouts', abouts_path, class: 'admin-nav-link' %>
+        <ul class="pl-4">
+          <li class="admin-nav-li">
+            <%= link_to 'About Lines', about_lines_path, class: 'admin-nav-link' %>
+          </li>
+        </ul>
+      </li>
+      <li class="admin-nav-li">
+        <%= link_to 'Work Groups', work_groups_path, class: 'admin-nav-link' %>
+        <ul class="pl-4">
+          <li class="admin-nav-li">
+            <%= link_to 'Works', works_path, class: 'admin-nav-link' %>
+          </li>
+        </ul>
+      </li>
+      <li class="admin-nav-li">
+        <%= link_to 'Interest Groups', interest_groups_path, class: 'admin-nav-link' %>
+        <ul class="pl-4">
+          <li class="admin-nav-li">
+            <%= link_to 'Interest', interests_path, class: 'admin-nav-link' %>
+          </li>
+        </ul>
+      </li>
+      <li class="admin-nav-li">
+        <%= link_to 'Location Groups', location_groups_path, class: 'admin-nav-link' %>
+      </li>
+      <li class="admin-nav-li">
+        <%= link_to 'Locations', locations_path, class: 'admin-nav-link' %>
+        <ul class="pl-4">
+          <li class="admin-nav-li">
+            <%= link_to 'Location Proxies', location_proxies_path, class: 'admin-nav-link' %>
+          </li>
+        </ul>
+      </li>
+      <li class="admin-nav-li">
+        <%= link_to 'Images', images_path, class: 'admin-nav-link' %>
+        <ul class="pl-4">
+          <li class="admin-nav-li">
+            <%= link_to 'Image Proxies', image_proxies_path, class: 'admin-nav-link' %>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <footer class="fixed bottom-0">
+      <ul>
+        <li class="my-4"><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'border-none' %></li>
+        <li class="my-4"><%= link_to 'Settings', edit_user_registration_path, class: 'border-none' %></li>
+      </ul>
+    </footer>
+  </nav>
+</aside>

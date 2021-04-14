@@ -4,6 +4,7 @@ class WorksTest < ApplicationSystemTestCase
   setup do
     @work = create(:work)
     @work_group = @work.work_group
+    login
   end
 
   test "visiting the index" do

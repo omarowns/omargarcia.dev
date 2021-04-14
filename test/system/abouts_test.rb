@@ -4,6 +4,7 @@ class AboutsTest < ApplicationSystemTestCase
   setup do
     @about = create(:about)
     @new_profile = create(:profile)
+    login
   end
 
   test "visiting the index" do

@@ -3,6 +3,7 @@ require "test_helper"
 class WorkGroupsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @work_group = create(:work_group)
+    login
   end
 
   test "should get index" do

@@ -1,7 +1,4 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Profiles</h1>
-
 <%= render Admin::TableComponent.new(records: @profiles, model: Profile) do |c| %>
   <%= c.new_link do %>
     <%= link_to 'New Profile', new_profile_path %>

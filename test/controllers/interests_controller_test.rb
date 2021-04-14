@@ -4,6 +4,7 @@ class InterestsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @interest = create(:interest)
     @interest_group = @interest.interest_group
+    login
   end
 
   test "should get index" do

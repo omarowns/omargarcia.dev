@@ -11,6 +11,7 @@ class ImageProxiesTest < ApplicationSystemTestCase
     create(:profile)
     create(:work_group)
     create(:work)
+    login
   end
 
   test "visiting the index" do

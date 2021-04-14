@@ -3,6 +3,7 @@ require "application_system_test_case"
 class LocationGroupsTest < ApplicationSystemTestCase
   setup do
     @location_group = create(:location_group)
+    login
   end
 
   test "visiting the index" do

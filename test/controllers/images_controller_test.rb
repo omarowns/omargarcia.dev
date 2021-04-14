@@ -4,6 +4,7 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @image = create(:image)
     @file = fixture_file_upload(Rails.root.join('test', 'fixtures', 'files', 'omaru.jpeg'))
+    login
   end
 
   test "should get index" do

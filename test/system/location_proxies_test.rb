@@ -6,6 +6,7 @@ class LocationProxiesTest < ApplicationSystemTestCase
     @location_group = @location_proxy.locatable
     @image = create(:image)
     @work = create(:work)
+    login
   end
 
   test "visiting the index" do

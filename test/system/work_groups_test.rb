@@ -3,6 +3,7 @@ require "application_system_test_case"
 class WorkGroupsTest < ApplicationSystemTestCase
   setup do
     @work_group = create(:work_group)
+    login
   end
 
   test "visiting the index" do

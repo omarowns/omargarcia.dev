@@ -4,6 +4,7 @@ class InterestsTest < ApplicationSystemTestCase
   setup do
     @interest = create(:interest)
     @interest_group = @interest.interest_group
+    login
   end
 
   test "visiting the index" do

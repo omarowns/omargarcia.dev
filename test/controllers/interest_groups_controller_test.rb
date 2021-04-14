@@ -3,6 +3,7 @@ require "test_helper"
 class InterestGroupsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @interest_group = create(:interest_group)
+    login
   end
 
   test "should get index" do

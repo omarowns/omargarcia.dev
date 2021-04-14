@@ -4,6 +4,7 @@ class LocationProxiesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @location_proxy = create(:location_proxy)
     @locatable = @location_proxy.locatable
+    login
   end
 
   test "should get index" do
