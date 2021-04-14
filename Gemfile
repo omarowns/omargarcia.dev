@@ -13,6 +13,8 @@ gem 'turbolinks', '~> 5'
 gem 'tailwindcss-rails'
 gem 'time_difference'
 gem 'view_component', require: 'view_component/engine'
+gem 'devise'
+gem 'faker'
 
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

@@ -1,18 +1,12 @@
 body.admin {
   @apply min-h-screen flex flex-auto flex-shrink-0 antialiased;
 
-  nav {
-    @apply fixed flex flex-col p-8 w-64 bg-gray-900 h-screen shadow-lg text-green-100;
-
-    ul {
-      @apply text-xl;
+  .admin-nav {
+    &-li {
+      @apply my-2 overflow-ellipsis;
     }
 
-    li {
-      @apply my-4 overflow-ellipsis;
-    }
-
-    ul > li > a {
+    &-link {
       @apply p-0 shadow-none border-none;
     }
   }

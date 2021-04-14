@@ -18,8 +18,8 @@ module PagesHelper
       interest_group: :interests,
       location_group: :locations,
       image_proxies: {
-        images: {
-          file_attachments: :blob
+        image: {
+          file_attachment: :blob
         }
       }
     }

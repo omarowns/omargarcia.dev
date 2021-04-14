@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # root 'pages#index'
+  root 'pages#index'
 
   constraints(lambda { |request| request.domain.match?(/^omargarcia(\.mx|\-mx\.local)$/) }) do
     root 'pages#index', as: 'mx_root'
@@ -26,52 +26,75 @@ Rails.application.routes.draw do
     'https://www.agencymvp.com/'
   end
 
-  scope '/admin' do
-    resources :about_lines, only: [:index, :new, :create]
-    resources :interests, only: [:index, :new, :create]
-    resources :works, only: [:index, :new, :create]
+  devise_for :users,
+             path: 'auth',
+             path_names: {
+               sign_in: 'login',
+               sign_out: 'logout'
+             },
+             controllers: {
+               sessions: 'users/sessions',
+               registrations: 'users/registrations',
+               passwords: 'users/passwords'
+             }
 
-    resources :abouts do
-      resources :about_lines, shallow: true
-      resources :image_proxies, only: [:index, :new]
-    end
+  devise_scope :user do
+    scope '/admin' do
+      unauthenticated :user do
+        root 'users/sessions#new', as: :unauthenticated_user_root
+        match '/:all', to: redirect('/auth/login'), via: :all
+      end
 
-    resources :location_groups do
-      resources :location_proxies, only: [:index, :new]
-      resources :image_proxies, only: [:index, :new]
-    end
+      authenticated :user do
+        root 'profiles#index', as: :authenticated_user_root
 
-    resources :location_proxies
+        resources :about_lines, only: [:index, :new, :create]
+        resources :interests, only: [:index, :new, :create]
+        resources :works, only: [:index, :new, :create]
 
-    resources :locations do
-      resources :location_proxies, only: [:index, :new]
-      resources :image_proxies, only: [:index, :new]
-    end
+        resources :abouts do
+          resources :about_lines, shallow: true
+          resources :image_proxies, only: [:index, :new]
+        end
 
-    resources :image_proxies
+        resources :location_groups do
+          resources :location_proxies, only: [:index, :new]
+          resources :image_proxies, only: [:index, :new]
+        end
 
-    resources :images do
-      resources :location_proxies, only: [:index, :new]
-      resources :image_proxies, only: [:index, :new]
-    end
+        resources :location_proxies
 
-    resources :interest_groups do
-      resources :interests, shallow: true
-      resources :image_proxies, only: [:index, :new]
-    end
+        resources :locations do
+          resources :location_proxies, only: [:index, :new]
+          resources :image_proxies, only: [:index, :new]
+        end
 
-    resources :profiles do
-      resources :image_proxies, only: [:index, :new]
-    end
+        resources :image_proxies
 
-    resources :work_groups do
-      resources :works, shallow: true
-      resources :image_proxies, only: [:index, :new]
-    end
+        resources :images do
+          resources :location_proxies, only: [:index, :new]
+          resources :image_proxies, only: [:index, :new]
+        end
 
-    resources :works, only: [] do
-      resources :location_proxies, only: [:index, :new]
-      resources :image_proxies, only: [:index, :new]
+        resources :interest_groups do
+          resources :interests, shallow: true
+          resources :image_proxies, only: [:index, :new]
+        end
+
+        resources :profiles do
+          resources :image_proxies, only: [:index, :new]
+        end
+
+        resources :work_groups do
+          resources :works, shallow: true
+          resources :image_proxies, only: [:index, :new]
+        end
+
+        resources :works, only: [] do
+          resources :location_proxies, only: [:index, :new]
+          resources :image_proxies, only: [:index, :new]
+        end
+      end
     end
   end
 end
