@@ -19,3 +19,5 @@
     <%= link_to 'New About Line', [:new, @about, :about_line] %>
   <% end %>
 <% end %>
+
+<%= render Admin::HasMany::ImagesComponent.new(model: @about) %>

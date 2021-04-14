@@ -1,9 +1,13 @@
-class ImageProxiesController < AdminController
+class ImageProxiesController < PolymorphicController
   before_action :image_proxy, only: [:show, :edit, :update, :destroy]
 
   # GET /image_proxies
   def index
-    @image_proxies = ImageProxy.all
+    @image_proxies = if @polymorphic_model
+                       @polymorphic_model.image_proxies
+                     else
+                       ImageProxy.all
+                     end
   end
 
   # GET /image_proxies/1
@@ -12,7 +16,11 @@ class ImageProxiesController < AdminController
 
   # GET /image_proxies/new
   def new
-    @image_proxy = ImageProxy.new
+    @image_proxy = if @polymorphic_model
+                     @polymorphic_model.image_proxies.new
+                   else
+                     ImageProxy.new
+                   end
   end
 
   # GET /image_proxies/1/edit
@@ -24,7 +32,7 @@ class ImageProxiesController < AdminController
     @image_proxy = ImageProxy.new(image_proxy_params)
 
     if @image_proxy.save
-      redirect_to @image_proxy, notice: 'Image proxy was successfully created.'
+      redirect_to @image_proxy.imageable, notice: 'Image proxy was successfully created.'
     else
       render :new
     end
@@ -33,7 +41,7 @@ class ImageProxiesController < AdminController
   # PATCH/PUT /image_proxies/1
   def update
     if @image_proxy.update(image_proxy_params)
-      redirect_to @image_proxy, notice: 'Image proxy was successfully updated.'
+      redirect_to @image_proxy.imageable, notice: 'Image proxy was successfully updated.'
     else
       render :edit
     end
@@ -42,7 +50,7 @@ class ImageProxiesController < AdminController
   # DELETE /image_proxies/1
   def destroy
     @image_proxy.destroy
-    redirect_to image_proxies_url, notice: 'Image proxy was successfully destroyed.'
+    redirect_to @image_proxy.imageable, notice: 'Image proxy was successfully destroyed.'
   end
 
   private

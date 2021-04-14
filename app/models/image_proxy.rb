@@ -10,4 +10,6 @@ class ImageProxy < ApplicationRecord
   validates :position, uniqueness: { scope: [:imageable_id, :imageable_type] }
   validates_uniqueness_of :main, scope: [:imageable_id, :imageable_type], conditions: -> { main }
   validates_uniqueness_of :featured, scope: [:imageable_id, :imageable_type], conditions: -> { featured }
+
+  delegate :filename, to: :image, prefix: true, allow_nil: false
 end

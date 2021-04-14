@@ -27,38 +27,51 @@ Rails.application.routes.draw do
   end
 
   scope '/admin' do
-    resources :profiles
-
     resources :about_lines, only: [:index, :new, :create]
+    resources :interests, only: [:index, :new, :create]
+    resources :works, only: [:index, :new, :create]
+
     resources :abouts do
       resources :about_lines, shallow: true
+      resources :image_proxies, only: [:index, :new]
     end
 
-    resources :works, only: [:index, :new, :create]
-    resources :work_groups do
-      resources :works, shallow: true
+    resources :location_groups do
+      resources :location_proxies
+      resources :image_proxies, only: [:index, :new]
     end
 
-    resources :interests, only: [:index, :new, :create]
+    resources :location_proxies
+
+    resources :locations do
+      resources :location_proxies, only: [:index, :new]
+      resources :image_proxies, only: [:index, :new]
+    end
+
+    resources :image_proxies
+
+    resources :images do
+      resources :location_proxies
+      resources :image_proxies, only: [:index, :new]
+    end
+
     resources :interest_groups do
       resources :interests, shallow: true
+      resources :image_proxies, only: [:index, :new]
     end
 
-    # location proxies polymorphic routes
-    resources :images, only: [] do
-      resources :location_proxies
+    resources :profiles do
+      resources :image_proxies, only: [:index, :new]
     end
-    resources :location_groups, only: [] do
-      resources :location_proxies
+
+    resources :work_groups do
+      resources :works, shallow: true
+      resources :image_proxies, only: [:index, :new]
     end
+
     resources :works, only: [] do
       resources :location_proxies
+      resources :image_proxies, only: [:index, :new]
     end
-
-    resources :location_groups
-    resources :image_proxies
-    resources :location_proxies
-    resources :locations
-    resources :images
   end
 end

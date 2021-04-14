@@ -9,4 +9,5 @@
     <%= link_to 'Back', [@work_group, :works] %>
   <% end %>
 <% end %>
-<%= render Admin::HasManyLocationsComponent.new(model: @work) %>
+<%= render Admin::HasMany::LocationsComponent.new(model: @work) %>
+<%= render Admin::HasMany::ImagesComponent.new(model: @interest_group) %>

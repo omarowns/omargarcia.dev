@@ -4,7 +4,7 @@ class LocationProxiesController < PolymorphicController
   # GET /location_proxies
   def index
     @location_proxies = if @polymorphic_model
-                          LocationProxy.all.where(locatable: @polymorphic_model)
+                          @polymorphic_model.location_proxies
                         else
                           LocationProxy.all
                         end
@@ -32,7 +32,7 @@ class LocationProxiesController < PolymorphicController
     @location_proxy = LocationProxy.new(location_proxy_params)
 
     if @location_proxy.save
-      redirect_to :location_proxies, notice: 'Location proxy was successfully created.'
+      redirect_to @location_proxy.locatable, notice: 'Location proxy was successfully created.'
     else
       render :new
     end
@@ -40,8 +40,8 @@ class LocationProxiesController < PolymorphicController
 
   # PATCH/PUT /location_proxies/1
   def update
-    if location_proxy.update(location_proxy_params)
-      redirect_to location_proxy, notice: 'Location proxy was successfully updated.'
+    if @location_proxy.update(location_proxy_params)
+      redirect_to @location_proxy.locatable, notice: 'Location proxy was successfully updated.'
     else
       render :edit
     end
@@ -50,7 +50,7 @@ class LocationProxiesController < PolymorphicController
   # DELETE /location_proxies/1
   def destroy
     location_proxy.destroy
-    redirect_to :location_proxies, notice: 'Location proxy was successfully destroyed.'
+    redirect_to @location_proxy.locatable, notice: 'Location proxy was successfully destroyed.'
   end
 
   private

@@ -10,4 +10,5 @@
   <% end %>
 <% end %>
 
-<%= render Admin::HasManyLocationsComponent.new(model: @location_group) %>
+<%= render Admin::HasMany::LocationsComponent.new(model: @location_group) %>
+<%= render Admin::HasMany::ImagesComponent.new(model: @interest_group) %>

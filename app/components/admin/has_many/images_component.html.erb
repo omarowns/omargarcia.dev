@@ -1,0 +1,32 @@
+<section class="locatable">
+  <h2>Images</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Position</th>
+        <th>Filename</th>
+        <th>Main</th>
+        <th>Featured</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% image_proxies.each do |image_proxy| %>
+        <tr>
+          <td><%= image_proxy.position %></td>
+          <td><%= image_proxy.image_filename %></td>
+          <td><%= image_proxy.main %></td>
+          <td><%= image_proxy.featured %></td>
+          <td><%= link_to 'Show', image_proxy %></td>
+          <td><%= link_to 'Edit', [:edit, image_proxy] %></td>
+          <td><%= link_to 'Destroy', image_proxy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+      <tr>
+        <td colspan="7"><%= link_to 'New Image Proxy', [:new, @model, :image_proxy] %></td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>

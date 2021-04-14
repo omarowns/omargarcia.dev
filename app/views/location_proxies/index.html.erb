@@ -3,10 +3,6 @@
 <h1>Location Proxies</h1>
 <%= render Admin::TableComponent.new(records: @location_proxies, model: LocationProxy) do |c| %>
   <%= c.new_link do %>
-    <% if location_group %>
-      <%= link_to 'New Location Proxy', [:new, location_group, :location_proxy] %>
-    <% else %>
-      <%= link_to 'New Location Proxy', [:new, :location_proxy] %>
-    <% end %>
+    <%= link_to 'New Location Proxy', [:new, :location_proxy] %>
   <% end %>
 <% end %>

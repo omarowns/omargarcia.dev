@@ -22,3 +22,4 @@
     <%= link_to 'New Interest', [:new, @interest_group, :interest] %>
   <% end %>
 <% end %>
+<%= render Admin::HasMany::ImagesComponent.new(model: @interest_group) %>

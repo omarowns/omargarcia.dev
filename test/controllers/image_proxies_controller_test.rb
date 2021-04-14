@@ -3,6 +3,7 @@ require "test_helper"
 class ImageProxiesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @image_proxy = create(:image_proxy)
+    @imageable = @image_proxy.imageable
   end
 
   test "should get index" do
@@ -10,8 +11,18 @@ class ImageProxiesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get imageable's index" do
+    get image_proxies_url(@imageable)
+    assert_response :success
+  end
+
   test "should get new" do
     get new_image_proxy_url
+    assert_response :success
+  end
+
+  test "should get new for imageable" do
+    get new_image_proxy_url(@imageable)
     assert_response :success
   end
 
@@ -30,7 +41,7 @@ class ImageProxiesControllerTest < ActionDispatch::IntegrationTest
       post image_proxies_url, params: params
     end
 
-    assert_redirected_to image_proxy_url(ImageProxy.last)
+    assert_redirected_to @imageable
   end
 
   test "should show image_proxy" do
@@ -55,7 +66,7 @@ class ImageProxiesControllerTest < ActionDispatch::IntegrationTest
       }
     }
     patch image_proxy_url(@image_proxy), params: params
-    assert_redirected_to image_proxy_url(@image_proxy)
+    assert_redirected_to @imageable
   end
 
   test "should destroy image_proxy" do
@@ -63,6 +74,6 @@ class ImageProxiesControllerTest < ActionDispatch::IntegrationTest
       delete image_proxy_url(@image_proxy)
     end
 
-    assert_redirected_to image_proxies_url
+    assert_redirected_to @imageable
   end
 end

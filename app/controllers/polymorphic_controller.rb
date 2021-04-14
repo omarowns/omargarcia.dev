@@ -3,10 +3,10 @@ class PolymorphicController < AdminController
 
   private
     def check_polymorphic_route
-      key_intersection = helpers.polymorphic_keys & params.keys
-      if key_intersection.any?
-        klass = key_intersection.first.delete_suffix('_id').camelize.safe_constantize
-        id = params[key_intersection.first]
+      key = params.keys.find { |key| key.ends_with? '_id' }
+      if key.present?
+        klass = key.delete_suffix('_id').camelize.safe_constantize
+        id = params[key]
         @polymorphic_model = klass.find(id)
       end
     end

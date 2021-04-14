@@ -23,3 +23,4 @@
     <%= link_to 'New Work', [:new, @work_group, :work] %>
   <% end %>
 <% end %>
+<%= render Admin::HasMany::ImagesComponent.new(model: @interest_group) %>

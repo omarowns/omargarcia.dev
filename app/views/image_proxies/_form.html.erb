@@ -26,15 +26,7 @@
     <%= form.number_field :position %>
   </div>
 
-  <div class="field">
-    <%= form.label :imageable_id %>
-    <%= form.text_field :imageable_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :imageable_type %>
-    <%= form.text_field :imageable_type %>
-  </div>
+  <%= render Admin::ImageableComponent.new(form: form) %>
 
   <%= render Admin::BelongsToComponent.new(
         form: form,

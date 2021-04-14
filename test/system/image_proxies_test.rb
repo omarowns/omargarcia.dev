@@ -4,6 +4,13 @@ class ImageProxiesTest < ApplicationSystemTestCase
   setup do
     @image_proxy = create(:image_proxy)
     @image = create(:image)
+    create(:about)
+    create(:interest_group)
+    create(:location_group)
+    create(:location)
+    create(:profile)
+    create(:work_group)
+    create(:work)
   end
 
   test "visiting the index" do
@@ -31,8 +38,6 @@ class ImageProxiesTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     check "Featured" if @image_proxy.featured
-    fill_in "Imageable", with: @image_proxy.imageable_id
-    fill_in "Imageable type", with: @image_proxy.imageable_type
     check "Main" if @image_proxy.main
     fill_in "Position", with: (@image_proxy.position + 1)
     click_on "Update Image proxy"
@@ -47,5 +52,103 @@ class ImageProxiesTest < ApplicationSystemTestCase
     end
 
     assert_text "Image proxy was successfully destroyed"
+  end
+
+  test "creating a About Image proxy" do
+    visit abouts_url
+    click_on "Edit", match: :first
+    click_on "New Image Proxy"
+
+    check "Main" if @image_proxy.main
+    check "Featured" if @image_proxy.featured
+    fill_in "Position", with: (@image_proxy.position + 1)
+    select @image.id, from: "Image"
+    click_on "Create Image proxy"
+
+    assert_text "Image proxy was successfully created"
+  end
+
+  test "creating a Interest Group Image proxy" do
+    visit interest_groups_url
+    click_on "Edit", match: :first
+    click_on "New Image Proxy"
+
+    check "Main" if @image_proxy.main
+    check "Featured" if @image_proxy.featured
+    fill_in "Position", with: (@image_proxy.position + 1)
+    select @image.id, from: "Image"
+    click_on "Create Image proxy"
+
+    assert_text "Image proxy was successfully created"
+  end
+
+  test "creating a Location Group Image proxy" do
+    visit location_groups_url
+    click_on "Edit", match: :first
+    click_on "New Image Proxy"
+
+    check "Main" if @image_proxy.main
+    check "Featured" if @image_proxy.featured
+    fill_in "Position", with: (@image_proxy.position + 1)
+    select @image.id, from: "Image"
+    click_on "Create Image proxy"
+
+    assert_text "Image proxy was successfully created"
+  end
+
+  test "creating a Location Image proxy" do
+    visit locations_url
+    click_on "Edit", match: :first
+    click_on "New Image Proxy"
+
+    check "Main" if @image_proxy.main
+    check "Featured" if @image_proxy.featured
+    fill_in "Position", with: (@image_proxy.position + 1)
+    select @image.id, from: "Image"
+    click_on "Create Image proxy"
+
+    assert_text "Image proxy was successfully created"
+  end
+
+  test "creating a Profile Image proxy" do
+    visit profiles_url
+    click_on "Edit", match: :first
+    click_on "New Image Proxy"
+
+    check "Main" if @image_proxy.main
+    check "Featured" if @image_proxy.featured
+    fill_in "Position", with: (@image_proxy.position + 1)
+    select @image.id, from: "Image"
+    click_on "Create Image proxy"
+
+    assert_text "Image proxy was successfully created"
+  end
+
+  test "creating a Work Group Image proxy" do
+    visit work_groups_url
+    click_on "Edit", match: :first
+    click_on "New Image Proxy"
+
+    check "Main" if @image_proxy.main
+    check "Featured" if @image_proxy.featured
+    fill_in "Position", with: (@image_proxy.position + 1)
+    select @image.id, from: "Image"
+    click_on "Create Image proxy"
+
+    assert_text "Image proxy was successfully created"
+  end
+
+  test "creating a Work Image proxy" do
+    visit works_url
+    click_on "Edit", match: :first
+    click_on "New Image Proxy"
+
+    check "Main" if @image_proxy.main
+    check "Featured" if @image_proxy.featured
+    fill_in "Position", with: (@image_proxy.position + 1)
+    select @image.id, from: "Image"
+    click_on "Create Image proxy"
+
+    assert_text "Image proxy was successfully created"
   end
 end

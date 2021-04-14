@@ -8,4 +8,4 @@
     <%= link_to 'Back', images_path %>
   <% end %>
 <% end %>
-<%= render Admin::HasManyLocationsComponent.new(model: @image) %>
+<%= render Admin::HasMany::LocationsComponent.new(model: @image) %>
