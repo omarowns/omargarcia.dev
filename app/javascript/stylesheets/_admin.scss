@@ -2,7 +2,7 @@ body.admin {
   @apply min-h-screen flex flex-auto flex-shrink-0 antialiased;
 
   nav {
-    @apply flex flex-col p-8 w-64 bg-gray-900 h-screen shadow-lg text-green-100;
+    @apply fixed flex flex-col p-8 w-64 bg-gray-900 h-screen shadow-lg text-green-100;
 
     ul {
       @apply text-xl;
@@ -15,6 +15,10 @@ body.admin {
     ul > li > a {
       @apply p-0 shadow-none border-none;
     }
+  }
+
+  div.container {
+    @apply ml-64;
   }
 
   h1 {
