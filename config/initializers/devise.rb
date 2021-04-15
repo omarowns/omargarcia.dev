@@ -281,7 +281,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   config.omniauth :github, Rails.application.credentials.github[:client_id], Rails.application.credentials.github[:client_secret], scope: 'user'
   config.omniauth :spotify, Rails.application.credentials.spotify[:client_id], Rails.application.credentials.spotify[:client_secret], scope: 'user-read-email'
-  # config.omniauth :twitter, , 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :twitter, Rails.application.credentials.twitter[:api_key], Rails.application.credentials.twitter[:api_secret], { force_login: true }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
@@ -304,7 +304,7 @@ Devise.setup do |config|
   #
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
-  # config.omniauth_path_prefix = '/my_engine/users/auth'
+  config.omniauth_path_prefix = '/auth/auth'
 
   # ==> Turbolinks configuration
   # If your app is using Turbolinks, Turbolinks::Controller needs to be included to make redirection work correctly:

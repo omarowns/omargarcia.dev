@@ -34,6 +34,10 @@ Rails.application.routes.draw do
     'https://www.spotify.com/account/apps/'
   end
 
+  direct :twitter_oauth_settings do
+    "https://twitter.com/settings/applications/#{Rails.application.credentials.twitter[:app_id]}"
+  end
+
   devise_for :users,
              path: 'auth',
              path_names: {
@@ -56,6 +60,10 @@ Rails.application.routes.draw do
 
       authenticated :user do
         root 'profiles#index', as: :authenticated_user_root
+
+        resources :users, except: [:edit, :destroy] do
+          get :edit, to: 'users/registrations#edit'
+        end
 
         resources :about_lines, only: [:index, :new, :create]
         resources :interests, only: [:index, :new, :create]

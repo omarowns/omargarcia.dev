@@ -17,6 +17,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
+  def twitter
+    user_from_omniauth do
+      set_flash_message(:notice, :success, kind: 'Twitter') if is_navigational_format?
+    end
+  end
+
   # More info at:
   # https://github.com/heartcombo/devise#omniauth
 

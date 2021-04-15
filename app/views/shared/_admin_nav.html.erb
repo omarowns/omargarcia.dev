@@ -54,7 +54,7 @@
     <footer class="fixed bottom-0">
       <ul>
         <li class="my-4"><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'border-none' %></li>
-        <li class="my-4"><%= link_to 'Settings', edit_user_registration_path, class: 'border-none' %></li>
+        <li class="my-4"><%= link_to 'Settings', [current_user, :edit], class: 'border-none' %></li>
       </ul>
     </footer>
   </nav>

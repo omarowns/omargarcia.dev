@@ -17,6 +17,7 @@ gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
 gem 'faker'
 gem 'omniauth-github'
 gem 'omniauth-spotify'
+gem 'omniauth-twitter'
 gem 'omniauth-rails_csrf_protection'
 
 
