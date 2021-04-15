@@ -13,8 +13,11 @@ gem 'turbolinks', '~> 5'
 gem 'tailwindcss-rails'
 gem 'time_difference'
 gem 'view_component', require: 'view_component/engine'
-gem 'devise'
+gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
 gem 'faker'
+gem 'omniauth-github'
+gem 'omniauth-spotify'
+gem 'omniauth-rails_csrf_protection'
 
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
