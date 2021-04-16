@@ -1,0 +1,13 @@
+<aside class="fixed py-8 w-64 bg-gray-900 h-screen shadow-lg text-green-100">
+  <nav class="h-full flex flex-col">
+    <header class="mb-4 px-8">
+      <p class="text-3xl bg-gray-50 text-gray-800 text-center shadow-glitch-bottom-right">@omarowns</p>
+    </header>
+    <section class="widgets">
+      <%= render Widgets::TweetsComponent.new(tweets: @latest_tweets) %>
+    </section>
+    <footer class="fixed bottom-0">
+      <%= render SessionLinksComponent.new(current_user: current_user) %>
+    </footer>
+  </nav>
+</aside>

@@ -13,15 +13,19 @@ module PagesHelper
 
   def profiles_include_hash
     {
-      about: :about_lines,
-      work_group: :works,
-      interest_group: :interests,
-      location_group: :locations,
       image_proxies: {
         image: {
           file_attachment: :blob
         }
-      }
+      },
+      about: {},
+      work_group: {},
+      interest_group: {},
+      location_group: {},
+      active_about_lines: {},
+      active_works: {},
+      active_interests: {},
+      active_location_proxies: {},
     }
   end
 end

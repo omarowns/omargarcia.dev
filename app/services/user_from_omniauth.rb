@@ -9,7 +9,13 @@ class UserFromOmniauth
     if (authenticable = Authenticable.find_by(provider: auth.provider, uid: auth.uid))
       authenticable.user
     elsif (user = User.find_for_database_authentication(email: auth.info.email))
-      user.authenticables.create(provider: auth.provider, uid: auth.uid)
+      auth_hash = { provider: auth.provider, uid: auth.uid }
+
+      auth_hash[:token] = auth.credentials.token if auth.credentials.token
+      auth_hash[:token_secret] = auth.credentials.secret if auth.credentials.secret
+
+      user.authenticables.create(auth_hash)
+
       user
     else
       User.new

@@ -21,6 +21,9 @@ gem 'omniauth-twitter'
 gem 'omniauth-rails_csrf_protection'
 
 
+# 3rd party APIs
+gem 'twitter'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
