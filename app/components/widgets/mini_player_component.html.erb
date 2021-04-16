@@ -1,0 +1,8 @@
+<section class="widgets-miniplayer">
+  <div>
+    <h3 class="px-8">Currently Playing</h3>
+    <div class="w-64 h-64">
+      <%= render Spotify::PlayerComponent.new(user: @user) %>
+    </div>
+  </div>
+</section>

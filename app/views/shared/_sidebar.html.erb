@@ -5,6 +5,7 @@
     </header>
     <section class="widgets">
       <%= render Widgets::TweetsComponent.new(tweets: @latest_tweets) %>
+      <%= render Widgets::MiniPlayerComponent.new(user: current_user) %>
     </section>
     <footer class="fixed bottom-0">
       <%= render SessionLinksComponent.new(current_user: current_user) %>
