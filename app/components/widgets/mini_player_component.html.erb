@@ -2,7 +2,7 @@
   <div>
     <h3 class="px-8">Currently Playing</h3>
     <div class="w-64 h-64">
-      <%= render Spotify::PlayerComponent.new(user: @user) %>
+      <%= render Spotify::PlayerComponent.new(track: @track) %>
     </div>
   </div>
 </section>

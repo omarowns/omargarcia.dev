@@ -23,4 +23,12 @@ class Admin::OauthSettingsComponent < ViewComponent::Base
   def user_has_provider_setup?
     @user.authenticables.where(provider: @provider).any?
   end
+
+  def user_provider
+    @user_provider ||= @user.authenticables.find_by(provider: @provider)
+  end
+
+  def spotify_provider?
+    @provider == :spotify
+  end
 end

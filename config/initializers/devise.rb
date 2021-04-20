@@ -280,7 +280,13 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   config.omniauth :github, Rails.application.credentials.github[:client_id], Rails.application.credentials.github[:client_secret], scope: 'user'
-  config.omniauth :spotify, Rails.application.credentials.spotify[:client_id], Rails.application.credentials.spotify[:client_secret], scope: 'user-read-email'
+  config.omniauth :spotify, Rails.application.credentials.spotify[:client_id], Rails.application.credentials.spotify[:client_secret], scope: %w(
+    user-read-email
+    user-read-recently-played
+    user-read-playback-state
+    user-modify-playback-state
+    user-read-currently-playing
+  ).join(' ')
   config.omniauth :twitter, Rails.application.credentials.twitter[:api_key], Rails.application.credentials.twitter[:api_secret], { force_login: true }
 
   # ==> Warden configuration

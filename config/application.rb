@@ -23,5 +23,10 @@ module OmargarciaDev
     config.hosts << ".omargarcia.mx"
     config.hosts << ".omargarcia-dev.local"
     config.hosts << ".omargarcia-mx.local"
+
+    RSpotify::authenticate(
+      Rails.application.credentials.spotify[:client_id],
+      Rails.application.credentials.spotify[:client_secret]
+    )
   end
 end

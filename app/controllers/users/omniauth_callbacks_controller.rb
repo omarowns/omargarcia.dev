@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  include OmniauthHelper
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
 
@@ -26,12 +27,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # More info at:
   # https://github.com/heartcombo/devise#omniauth
 
-  # GET|POST /resource/auth/twitter
-  def passthru
-    request.env['rack.session'][:ommiauth_spotify_force_approval?]
-    super
-  end
-
   # GET|POST /users/auth/twitter/callback
   def failure
     redirect_to new_user_session_path
@@ -47,7 +42,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   private
 
   def user_from_omniauth
-    @user = UserFromOmniauth.new(request.env['omniauth.auth']).find_or_set
+    @user = find_or_set_user_from_auth(request.env['omniauth.auth'])
 
     if @user.persisted?
       sign_in_and_redirect @user

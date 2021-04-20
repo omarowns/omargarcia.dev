@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'authenticables/destroy'
   constraints(lambda { |request| request.domain.match?(/^omargarcia(\.mx|\-mx\.local)$/) }) do
     root 'pages#index', as: 'mx_root'
   end
@@ -62,6 +63,7 @@ Rails.application.routes.draw do
 
         resources :users, except: [:edit, :destroy] do
           get :edit, to: 'users/registrations#edit'
+          resources :authenticables, only: :destroy, shallow: true
         end
 
         resources :about_lines, only: [:index, :new, :create]

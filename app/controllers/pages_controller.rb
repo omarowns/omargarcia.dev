@@ -12,6 +12,7 @@ class PagesController < ApplicationController
   private
 
   def load_tweets
-    @latest_tweets = TwitterService.new(current_user).latest_tweets
+    @latest_tweets = TwitterService.new(username: 'omarowns').latest_tweets
+    @last_track = Spotify::Track.last
   end
 end

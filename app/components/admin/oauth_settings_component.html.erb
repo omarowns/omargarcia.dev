@@ -1,5 +1,10 @@
 <% if user_has_provider_setup? %>
+  <%= link_to "Remove #{provider_name} Oauth Authorization", user_provider, method: :delete, data: { confirm: 'Are you sure?' } %>
   <%= link_to "#{provider_name} Oauth Settings", provider_oauth_settings_url, target: '_blank' %>
 <% else %>
-  <%= button_to "Connect with #{OmniAuth::Utils.camelize(@provider)}", omniauth_authorization_path %>
+  <% if spotify_provider? %>
+    <%= button_to "Connect with #{OmniAuth::Utils.camelize(@provider)}", omniauth_authorization_path, params: { show_dialog: true } %>
+  <% else %>
+    <%= button_to "Connect with #{OmniAuth::Utils.camelize(@provider)}", omniauth_authorization_path %>
+  <% end %>
 <% end %>

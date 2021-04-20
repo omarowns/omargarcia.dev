@@ -13,6 +13,7 @@ class UserFromOmniauth
 
       auth_hash[:token] = auth.credentials.token if auth.credentials.token
       auth_hash[:token_secret] = auth.credentials.secret if auth.credentials.secret
+      auth_hash[:refresh_token] = auth.credentials.refresh_token if auth.credentials.refresh_token
 
       user.authenticables.create(auth_hash)
 

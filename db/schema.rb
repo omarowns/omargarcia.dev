@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_15_210322) do
+ActiveRecord::Schema.define(version: 2021_04_19_225323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2021_04_15_210322) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "token"
     t.string "token_secret"
+    t.string "refresh_token"
     t.index ["user_id"], name: "index_authenticables_on_user_id"
   end
 
@@ -142,6 +143,19 @@ ActiveRecord::Schema.define(version: 2021_04_15_210322) do
     t.string "name"
     t.string "title"
     t.string "animoji"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "spotify_tracks", force: :cascade do |t|
+    t.string "artist"
+    t.string "artist_url"
+    t.string "album"
+    t.string "album_url"
+    t.string "song"
+    t.string "song_url"
+    t.string "album_cover_url"
+    t.string "preview_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,13 +1,14 @@
 class TwitterService
   attr_reader :client
 
-  def initialize(user)
+  def initialize(user: nil, username: nil)
     @user = user
+    @username = username
   end
 
   def latest_tweets(count: 50, trim_user: true, exclude_replies: true, include_rts: false)
     @latest_tweets ||= client.user_timeline(
-      "omarowns",
+      @username,
       count: count,
       trim_user: trim_user,
       exclude_replies: exclude_replies,

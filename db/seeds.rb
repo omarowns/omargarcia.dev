@@ -6,6 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+main_user = User.new(
+  email: 'omarowns@protonmail.com',
+  password: Rails.application.credentials[:main_user_temp_password],
+  password_confirmation: Rails.application.credentials[:main_user_temp_password]
+)
+main_user.save
+
 rmt_loc = Location.find_or_create_by(value: '🌐 Remote')
 gdl_loc = Location.find_or_create_by(value: '📍 Guadalajara, 🇲🇽')
 ags_loc = Location.find_or_create_by(value: '📍 Aguascalientes, 🇲🇽')
