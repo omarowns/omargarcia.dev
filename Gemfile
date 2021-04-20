@@ -19,6 +19,7 @@ gem 'omniauth-github'
 gem 'omniauth-spotify'
 gem 'omniauth-twitter'
 gem 'omniauth-rails_csrf_protection'
+gem 'aws-sdk-s3', require: false
 
 
 # 3rd party APIs
