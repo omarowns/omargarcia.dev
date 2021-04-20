@@ -1,0 +1,6 @@
+<div class="fixed w-screen h-screen">
+  <section class="widgets">
+    <%= render Widgets::MiniPlayerComponent.new(track: @last_track) %>
+    <%= render Widgets::TweetsComponent.new(tweets: [@last_tweet]) %>
+  </section>
+</div>

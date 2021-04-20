@@ -1,4 +1,4 @@
-<article id="spotify-player" class="h-full h-full flex items-end justify-center bg-spotify-album-cover from-gray-900 bg-cover" style="--spotify-album-cover-url: url(<%= @track.album_cover_url %>)">
+<article id="spotify-player" style="--spotify-album-cover-url: url(<%= @track.album_cover_url %>)">
   <footer>
     <h4><%= link_to @track.song, @track.song_url %></h4>
     <h5><%= link_to @track.artist, @track.artist_url %></h5>

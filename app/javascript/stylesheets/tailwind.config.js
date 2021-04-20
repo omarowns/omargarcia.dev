@@ -9,10 +9,20 @@ module.exports = {
         'slide-up': {
           '0%': { transform: 'translateY(100%)' },
           '100%': { transform: 'translateY(0%)' }
+        },
+        'slide-right': {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(95%)' }
+        },
+        'slide-left': {
+          '0%': { transform: 'translateX(95%)' },
+          '100%': { transform: 'translateX(0%)' }
         }
       },
       animation: {
-        'slide-up-once': 'slide-up 5s ease-in-out'
+        'slide-up-once': 'slide-up 5s ease-in-out',
+        'slide-right': 'slide-right 1s ease-in-out forwards',
+        'slide-left': 'slide-left 1s ease-in-out forwards',
       },
       boxShadow: {
         'glitch-top-right': `5px -5px 0 5px ${colors.emerald['400']},   -5px 5px 0 5px${colors.purple['300']}`,
@@ -34,7 +44,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      animation: ['hover']
+    },
   },
   plugins: [
     require('@tailwindcss/forms'),

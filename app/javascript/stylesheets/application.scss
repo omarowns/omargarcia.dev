@@ -2,7 +2,13 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 @import 'admin';
+@import 'widgets';
 
 #spotify-player {
-  --spotify-album-cover-url: url("https://www.music-bazaar.com/album-images/vol3/193/193388/1225338-big/Simon-Says-Behind-Closed-Doors-cover.jpg");
+  @apply h-full flex items-end justify-center rounded-md text-green-100;
+  @apply bg-spotify-album-cover from-gray-900 bg-cover;
+
+  h4 {
+    @apply text-xl;
+  }
 }

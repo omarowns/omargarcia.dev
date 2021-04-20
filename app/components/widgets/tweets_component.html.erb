@@ -1,6 +1,6 @@
-<section class="widgets-twitter">
-  <div class="px-8">
-    <h3>Latest Tweet(s)</h3>
-    <%= render TweetComponent.with_collection(@tweets) %>
+<section class="widgets-twitter text-gray-900">
+  <div class="w-26 fixed transform -rotate-90 -left-14 top-10 bg-gray-800 text-green-100 rounded-md p-1">
+    Latest Tweet
   </div>
+  <%= render TweetComponent.with_collection(@tweets) %>
 </section>

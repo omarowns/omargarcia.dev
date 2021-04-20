@@ -1,0 +1,11 @@
+.widgets-miniplayer {
+  @apply w-44 h-44 fixed bottom-1 right-1 text-right animate-slide-right hover:animate-slide-left;
+}
+
+.widgets-twitter {
+  @apply w-44 h-44 fixed bottom-48 right-1 animate-slide-right hover:animate-slide-left;
+
+  .tweet {
+    @apply bg-blue-400 text-white py-2 px-4 rounded-md;
+  }
+}
