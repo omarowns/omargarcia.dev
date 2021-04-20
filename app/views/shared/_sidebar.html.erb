@@ -4,7 +4,7 @@
       <p class="text-3xl bg-gray-50 text-gray-800 text-center shadow-glitch-bottom-right">@omarowns</p>
     </header>
     <section class="widgets">
-      <%= render Widgets::TweetsComponent.new(tweets: @latest_tweets) %>
+      <%= render Widgets::TweetsComponent.new(tweets: [@last_tweet]) %>
       <%= render Widgets::MiniPlayerComponent.new(track: @last_track) %>
     </section>
     <footer class="fixed bottom-0">

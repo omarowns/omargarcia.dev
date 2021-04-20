@@ -38,6 +38,10 @@ Rails.application.routes.draw do
     "https://twitter.com/settings/applications/#{Rails.application.credentials.twitter[:app_id]}"
   end
 
+  direct :twitter_profile_status do
+    'https://twitter.com/omarowns/status/'
+  end
+
   devise_for :users,
              path: 'auth',
              path_names: {

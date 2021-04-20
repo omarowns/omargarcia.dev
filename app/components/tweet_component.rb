@@ -1,15 +1,13 @@
 # frozen_string_literal: true
 
 class TweetComponent < ViewComponent::Base
+  include Rails.application.routes.url_helpers
+
   def initialize(tweet:)
     @tweet = tweet
   end
 
-  def tweet_text
-    @tweet[:text]
-  end
-
-  def tweet_created_at
-    @tweet[:created_at]
+  def tweet_url
+    twitter_profile_status_url + @tweet.status_id
   end
 end

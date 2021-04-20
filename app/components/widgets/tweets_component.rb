@@ -5,4 +5,7 @@ class Widgets::TweetsComponent < ViewComponent::Base
     @tweets = tweets
   end
 
+  def render?
+    @tweets.compact.any?
+  end
 end
