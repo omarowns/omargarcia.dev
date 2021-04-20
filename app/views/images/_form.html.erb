@@ -1,3 +1,4 @@
+<%= render Admin::PreviewImageComponent.new(image: image) %>
 <%= form_with(model: image) do |form| %>
   <% if image.errors.any? %>
     <div id="error_explanation">
@@ -13,6 +14,16 @@
 
   <div class="field">
     <%= form.file_field :file %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alt %>
+    <%= form.text_field :alt %>
   </div>
 
   <div class="actions">

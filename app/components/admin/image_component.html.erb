@@ -1,8 +1,7 @@
 <article class="image">
   <section>
     <div class="shadow-image-frame p-8 pb-10">
-      <%= image_tag @image.file %>
-      <p><%= @image.filename %></p>
+      <%= render Admin::PreviewImageComponent.new(image: @image) %>
     </div>
   </section>
   <footer>

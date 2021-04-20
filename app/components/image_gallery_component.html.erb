@@ -1,0 +1,8 @@
+<div class="max-w-prose p-12 mx-auto md:my-3 md:overflow-hidden sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl">
+  <div class="flex flex-wrap justify-evenly">
+    <%= image_tag @images&.first&.file, alt: 'gallery image', class: 'w-3/5 h-full' %>
+    <%= image_tag @images&.second&.file, alt: 'gallery image', class: 'w-2/5 h-full self-center' %>
+    <%= image_tag @images&.third&.file, alt: 'gallery image', class: 'w-2/5 h-full self-center' %>
+    <%= image_tag @images&.fourth&.file, alt: 'gallery image', class: 'w-3/5 h-full self-end' %>
+  </div>
+</div>

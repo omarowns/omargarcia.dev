@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class TweetComponent < ViewComponent::Base
+class Twitter::TweetComponent < ViewComponent::Base
   include Rails.application.routes.url_helpers
 
   def initialize(tweet:)

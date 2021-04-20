@@ -3,7 +3,7 @@ class ImagesController < AdminController
 
   # GET /images
   def index
-    @images = Image.all
+    @images = Image.all.order(:created_at)
   end
 
   # GET /images/1
@@ -53,6 +53,6 @@ class ImagesController < AdminController
 
     # Only allow a list of trusted parameters through.
     def image_params
-      params.require(:image).permit(:file)
+      params.require(:image).permit(:file, :title, :alt)
     end
 end

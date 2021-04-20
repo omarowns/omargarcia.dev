@@ -44,14 +44,6 @@ class Profile < ApplicationRecord
   delegate :title, :additional, to: :interest_group, prefix: true, allow_nil: true
   delegate :title, :additional, to: :location_group, prefix: true, allow_nil: true
 
-  def main_image
-    main_images.first
-  end
-
-  def featured_image
-    featured_images.first
-  end
-
   def to_s
     "#{type} #{name}"
   end

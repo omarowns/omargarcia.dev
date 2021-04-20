@@ -1,10 +1,7 @@
 <h1>Image <%= @image.id %></h1>
 <%= render Admin::ArticleComponent.new do |c| %>
   <% c.section do %>
-    <p>
-      <%= image_tag @image.file %>
-      <strong><%= @image.filename %></strong>
-    </p>
+    <%= render Admin::PreviewImageComponent.new(image: @image) %>
   <% end %>
   <% c.footer do %>
     <%= link_to 'Edit', edit_image_path(@image) %>
