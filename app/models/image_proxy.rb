@@ -28,6 +28,7 @@ class ImageProxy < ApplicationRecord
   scope :main, -> { where(main: true) }
   scope :featured, -> { where(featured: true) }
   scope :main_image, -> { find_by(main: true) }
+  scope :position_ordered, -> { order(:position) }
   # scope :featured_image, -> { find_by(featured: true) }
 
   validates :position, uniqueness: { scope: [:imageable_id, :imageable_type] }
@@ -36,6 +37,6 @@ class ImageProxy < ApplicationRecord
 
   include PolymorphicNameable
 
-  delegate :filename, to: :image, prefix: true, allow_nil: false
+  delegate :filename, :title, :alt, to: :image, prefix: true, allow_nil: false
   delegate :polymorphic_title, to: :imageable, allow_nil: false
 end

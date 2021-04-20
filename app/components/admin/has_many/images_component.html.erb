@@ -15,7 +15,7 @@
       <% image_proxies.each do |image_proxy| %>
         <tr>
           <td><%= image_proxy.position %></td>
-          <td><%= link_to image_proxy.image_filename, image_proxy.image %></td>
+          <td><%= link_to image_proxy.image_title, image_proxy.image %></td>
           <td><%= image_proxy.main %></td>
           <td><%= image_proxy.featured %></td>
           <td><%= link_to 'Show', image_proxy %></td>

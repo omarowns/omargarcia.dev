@@ -23,4 +23,8 @@ module HasManyImageable
   def featured_images
     ::Image.where(id: image_proxies.featured.pluck(:image_id))
   end
+
+  def position_ordered_featured_images
+    image_proxies.includes(:image).featured.position_ordered.map(&:image)
+  end
 end
