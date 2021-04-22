@@ -9,7 +9,7 @@ gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
 
-gem 'turbolinks', '~> 5'
+
 gem 'tailwindcss-rails'
 gem 'time_difference'
 gem 'view_component', require: 'view_component/engine'
@@ -20,6 +20,7 @@ gem 'omniauth-spotify'
 gem 'omniauth-twitter'
 gem 'omniauth-rails_csrf_protection'
 gem 'aws-sdk-s3', require: false
+gem 'hotwire-rails'
 
 
 # 3rd party APIs
