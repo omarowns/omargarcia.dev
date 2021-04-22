@@ -1,0 +1,29 @@
+.auth {
+  &-article {
+    @apply w-4/5 mx-auto my-3 p-16 border-4 border-gray-900 shadow-glitch-top-left;
+
+    &-header {
+      @apply p-4 text-2xl text-center;
+    }
+
+    &-section {
+      @apply p-4;
+    }
+
+    &-footer {
+      @apply text-right;
+    }
+  }
+
+  .field {
+    @apply flex flex-col mb-3;
+  }
+
+  input[type="text"] {
+    @apply rounded-md border-gray-300 shadow-sm focus:border-green-400 focus:ring focus:ring-purple-300 focus:ring-opacity-50;
+  }
+
+  input[type="submit"] {
+    @apply px-4 py-2 rounded-md border-gray-300 bg-green-100 shadow-md;
+  }
+}
