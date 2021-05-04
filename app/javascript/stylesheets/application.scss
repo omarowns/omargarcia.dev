@@ -13,3 +13,7 @@
     @apply text-xl;
   }
 }
+
+.bg-background-cover > div {
+  mix-blend-mode: multiply;
+}

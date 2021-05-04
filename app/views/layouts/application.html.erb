@@ -10,10 +10,19 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag "application", "data-turbo-track": "reload" %>
+    <style media="screen">
+      :root {
+        --background-cover-url: <%= @pattern.to_data_uri %>;
+      }
+    </style>
   </head>
 
   <body>
-    <div class="">
+    <div class="bg-background-cover h-screen w-screen fixed -z-999">
+      <div class="bg-gradient-to-tl from-gray-200 via-yellow-100 to-green-400 h-screen w-screen -z-999"></div>
+    </div>
+
+    <div>
       <section>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>

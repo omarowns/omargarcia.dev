@@ -1,11 +1,11 @@
-<section class="bg-white h-screen flex flex-col">
+<section class="h-screen flex flex-col">
   <div class="flex flex-col flex-grow h-full">
     <div class="mx-auto w-5/6 p-3 border-4 border-gray-900 shadow-glitch-bottom-left">
       <h1 class="text-center text-5xl lg:text-8xl"><%= @profile.name %></h1>
       <p class="text-center lg:text-xl"><i><%= @profile.title %></i></p>
       <p class="text-center lg:text-lg"><%= @profile.animoji %></p>
     </div>
-    <div class="mx-auto h-full w-5/6 p-3 flex items-center overflow-hidden">
+    <div class="mx-auto h-full w-5/6 p-3 mt-3 flex items-center overflow-hidden">
       <%= render ImageComponent.new(image: @profile.main_image, alt: 'Profile Picture', class: 'lg:h-full mx-auto self-center rounded-full lg:rounded-none') %>
     </div>
   </div>
@@ -15,11 +15,11 @@
     </div>
   </div>
 </section>
-<section class="bg-white mt-3">
+<section class="mt-4">
   <div class="w-5/6 p-3 mx-auto border-4 border-gray-900 shadow-glitch-bottom-right">
     <h2 class="text-center text-4xl lg:text-6xl"><%= @profile.about_title %></h2>
   </div>
-  <div class="max-w-prose px-16 mx-auto text-lg lg:text-3xl">
+  <div class="max-w-prose px-16 mt-4 mx-auto text-lg lg:text-3xl">
     <% @profile.active_about_lines.each do |al| %>
       <p class="mt-2"><%= al.line %></p>
     <% end %>
@@ -36,7 +36,7 @@
     </p>
   </div>
 </section>
-<section class="bg-white h-screen/2">
+<section class="h-screen/2 mt-8">
   <div class="w-5/6 p-3 mx-auto border-4 border-gray-900 shadow-glitch-top-right">
     <h2 class="text-center text-4xl"><%= @profile.work_group_title %></h2>
   </div>
@@ -52,7 +52,7 @@
     <% end %>
   </div>
 </section>
-<section class="bg-white h-screen/2">
+<!-- <section class="h-screen/2">
   <div class="w-5/6 p-3 mx-auto border-4 border-gray-900 shadow-glitch-top-left">
     <h2 class="text-center text-4xl"><%= @profile.location_group_title %></h2>
   </div>
@@ -66,4 +66,4 @@
       </ul>
     </p>
   </div>
-</section>
+</section> -->

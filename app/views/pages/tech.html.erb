@@ -1,11 +1,11 @@
-<section class="bg-white h-screen flex flex-wrap">
+<section class="h-screen flex flex-wrap">
   <div class="flex flex-col flex-grow h-full">
     <div class="mx-auto w-5/6 p-3 border-4 border-gray-900 shadow-glitch-bottom-right">
       <h1 class="text-center text-5xl lg:text-8xl"><%= @profile.name %></h1>
       <p class="text-center lg:text-xl"><i><%= @profile.title %></i></p>
       <p class="text-center lg:text-lg"><%= @profile.animoji %></p>
     </div>
-    <div class="mx-auto h-full w-5/6 p-3 flex items-center overflow-hidden">
+    <div class="mx-auto h-full w-5/6 p-3 mt-3 flex items-center overflow-hidden">
       <%= render ImageComponent.new(image: @profile.main_image, alt: 'Profile Picture', class: 'lg:h-full mx-auto self-center rounded-full lg:rounded-none') %>
     </div>
   </div>
@@ -15,11 +15,11 @@
     </div>
   </div>
 </section>
-<section class="bg-white mt-3">
+<section class="mt-4">
   <div class="w-5/6 p-3 mx-auto border-4 border-gray-900 shadow-glitch-bottom-left">
     <h2 class="text-center text-4xl lg:text-6xl"><%= @profile.about_title %></h2>
   </div>
-  <div class="p-16 md:p-0 md:my-3 mx-auto max-w-prose md:overflow-hidden">
+  <div class="p-16 md:p-0 md:my-8 mx-auto max-w-prose md:overflow-hidden">
     <%= render ImageComponent.new(image: @profile.about.main_image, alt: 'About Me picture', class: 'self-center mx-auto rounded-none lg:rounded-full') %>
   </div>
   <div class="max-w-prose px-16 mx-auto text-lg lg:text-3xl">
@@ -28,7 +28,7 @@
     <% end %>
   </div>
 </section>
-<section class="bg-white flex flex-col mt-3">
+<section class="flex flex-col mt-6">
   <div class="w-5/6 p-3 mx-auto border-4 border-gray-900 shadow-glitch-top-left">
     <h2 class="text-center text-4xl lg:text-6xl"><%= @profile.work_group_title %></h2>
   </div>
@@ -47,7 +47,7 @@
     <% end %>
   </div>
 </section>
-<section class="bg-white h-screen mt-3">
+<section class="h-screen mt-6">
   <div class="w-5/6 p-3 mx-auto border-4 border-gray-900 shadow-glitch-top-right">
     <h2 class="text-center text-4xl lg:text-6xl">On a personal side</h2>
   </div>

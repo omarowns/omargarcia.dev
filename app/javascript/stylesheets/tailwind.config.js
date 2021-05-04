@@ -39,8 +39,12 @@ module.exports = {
         "screen/6": "calc(100vh / 6)"
       }),
       backgroundImage: theme => ({
-        'spotify-album-cover': "linear-gradient(to top, var(--tw-gradient-stops)), var(--spotify-album-cover-url);"
-      })
+        'spotify-album-cover': "linear-gradient(to top, var(--tw-gradient-stops)), var(--spotify-album-cover-url);",
+        'background-cover': "var(--background-cover-url);",
+      }),
+      zIndex: {
+        '-999': '-999'
+      }
     },
   },
   variants: {
