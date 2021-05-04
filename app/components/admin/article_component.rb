@@ -6,8 +6,4 @@ class Admin::ArticleComponent < ViewComponent::Base
   renders_one :header
   renders_one :section
   renders_one :footer
-
-  class HeaderComponent < ViewComponent::Base; end
-  class SectionComponent < ViewComponent::Base; end
-  class FooterComponent < ViewComponent::Base; end
 end

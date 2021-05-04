@@ -3,7 +3,7 @@ class LocationsController < AdminController
 
   # GET /locations
   def index
-    @locations = Location.all
+    @locations = Location.all.order(:id)
   end
 
   # GET /locations/1
