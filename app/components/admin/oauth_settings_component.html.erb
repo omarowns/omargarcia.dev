@@ -5,9 +5,9 @@
     <%= link_to "#{provider_name} Oauth Settings", provider_oauth_settings_url, target: '_blank' %>
   <% else %>
     <% if spotify_provider? %>
-      <%= button_to "Connect with #{OmniAuth::Utils.camelize(@provider)}", omniauth_authorization_path, params: { show_dialog: true } %>
+      <%= button_to "Connect with #{OmniAuth::Utils.camelize(@provider)}", omniauth_authorization_path, params: { show_dialog: true }, data: { turbo: false } %>
     <% else %>
-      <%= button_to "Connect with #{OmniAuth::Utils.camelize(@provider)}", omniauth_authorization_path %>
+      <%= button_to "Connect with #{OmniAuth::Utils.camelize(@provider)}", omniauth_authorization_path, data: { turbo: false } %>
     <% end %>
   <% end %>
 </div>
