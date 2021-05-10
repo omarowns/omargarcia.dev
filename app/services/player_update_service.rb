@@ -17,13 +17,14 @@ class PlayerUpdateService
   end
 
   def enqueue_next
-    if @service.is_playing?
-      track_duration = @service.currently_playing.duration_ms
-      track_progress = @service.player.progress
-      remaining_seconds = (track_duration - track_progress) / 1000
-      enqueue_after = remaining_seconds + 5
+    return unless Flags.live_player_update_active?
+    return unless @service.is_playing?
 
-      UserUpdatePlayerJob.set(wait: enqueue_after.seconds).perform_later(@user)
-    end
+    track_duration = @service.currently_playing.duration_ms
+    track_progress = @service.player.progress
+    remaining_seconds = (track_duration - track_progress) / 1000
+    enqueue_after = remaining_seconds + 5
+
+    UserUpdatePlayerJob.set(wait: enqueue_after.seconds).perform_later(@user)
   end
 end

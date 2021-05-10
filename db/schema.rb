@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_10_143019) do
+ActiveRecord::Schema.define(version: 2021_05_10_143837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,14 @@ ActiveRecord::Schema.define(version: 2021_05_10_143019) do
     t.string "token_secret"
     t.string "refresh_token"
     t.index ["user_id"], name: "index_authenticables_on_user_id"
+  end
+
+  create_table "feature_flags", force: :cascade do |t|
+    t.string "key"
+    t.string "description"
+    t.boolean "active"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "image_proxies", force: :cascade do |t|

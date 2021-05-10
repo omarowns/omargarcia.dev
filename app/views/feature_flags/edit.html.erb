@@ -1,0 +1,11 @@
+<h1>Editing Feature Flag <%= @feature_flag.key %></h1>
+
+<%= render Admin::ArticleComponent.new do |c| %>
+  <% c.section do %>
+    <%= render 'form', feature_flag: @feature_flag %>
+  <% end %>
+  <% c.footer do %>
+    <%= link_to 'Show', @feature_flag %>
+    <%= link_to 'Back', feature_flags_path %>
+  <% end %>
+<% end %>

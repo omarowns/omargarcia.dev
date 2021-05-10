@@ -1,0 +1,24 @@
+<h1>Feature Flag <%= @feature_flag.key %></h1>
+
+<%= render Admin::ArticleComponent.new do |c| %>
+  <% c.section do %>
+    <p>
+      <strong>Key:</strong>
+      <%= @feature_flag.key %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= @feature_flag.description %>
+    </p>
+
+    <p>
+      <strong>Active:</strong>
+      <%= @feature_flag.active %>
+    </p>
+  <% end %>
+  <% c.footer do %>
+    <%= link_to 'Edit', edit_feature_flag_path(@feature_flag) %>
+    <%= link_to 'Back', feature_flags_path %>
+  <% end %>
+<% end %>
