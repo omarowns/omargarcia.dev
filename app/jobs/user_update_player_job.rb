@@ -1,5 +1,5 @@
 class UserUpdatePlayerJob < ApplicationJob
-  queue_as :default
+  queue_as :critical
   unique :until_executing, on_conflict: :log
 
   rescue_from ActiveJob::DeserializationError do |exception|

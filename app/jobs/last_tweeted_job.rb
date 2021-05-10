@@ -1,5 +1,5 @@
 class LastTweetedJob < ApplicationJob
-  queue_as :default
+  queue_as :low
 
   def perform(*args)
     service = TwitterService.new(username: 'omarowns')

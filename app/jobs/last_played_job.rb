@@ -1,5 +1,5 @@
 class LastPlayedJob < ApplicationJob
-  queue_as :default
+  queue_as :low
 
   def perform(*args)
     user = User.joins(:authenticables).find_by(authenticables: { provider: 'spotify' })
