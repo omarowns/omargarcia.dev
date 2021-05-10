@@ -28,5 +28,10 @@ module OmargarciaDev
       Rails.application.credentials.spotify[:client_id],
       Rails.application.credentials.spotify[:client_secret]
     )
+
+    config.action_mailer.deliver_later_queue_name = 'low' # defaults to "mailers"
+    config.active_storage.queues.analysis   = 'low'       # defaults to "active_storage_analysis"
+    config.active_storage.queues.purge      = 'low'       # defaults to "active_storage_purge"
+    config.active_storage.queues.mirror     = 'low'       # defaults to "active_storage_mirror"
   end
 end

@@ -22,4 +22,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i(github spotify twitter)
 
   has_many :authenticables, dependent: :destroy
+  has_one :player
 end

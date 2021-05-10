@@ -24,6 +24,7 @@ gem 'hotwire-rails'
 gem 'geo_pattern'
 gem 'impressionist'
 gem 'activejob-uniqueness'
+gem 'sidekiq'
 
 # 3rd party APIs
 gem 'twitter'

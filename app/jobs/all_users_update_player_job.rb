@@ -1,3 +1,4 @@
+# Run every X minutes (10 for Heroku Scheduler)
 class AllUsersUpdatePlayerJob < ApplicationJob
   queue_as :default
 

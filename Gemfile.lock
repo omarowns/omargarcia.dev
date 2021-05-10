@@ -323,6 +323,10 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
+    sidekiq (6.1.2)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
     simple_oauth (0.3.1)
     spring (2.1.1)
     sprockets (4.0.2)
@@ -416,6 +420,7 @@ DEPENDENCIES
   rspotify!
   sass-rails (>= 6)
   selenium-webdriver
+  sidekiq
   spring
   tailwindcss-rails
   time_difference
