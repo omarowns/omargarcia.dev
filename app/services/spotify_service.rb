@@ -1,9 +1,16 @@
 class SpotifyService
   attr_reader :spotify_user
 
-  def initialize(user: nil, username: nil)
+  def initialize(user: nil)
     @user = user
-    @username = username
+  end
+
+  def is_playing?
+    @is_playing ||= player&.is_playing || false
+  end
+
+  def player
+    spotify_user&.player
   end
 
   def last_played
@@ -11,7 +18,7 @@ class SpotifyService
   end
 
   def currently_playing
-    spotify_user&.player&.currently_playing
+    player&.currently_playing
   end
 
   def recently_played(limit: 20, after: nil, before: nil)
@@ -21,13 +28,7 @@ class SpotifyService
   private
 
   def spotify_user
-    @spotify_user ||= begin
-      if @user.present?
-        RSpotify::User.new(credentials)
-      else
-        RSpotify::User.find(@username)
-      end
-    end
+    @spotify_user ||= RSpotify::User.new(credentials)
   end
 
   def credentials

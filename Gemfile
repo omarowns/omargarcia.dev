@@ -22,6 +22,8 @@ gem 'omniauth-rails_csrf_protection'
 gem 'aws-sdk-s3', require: false
 gem 'hotwire-rails'
 gem 'geo_pattern'
+gem 'impressionist'
+gem 'activejob-uniqueness'
 
 # 3rd party APIs
 gem 'twitter'

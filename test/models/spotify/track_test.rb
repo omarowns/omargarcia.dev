@@ -11,6 +11,7 @@
 #  preview_url     :string
 #  song            :string
 #  song_url        :string
+#  uri             :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #

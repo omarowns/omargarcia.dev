@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_20_165557) do
+ActiveRecord::Schema.define(version: 2021_05_10_143019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,32 @@ ActiveRecord::Schema.define(version: 2021_04_20_165557) do
     t.string "title"
   end
 
+  create_table "impressions", force: :cascade do |t|
+    t.string "impressionable_type"
+    t.integer "impressionable_id"
+    t.integer "user_id"
+    t.string "controller_name"
+    t.string "action_name"
+    t.string "view_name"
+    t.string "request_hash"
+    t.string "ip_address"
+    t.string "session_hash"
+    t.text "message"
+    t.text "referrer"
+    t.text "params"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["controller_name", "action_name", "ip_address"], name: "controlleraction_ip_index"
+    t.index ["controller_name", "action_name", "request_hash"], name: "controlleraction_request_index"
+    t.index ["controller_name", "action_name", "session_hash"], name: "controlleraction_session_index"
+    t.index ["impressionable_type", "impressionable_id", "ip_address"], name: "poly_ip_index"
+    t.index ["impressionable_type", "impressionable_id", "params"], name: "poly_params_request_index"
+    t.index ["impressionable_type", "impressionable_id", "request_hash"], name: "poly_request_index"
+    t.index ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index"
+    t.index ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index"
+    t.index ["user_id"], name: "index_impressions_on_user_id"
+  end
+
   create_table "interest_groups", force: :cascade do |t|
     t.string "title"
     t.bigint "profile_id", null: false
@@ -140,6 +166,16 @@ ActiveRecord::Schema.define(version: 2021_04_20_165557) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "players", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "spotify_track_id"
+    t.boolean "playing"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["spotify_track_id"], name: "index_players_on_spotify_track_id"
+    t.index ["user_id"], name: "index_players_on_user_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.string "type"
     t.string "name"
@@ -160,6 +196,7 @@ ActiveRecord::Schema.define(version: 2021_04_20_165557) do
     t.string "preview_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "uri"
   end
 
   create_table "twitter_custom_tweets", force: :cascade do |t|
@@ -214,6 +251,8 @@ ActiveRecord::Schema.define(version: 2021_04_20_165557) do
   add_foreign_key "interests", "interest_groups"
   add_foreign_key "location_groups", "profiles"
   add_foreign_key "location_proxies", "locations"
+  add_foreign_key "players", "spotify_tracks"
+  add_foreign_key "players", "users"
   add_foreign_key "work_groups", "profiles"
   add_foreign_key "works", "work_groups"
 end

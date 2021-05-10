@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  impressionist actions: %i(index tech)
   before_action :load_tweets
 
   def index
