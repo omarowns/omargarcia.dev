@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class Widgets::MiniPlayerComponent < ViewComponent::Base
-  def initialize(track:)
-    @track = track
+  def initialize(player:)
+    @player = player
   end
 
   def render?
-    @track.present?
+    @player.present?
   end
 end

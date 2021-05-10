@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   impressionist actions: %i(index tech)
-  before_action :load_tweets
+  before_action :load_player
 
   def index
     @profile = Profile.includes(helpers.profiles_include_hash).find_by(type: 'MX')
@@ -12,8 +12,7 @@ class PagesController < ApplicationController
 
   private
 
-  def load_tweets
-    @last_tweet = Twitter::CustomTweet.last
-    @last_track = Spotify::Track.last
+  def load_player
+    @player = User.first.player
   end
 end

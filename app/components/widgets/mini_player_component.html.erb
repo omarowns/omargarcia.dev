@@ -2,5 +2,5 @@
   <div class="w-26 fixed transform -rotate-90 -left-14 top-10 bg-gray-800 text-green-100 rounded-md p-1">
     Last Played
   </div>
-  <%= render Spotify::PlayerComponent.new(track: @track) %>
+  <%= render Spotify::PlayerComponent.new(track: @player.spotify_track) %>
 </section>
