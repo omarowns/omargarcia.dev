@@ -1,13 +1,6 @@
-<article id="spotify-player" style="--spotify-album-cover-url: url(<%= @track.album_cover_url %>)">
+<article id="spotify-player" style="--spotify-album-cover-url: url(<%= @track&.album_cover_url %>)">
   <footer>
-    <h4><%= link_to @track.song, @track.song_url %></h4>
-    <h5><%= link_to @track.artist, @track.artist_url %></h5>
-    <% if @user.present? %>
-      <div class="mini-player-progress-bar">
-        <span>1:04</span>
-        <span class="mini-player-progress-bar--progress"></span>
-        <span>2:53</span>
-      </div>
-    <% end %>
+    <h4><%= link_to @track.song, @track.song_url if @track.present %></h4>
+    <h5><%= link_to (@track&.artist || 'N/A'), (@track&.artist_url || Rails.application.routes.url_helpers.root_path) %></h5>
   </footer>
 </article>
