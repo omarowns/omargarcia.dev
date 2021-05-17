@@ -22,7 +22,8 @@ gem 'omniauth-rails_csrf_protection'
 gem 'aws-sdk-s3', require: false
 gem 'hotwire-rails'
 gem 'geo_pattern'
-gem 'impressionist'
+# TODO: Update with 'charlotte-ruby/impressionist' when https://github.com/charlotte-ruby/impressionist/pull/295 gets merged
+gem 'impressionist', github: 'rposborne/impressionist'
 gem 'activejob-uniqueness'
 gem 'sidekiq'
 

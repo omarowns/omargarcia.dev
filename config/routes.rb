@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     root 'pages#tech', as: 'dev_root'
   end
 
+  get '/lnkdin', to: 'pages#lnkdin', as: 'lnkdin'
+
   if Rails.env.test?
     get '/mx_root', to: 'pages#index', as: 'test_mx_root'
     get '/dev_root', to: 'pages#tech', as: 'test_dev_root'

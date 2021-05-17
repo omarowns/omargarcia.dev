@@ -41,9 +41,14 @@ module.exports = {
       backgroundImage: theme => ({
         'spotify-album-cover': "linear-gradient(to top, var(--tw-gradient-stops)), var(--spotify-album-cover-url);",
         'background-cover': "var(--background-cover-url);",
+        'background-secondary-cover': "var(--background-secondary-cover-url);",
       }),
       zIndex: {
         '-999': '-999'
+      },
+      backgroundPosition: {
+        'top-4': 'center top 1rem',
+        'bottom-8': 'center bottom 2rem'
       }
     },
   },

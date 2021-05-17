@@ -12,6 +12,7 @@
 #
 class Profile < ApplicationRecord
   self.inheritance_column = :_type_disabled
+  is_impressionable
 
   has_many :abouts
   has_many :about_lines, through: :abouts, inverse_of: :profile

@@ -13,15 +13,12 @@
     <style media="screen">
       :root {
         --background-cover-url: <%= @pattern.to_data_uri %>;
+        --background-secondary-cover-url: url("<%= Rails.application.routes.url_helpers.rails_blob_path(@image_bg&.file, only_path: true) %>");
       }
     </style>
   </head>
 
   <body>
-    <div class="bg-background-cover h-screen w-screen fixed -z-999">
-      <div class="bg-gradient-to-tl from-gray-200 via-yellow-100 to-green-400 h-screen w-screen -z-999"></div>
-    </div>
-
     <div>
       <section>
         <p class="notice"><%= notice %></p>
