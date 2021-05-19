@@ -1,5 +1,6 @@
 class SectionsController < AdminController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
+  before_action :set_profile, only: [:index, :new]
 
   # GET /sections
   def index
@@ -42,13 +43,17 @@ class SectionsController < AdminController
   # DELETE /sections/1
   def destroy
     @section.destroy
-    redirect_to sections_url, notice: 'Section was successfully destroyed.'
+    redirect_to profile_sections_url(@section.profile), notice: 'Section was successfully destroyed.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_section
       @section = Section.find(params[:id])
+    end
+
+    def set_profile
+      @profile = Profile.find(params[:profile_id]) if params[:profile_id].present?
     end
 
     # Only allow a list of trusted parameters through.

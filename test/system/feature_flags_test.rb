@@ -2,7 +2,8 @@ require "application_system_test_case"
 
 class FeatureFlagsTest < ApplicationSystemTestCase
   setup do
-    @feature_flag = feature_flags(:one)
+    @feature_flag = create(:feature_flag)
+    login
   end
 
   test "visiting the index" do

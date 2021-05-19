@@ -1,6 +1,11 @@
-<h1>Editing Section</h1>
+<h1>Editing Section <%= @section.title %></h1>
 
-<%= render 'form', section: @section %>
-
-<%= link_to 'Show', @section %> |
-<%= link_to 'Back', sections_path %>
+<%= render Admin::ArticleComponent.new do |c| %>
+  <%= c.section do %>
+    <%= render 'form', section: @section %>
+  <% end %>
+  <%= c.footer do %>
+  <%= link_to 'Show', @section %>
+  <%= link_to 'Back', profile_sections_path(@section.profile) %>
+  <% end %>
+<% end %>

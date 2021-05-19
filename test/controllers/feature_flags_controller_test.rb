@@ -2,7 +2,8 @@ require "test_helper"
 
 class FeatureFlagsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @feature_flag = feature_flags(:one)
+    @feature_flag = create(:feature_flag)
+    login
   end
 
   test "should get index" do

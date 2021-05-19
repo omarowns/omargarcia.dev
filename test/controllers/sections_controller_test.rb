@@ -2,16 +2,17 @@ require "test_helper"
 
 class SectionsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @section = sections(:one)
+    @section = create(:section)
+    login
   end
 
   test "should get index" do
-    get sections_url
+    get profile_sections_url(@section.profile)
     assert_response :success
   end
 
   test "should get new" do
-    get new_section_url
+    get new_profile_section_url(@section.profile)
     assert_response :success
   end
 
@@ -43,6 +44,6 @@ class SectionsControllerTest < ActionDispatch::IntegrationTest
       delete section_url(@section)
     end
 
-    assert_redirected_to sections_url
+    assert_redirected_to profile_sections_url(@section.profile)
   end
 end

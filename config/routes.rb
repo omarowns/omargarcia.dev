@@ -34,9 +34,11 @@ Rails.application.routes.draw do
         end
 
         resources :profiles do
-          resources :sections
+          resources :sections, only: [:index, :new]
           resources :image_proxies, only: [:index, :new]
         end
+
+        resources :sections, except: [:index]
 
         resources :image_proxies
 

@@ -13,7 +13,7 @@
     </p>
   <% end %>
   <%= c.footer do %>
-    <%= link_to 'Edit', edit_section_path(@section) %> |
-    <%= link_to 'Back', sections_path %>
+    <%= link_to 'Edit', edit_section_path(@section) %>
+    <%= link_to 'Back', profile_sections_path(@section.profile) %>
   <% end %>
 <% end %>

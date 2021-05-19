@@ -2,7 +2,8 @@ require "application_system_test_case"
 
 class SectionsTest < ApplicationSystemTestCase
   setup do
-    @section = sections(:one)
+    @section = create(:section)
+    login
   end
 
   test "visiting the index" do

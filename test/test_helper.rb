@@ -16,7 +16,7 @@ class ActiveSupport::TestCase
   include Warden::Test::Helpers
 
   def login(user = create(:user))
-    if self.class.is_a?(ApplicationSystemTestCase)
+    if self.class.is_a?(ActionDispatch::SystemTestCase)
       login_as(user, scope: :user)
     else
       sign_in(user)
