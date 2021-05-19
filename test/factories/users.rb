@@ -20,6 +20,12 @@ FactoryBot.define do
   factory :user do
     email { Faker::Internet.email }
 
+    factory :user_with_player do
+      after :create do |user|
+        user.create_player
+      end
+    end
+
     transient do
       pass { Faker::Alphanumeric.alphanumeric(number: 10) }
     end

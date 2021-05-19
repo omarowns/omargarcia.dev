@@ -13,14 +13,14 @@ main_user = User.new(
 )
 main_user.save
 
-mx_profile = Profile.find_or_create_by(type: 'MX') do |profile|
+mx_profile = Profile.find_or_create_by(type: 'mx') do |profile|
   profile.name = 'Omar Garcia'
   profile.title = 'Eres mas valiente que Brodo'
   profile.animoji = '(∩｀-´)⊃━☆ﾟ.*･｡ﾟ'
   profile.save
 end
 
-dev_profile = Profile.find_or_create_by(type: 'DEV') do |profile|
+dev_profile = Profile.find_or_create_by(type: 'dev') do |profile|
   profile.name = 'Omar Garcia'
   profile.title = 'Sr. Software Engineer'
   profile.animoji = '(∩｀-´)⊃━☆ﾟ.*･｡ﾟ 💎'

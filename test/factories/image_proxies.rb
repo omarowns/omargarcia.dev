@@ -26,7 +26,7 @@ FactoryBot.define do
     main { false }
     featured { false }
     position { 1 }
-    imageable { create(:about) }
+    imageable { create(:profile) }
     association :image
   end
 end

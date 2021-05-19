@@ -21,7 +21,7 @@
 #
 FactoryBot.define do
   factory :player do
-    user { nil }
+    association :user
     spotify_track { nil }
     playing { false }
   end

@@ -19,6 +19,6 @@
 FactoryBot.define do
   factory :section do
     title { "MyString" }
-    profile { nil }
+    association :profile
   end
 end

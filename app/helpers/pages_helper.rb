@@ -17,15 +17,7 @@ module PagesHelper
         image: {
           file_attachment: :blob
         }
-      },
-      about: {},
-      work_group: {},
-      interest_group: {},
-      location_group: {},
-      active_about_lines: {},
-      active_works: {},
-      active_interests: {},
-      active_location_proxies: {},
+      }
     }
   end
 end
