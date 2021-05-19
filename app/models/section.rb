@@ -3,7 +3,6 @@
 # Table name: sections
 #
 #  id         :bigint           not null, primary key
-#  title      :string
 #  type       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -20,9 +19,14 @@
 #
 class Section < ApplicationRecord
   self.inheritance_column = :_type_disabled
+  include Translatable
 
   belongs_to :profile
   has_many :translations, class_name: 'SectionTranslation'
 
   validates :type, uniqueness: true
+
+  translates :title
+
+  default_scope { includes :current_translation }
 end

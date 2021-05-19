@@ -18,6 +18,20 @@ mx_profile = Profile.find_or_create_by(type: 'mx') do |profile|
   profile.title = 'Eres mas valiente que Brodo'
   profile.animoji = '(∩｀-´)⊃━☆ﾟ.*･｡ﾟ'
   profile.save
+
+  profile.sections.find_or_create_by(type: 'about_me') do |section|
+    section.save
+
+    section.translations.find_or_create_by(locale: 'es-MX') do |section_translation|
+      section_translation.title = 'Hola!, soy Omar Garcia'
+      section_translation.save
+    end
+
+    section.translations.find_or_create_by(locale: 'en') do |section_translation|
+      section_translation.title = 'Hi!, my name is Omar Garcia'
+      section_translation.save
+    end
+  end
 end
 
 dev_profile = Profile.find_or_create_by(type: 'dev') do |profile|

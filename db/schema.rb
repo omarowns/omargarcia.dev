@@ -10,31 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_19_213415) do
+ActiveRecord::Schema.define(version: 2021_05_19_213635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "about_lines", force: :cascade do |t|
-    t.string "line"
-    t.integer "position"
-    t.bigint "about_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "profile_id"
-    t.index ["about_id"], name: "index_about_lines_on_about_id"
-    t.index ["profile_id"], name: "index_about_lines_on_profile_id"
-  end
-
-  create_table "abouts", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "profile_id", null: false
-    t.string "additional"
-    t.boolean "active", default: false
-    t.index ["profile_id"], name: "index_abouts_on_profile_id"
-  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -159,7 +138,6 @@ ActiveRecord::Schema.define(version: 2021_05_19_213415) do
   end
 
   create_table "sections", force: :cascade do |t|
-    t.string "title"
     t.bigint "profile_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -202,33 +180,6 @@ ActiveRecord::Schema.define(version: 2021_05_19_213415) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "work_groups", force: :cascade do |t|
-    t.string "title"
-    t.bigint "profile_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "additional"
-    t.boolean "active", default: false
-    t.index ["profile_id"], name: "index_work_groups_on_profile_id"
-  end
-
-  create_table "works", force: :cascade do |t|
-    t.string "title"
-    t.string "additional"
-    t.string "link"
-    t.string "duration"
-    t.string "image_pack_tag"
-    t.bigint "work_group_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "profile_id"
-    t.index ["profile_id"], name: "index_works_on_profile_id"
-    t.index ["work_group_id"], name: "index_works_on_work_group_id"
-  end
-
-  add_foreign_key "about_lines", "abouts"
-  add_foreign_key "about_lines", "profiles"
-  add_foreign_key "abouts", "profiles"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "authenticables", "users"
@@ -237,7 +188,4 @@ ActiveRecord::Schema.define(version: 2021_05_19_213415) do
   add_foreign_key "players", "users"
   add_foreign_key "section_translations", "sections"
   add_foreign_key "sections", "profiles"
-  add_foreign_key "work_groups", "profiles"
-  add_foreign_key "works", "profiles"
-  add_foreign_key "works", "work_groups"
 end
