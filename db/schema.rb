@@ -128,52 +128,6 @@ ActiveRecord::Schema.define(version: 2021_05_10_143837) do
     t.index ["user_id"], name: "index_impressions_on_user_id"
   end
 
-  create_table "interest_groups", force: :cascade do |t|
-    t.string "title"
-    t.bigint "profile_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "additional"
-    t.boolean "active", default: false
-    t.index ["profile_id"], name: "index_interest_groups_on_profile_id"
-  end
-
-  create_table "interests", force: :cascade do |t|
-    t.string "value"
-    t.integer "position"
-    t.bigint "interest_group_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["interest_group_id"], name: "index_interests_on_interest_group_id"
-  end
-
-  create_table "location_groups", force: :cascade do |t|
-    t.string "title"
-    t.bigint "profile_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "additional"
-    t.boolean "active", default: false
-    t.index ["profile_id"], name: "index_location_groups_on_profile_id"
-  end
-
-  create_table "location_proxies", force: :cascade do |t|
-    t.integer "position"
-    t.string "locatable_type", null: false
-    t.bigint "locatable_id", null: false
-    t.bigint "location_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["locatable_type", "locatable_id"], name: "index_location_proxies_on_locatable"
-    t.index ["location_id"], name: "index_location_proxies_on_location_id"
-  end
-
-  create_table "locations", force: :cascade do |t|
-    t.string "value"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "players", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "spotify_track_id"
@@ -255,10 +209,6 @@ ActiveRecord::Schema.define(version: 2021_05_10_143837) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "authenticables", "users"
   add_foreign_key "image_proxies", "images"
-  add_foreign_key "interest_groups", "profiles"
-  add_foreign_key "interests", "interest_groups"
-  add_foreign_key "location_groups", "profiles"
-  add_foreign_key "location_proxies", "locations"
   add_foreign_key "players", "spotify_tracks"
   add_foreign_key "players", "users"
   add_foreign_key "work_groups", "profiles"

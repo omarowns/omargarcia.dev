@@ -1,6 +1,0 @@
-<h1>Location Groups</h1>
-<%= render Admin::TableComponent.new(records: @location_groups, model: LocationGroup) do |c| %>
-  <%= c.new_link do %>
-    <%= link_to 'New Location Group', new_location_group_path %>
-  <% end %>
-<% end %>
