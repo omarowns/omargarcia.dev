@@ -1,0 +1,19 @@
+<h1>Section <%= @section.title %></h1>
+
+<%= render Admin::ArticleComponent.new do |c| %>
+  <%= c.section do %>
+    <p>
+      <strong>Title:</strong>
+      <%= @section.title %>
+    </p>
+
+    <p>
+      <strong>Profile:</strong>
+      <%= @section.profile_id %>
+    </p>
+  <% end %>
+  <%= c.footer do %>
+    <%= link_to 'Edit', edit_section_path(@section) %> |
+    <%= link_to 'Back', sections_path %>
+  <% end %>
+<% end %>

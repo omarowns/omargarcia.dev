@@ -1,10 +1,8 @@
 # == Schema Information
 #
-# Table name: abouts
+# Table name: sections
 #
 #  id         :bigint           not null, primary key
-#  active     :boolean          default(FALSE)
-#  additional :string
 #  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -12,7 +10,7 @@
 #
 # Indexes
 #
-#  index_abouts_on_profile_id  (profile_id)
+#  index_sections_on_profile_id  (profile_id)
 #
 # Foreign Keys
 #
@@ -20,7 +18,7 @@
 #
 require "test_helper"
 
-class AboutTest < ActiveSupport::TestCase
+class SectionTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

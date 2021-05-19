@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_10_143837) do
+ActiveRecord::Schema.define(version: 2021_05_19_184401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,9 @@ ActiveRecord::Schema.define(version: 2021_05_10_143837) do
     t.bigint "about_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "profile_id"
     t.index ["about_id"], name: "index_about_lines_on_about_id"
+    t.index ["profile_id"], name: "index_about_lines_on_profile_id"
   end
 
   create_table "abouts", force: :cascade do |t|
@@ -147,6 +149,14 @@ ActiveRecord::Schema.define(version: 2021_05_10_143837) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "sections", force: :cascade do |t|
+    t.string "title"
+    t.bigint "profile_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["profile_id"], name: "index_sections_on_profile_id"
+  end
+
   create_table "spotify_tracks", force: :cascade do |t|
     t.string "artist"
     t.string "artist_url"
@@ -200,10 +210,13 @@ ActiveRecord::Schema.define(version: 2021_05_10_143837) do
     t.bigint "work_group_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "profile_id"
+    t.index ["profile_id"], name: "index_works_on_profile_id"
     t.index ["work_group_id"], name: "index_works_on_work_group_id"
   end
 
   add_foreign_key "about_lines", "abouts"
+  add_foreign_key "about_lines", "profiles"
   add_foreign_key "abouts", "profiles"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
@@ -211,6 +224,8 @@ ActiveRecord::Schema.define(version: 2021_05_10_143837) do
   add_foreign_key "image_proxies", "images"
   add_foreign_key "players", "spotify_tracks"
   add_foreign_key "players", "users"
+  add_foreign_key "sections", "profiles"
   add_foreign_key "work_groups", "profiles"
+  add_foreign_key "works", "profiles"
   add_foreign_key "works", "work_groups"
 end

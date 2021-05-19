@@ -8,14 +8,17 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  about_id   :bigint           not null
+#  profile_id :bigint
 #
 # Indexes
 #
-#  index_about_lines_on_about_id  (about_id)
+#  index_about_lines_on_about_id    (about_id)
+#  index_about_lines_on_profile_id  (profile_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (about_id => abouts.id)
+#  fk_rails_...  (profile_id => profiles.id)
 #
 
 one:

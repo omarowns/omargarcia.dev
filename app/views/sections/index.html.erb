@@ -1,0 +1,6 @@
+<h1>Sections</h1>
+<%= render Admin::TableComponent.new(records: @sections, model: Section) do |c| %>
+  <%= c.new_link do %>
+    <%= link_to 'New Section', new_section_path %>
+  <% end %>
+<% end %>

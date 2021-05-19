@@ -46,30 +46,14 @@ Rails.application.routes.draw do
           resources :authenticables, only: :destroy, shallow: true
         end
 
-        resources :about_lines, only: [:index, :new, :create]
-        resources :works, only: [:index, :new, :create]
-
-        resources :abouts do
-          resources :about_lines, shallow: true
+        resources :profiles do
+          resources :sections
           resources :image_proxies, only: [:index, :new]
         end
 
         resources :image_proxies
 
         resources :images do
-          resources :image_proxies, only: [:index, :new]
-        end
-
-        resources :profiles do
-          resources :image_proxies, only: [:index, :new]
-        end
-
-        resources :work_groups do
-          resources :works, shallow: true
-          resources :image_proxies, only: [:index, :new]
-        end
-
-        resources :works, only: [] do
           resources :image_proxies, only: [:index, :new]
         end
       end
