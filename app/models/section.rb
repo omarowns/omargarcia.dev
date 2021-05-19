@@ -22,6 +22,7 @@ class Section < ApplicationRecord
   self.inheritance_column = :_type_disabled
 
   belongs_to :profile
+  has_many :translations, class_name: 'SectionTranslation'
 
   validates :type, uniqueness: true
 end

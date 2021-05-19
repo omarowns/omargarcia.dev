@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_19_212853) do
+ActiveRecord::Schema.define(version: 2021_05_19_213415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -149,6 +149,15 @@ ActiveRecord::Schema.define(version: 2021_05_19_212853) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "section_translations", force: :cascade do |t|
+    t.bigint "section_id", null: false
+    t.string "locale"
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["section_id"], name: "index_section_translations_on_section_id"
+  end
+
   create_table "sections", force: :cascade do |t|
     t.string "title"
     t.bigint "profile_id", null: false
@@ -226,6 +235,7 @@ ActiveRecord::Schema.define(version: 2021_05_19_212853) do
   add_foreign_key "image_proxies", "images"
   add_foreign_key "players", "spotify_tracks"
   add_foreign_key "players", "users"
+  add_foreign_key "section_translations", "sections"
   add_foreign_key "sections", "profiles"
   add_foreign_key "work_groups", "profiles"
   add_foreign_key "works", "profiles"
