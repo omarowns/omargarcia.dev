@@ -38,7 +38,7 @@ Rails.application.routes.draw do
           resources :image_proxies, only: [:index, :new]
         end
 
-        resources :sections, except: [:index]
+        resources :sections
 
         resources :image_proxies
 

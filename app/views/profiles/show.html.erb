@@ -1,7 +1,7 @@
 <h1>Profile <%= @profile.id %></h1>
 <%= render Admin::ArticleComponent.new do |c| %>
   <% c.section do %>
-    
+
 
     <p>
       <strong>Type:</strong>
@@ -26,6 +26,12 @@
   <% c.footer do %>
     <%= link_to 'Edit', edit_profile_path(@profile) %>
     <%= link_to 'Back', :profiles %>
+  <% end %>
+<% end %>
+
+<%= render Admin::TableComponent.new(records: @profile.sections, model: Section) do |c| %>
+  <%= c.new_link do %>
+    <%= link_to 'New Section', new_profile_section_url(@profile) %>
   <% end %>
 <% end %>
 

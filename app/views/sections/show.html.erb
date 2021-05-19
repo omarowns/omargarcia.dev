@@ -3,6 +3,11 @@
 <%= render Admin::ArticleComponent.new do |c| %>
   <%= c.section do %>
     <p>
+      <strong>Type:</strong>
+      <%= @section.type %>
+    </p>
+
+    <p>
       <strong>Title:</strong>
       <%= @section.title %>
     </p>
