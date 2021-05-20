@@ -29,5 +29,5 @@ class Section < ApplicationRecord
 
   accepts_nested_attributes_for :translations, reject_if: proc { |attrs| attrs['title'].blank? }
 
-  translates :title
+  translates :title, :content
 end

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-  before_action :set_pattern
   around_action :switch_locale
+  before_action :set_pattern
 
   private
 
@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_pattern
-    @pattern = GeoPattern.generate(request.ip, patterns: [:hexagons])
+    @pattern = GeoPattern.generate(Time.zone.now, patterns: [:triangles, :hexagons], color: '#E5E7EB')
   end
 
   def tld

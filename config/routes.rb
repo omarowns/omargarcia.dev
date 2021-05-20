@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#index'
+  get '/about', to: 'pages#about', as: 'about_me'
   get 'authenticables/destroy'
   get '/lnkdin', to: 'pages#lnkdin', as: 'lnkdin'
 

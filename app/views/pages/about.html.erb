@@ -1,5 +1,5 @@
 <div class="bg-background-cover h-screen w-screen fixed -z-999">
-  <div class="bg-gradient-to-br from-white to-black via-white h-screen w-screen -z-999">
+  <div class="bg-gradient-to-bl from-white to-black via-white h-screen w-screen -z-999">
   </div>
 </div>
 <main class="h-screen flex flex-col">
@@ -11,15 +11,7 @@
       <%= render 'shared/links' %>
     </header>
     <article class="mx-auto h-full w-5/6 p-3 mt-3 flex flex-col lg:flex-row items-center">
-      <div class="w-2/3 mx-auto mt-3 lg:mt-0 lg:flex-shrink">
-        <%= render ImageComponent.new(image: @profile.main_image, alt: 'Profile Picture', class: 'rounded-full') %>
-      </div>
-
-      <div class="flex-grow ml-3">
-        <section class="">
-          <%= @section.content %>
-        </section>
-      </div>
+      <%= @section.content %>
     </article>
   </section>
 </main>

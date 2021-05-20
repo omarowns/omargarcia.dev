@@ -17,7 +17,8 @@ module PagesHelper
         image: {
           file_attachment: :blob
         }
-      }
+      },
+      sections: {}
     }
   end
 end
