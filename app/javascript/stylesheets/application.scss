@@ -4,6 +4,7 @@
 @import 'admin';
 @import 'auth';
 @import 'widgets';
+@import '../../assets/stylesheets/actiontext.scss';
 
 #spotify-player {
   @apply h-full flex items-end justify-center rounded-md text-green-100;

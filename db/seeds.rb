@@ -19,19 +19,39 @@ mx_profile = Profile.find_or_create_by(type: 'mx') do |profile|
   profile.animoji = '(∩｀-´)⊃━☆ﾟ.*･｡ﾟ'
   profile.save
 
-  profile.sections.find_or_create_by(type: 'about_me') do |section|
+  profile.sections.find_or_create_by(type: 'intro') do |section|
     section.save
 
     section.translations.find_or_create_by(locale: 'es-MX') do |section_translation|
-      section_translation.title = 'Hola!, soy Omar Garcia'
+      section_translation.title = 'Intro'
+      section_translation.content = """
+        Soy un ingeniero de software viviendo en Aguascalientes, Mexico.
+
+        Actualmente trabajo para <a href='https://www.cratebind.com' target='_blank'>CrateBind</a>, donde hago aplicaciones web (full-stack) usando Ruby on Rails.
+
+        Soy titulado de Ingenieria en Sistemas Computacionales egresado de la <a href='https://www.uaa.mx/' target='_blank'>UAA</a>.
+
+        En mi tiempo libre me gusta practicar escalada indoors, pasear en mi Onewheel, jugar videojuegos y aprender sobre diversos temas relacionados a astrofisica.
+      """
       section_translation.save
     end
 
     section.translations.find_or_create_by(locale: 'en') do |section_translation|
-      section_translation.title = 'Hi!, my name is Omar Garcia'
+      section_translation.title = 'Intro'
+      section_translation.content = """
+        I'm a software engineer living in Aguascalientes, Mexico.
+
+        I currently work at <a href='https://www.cratebind.com' target='_blank'>CrateBind</a>, where I build web applications (full-stack) using Ruby on Rails.
+
+        I got a degree in Computer Systems Engineering from <a href='https://www.uaa.mx/' target='_blank'>UAA</a>.
+
+        In my spare time I like to practice indoor rock climbing, cruising on my Onewheel, playing videogames and learning about diverse subjects related to astrophisics.
+      """
       section_translation.save
     end
   end
+
+  profile.sections.find_or_create_by(type: '')
 end
 
 dev_profile = Profile.find_or_create_by(type: 'dev') do |profile|

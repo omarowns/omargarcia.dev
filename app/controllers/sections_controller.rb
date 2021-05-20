@@ -58,6 +58,14 @@ class SectionsController < AdminController
 
     # Only allow a list of trusted parameters through.
     def section_params
-      params.require(:section).permit(:title, :profile_id)
+      params.require(:section).permit(
+        :profile_id,
+        :type,
+        translations_attributes: [
+          :id,
+          :title,
+          :content
+        ]
+      )
     end
 end

@@ -6,16 +6,23 @@
       <strong>Type:</strong>
       <%= @section.type %>
     </p>
-
-    <p>
-      <strong>Title:</strong>
-      <%= @section.title %>
-    </p>
-
     <p>
       <strong>Profile:</strong>
       <%= @section.profile_id %>
     </p>
+
+    <% @section.translations.each do |translation| %>
+      <section class="border-4 my-3">
+        <h3>Locale <span class="font-bold"><%= translation.locale %></span></h3>
+        <p>
+          <strong>Title:</strong>
+          <%= translation.title %>
+        </p>
+        <div class="trix-content">
+          <%= translation.content %>
+        </div>
+      </section>
+    <% end %>
   <% end %>
   <%= c.footer do %>
     <%= link_to 'Edit', edit_section_path(@section) %>

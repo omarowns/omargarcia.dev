@@ -16,10 +16,21 @@
     <%= form.text_field :type %>
   </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+  <%= form.fields_for :translations do |t_form| %>
+  <section class="border-4 my-3">
+    <h3>Locale <span class="font-bold"><%= t_form.object.locale %></span></h3>
+    <div class="field">
+      <%= t_form.label :title %>
+      <%= t_form.text_field :title %>
+    </div>
+
+    <div class="field">
+      <%= t_form.label :content %>
+      <%= t_form.rich_text_area :content %>
+    </div>
+    <hr>
+  </section>
+  <% end %>
 
   <%= render Forms::BelongsTo::ProfileComponent.new(form: form, model: section) %>
 

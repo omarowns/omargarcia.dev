@@ -18,5 +18,7 @@
 #  fk_rails_...  (section_id => sections.id)
 #
 class SectionTranslation < ApplicationRecord
-  belongs_to :section
+  belongs_to :section, inverse_of: :translations
+
+  has_rich_text :content
 end

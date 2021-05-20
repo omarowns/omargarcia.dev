@@ -21,12 +21,13 @@ class Section < ApplicationRecord
   self.inheritance_column = :_type_disabled
   include Translatable
 
-  belongs_to :profile
-  has_many :translations, class_name: 'SectionTranslation'
+  belongs_to :profile, inverse_of: :sections
 
   validates :type, uniqueness: true
 
-  translates :title
-
   default_scope { includes :current_translation }
+
+  accepts_nested_attributes_for :translations, reject_if: proc { |attrs| attrs['title'].blank? }
+
+  translates :title
 end
