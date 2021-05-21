@@ -13,8 +13,8 @@ main_user = User.new(
 )
 main_user.save
 
-profile_picture = Image.create(title: 'Omar Garcia Profile Picture', alt: 'profile picture')
-profile_picture.file.attach(io: File.open(Rails.root.join('test', 'fixtures', 'files', 'meee.jpeg')), filename: 'profile_pic.jpeg')
+# profile_picture = Image.create(title: 'Omar Garcia Profile Picture', alt: 'profile picture')
+# profile_picture.file.attach(io: File.open(Rails.root.join('test', 'fixtures', 'files', 'meee.jpeg')), filename: 'profile_pic.jpeg')
 
 mx_profile = Profile.find_or_create_by(type: 'mx') do |profile|
   profile.name = 'Omar Garcia'
@@ -22,7 +22,7 @@ mx_profile = Profile.find_or_create_by(type: 'mx') do |profile|
   profile.animoji = '(∩｀-´)⊃━☆ﾟ.*･｡ﾟ 💎'
   profile.save
 
-  profile.image_proxies.create(image: profile_picture, main: true)
+  # profile.image_proxies.create(image: profile_picture, main: true)
 
   intro_section = profile.sections.find_or_create_by(type: 'intro')
 
