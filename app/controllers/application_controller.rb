@@ -17,10 +17,15 @@ class ApplicationController < ActionController::Base
   end
 
   def switch_locale(&action)
-    logger.debug "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"
-    locale = extract_locale_from_accept_language_header || I18n.default_locale
-    logger.debug "* Locale set to '#{locale}'"
+    locale = extract_locale_from_tld || extract_locale_from_accept_language_header || I18n.default_locale
     I18n.with_locale(locale, &action)
+  end
+
+  def extract_locale_from_tld
+    {
+      mx: 'es',
+      dev: 'en'
+    }.fetch(tld) { 'es' }
   end
 
   def extract_locale_from_accept_language_header
