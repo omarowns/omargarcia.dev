@@ -2,6 +2,13 @@ class ApplicationController < ActionController::Base
   around_action :switch_locale
   before_action :set_pattern
 
+  TLD_LOCALES = {
+    mx: 'es',
+    dev: 'en',
+    localhost: 'en',
+    test: 'en',
+  }.freeze
+
   private
 
   def after_sign_in_path_for(resource)
@@ -22,10 +29,7 @@ class ApplicationController < ActionController::Base
   end
 
   def extract_locale_from_tld
-    {
-      mx: 'es',
-      dev: 'en'
-    }.fetch(tld) { 'es' }
+    TLD_LOCALES.dig(tld.to_sym)
   end
 
   def extract_locale_from_accept_language_header
