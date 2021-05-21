@@ -26,3 +26,9 @@ body:not(.admin) {
 .bg-background-cover > img {
   mix-blend-mode: screen;
 }
+
+.trix-content {
+  a {
+    @apply text-yellow-400 underline;
+  }
+}
