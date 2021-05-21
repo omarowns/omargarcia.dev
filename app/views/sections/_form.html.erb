@@ -24,9 +24,10 @@
       <%= t_form.text_field :title %>
     </div>
 
-    <div class="field">
+    <div class="field" data-controller="attachments">
       <%= t_form.label :content %>
-      <%= t_form.rich_text_area :content %>
+      <%= t_form.rich_text_area :content, data: { attachments_target: 'editor' } %>
+      <%= render Admin::ActionText::AttachableComponent.new(object: t_form.object, collection: @images) %>
     </div>
     <hr>
   </section>

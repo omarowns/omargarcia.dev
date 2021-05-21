@@ -1,0 +1,39 @@
+<div
+  class="dropdown"
+  data-controller="dropdown"
+  data-dropdown-expanded-class="dropdown-menu--expanded">
+  <div>
+    <button
+      type="button"
+      class="dropdown-toggle"
+      id="<%= dom_id(@object) %>-attachment-button"
+      aria-expanded="false"
+      aria-haspopup="true"
+      data-action="dropdown#toggle">
+      Add <%= attachment_class_name %> Attachment
+      <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+      </svg>
+    </button>
+  </div>
+
+  <div
+    class="dropdown-menu"
+    role="menu"
+    aria-orientation="vertical"
+    aria-labelledby="<%= dom_id(@object) %>-attachment-button"
+    tabindex="-1">
+    <div class="py-1" role="none">
+      <% @collection.each do |item| %>
+        <button
+          type="button"
+          data-action="attachments#attach"
+          data-record-type="<%= item.class.to_s.downcase.pluralize %>"
+          data-record-id="<%= item.id %>"
+          data-action="dropdown#toggle">
+          <%= item.to_s %>
+        </button>
+      <% end %>
+    </div>
+  </div>
+</div>

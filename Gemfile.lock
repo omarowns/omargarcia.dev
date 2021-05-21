@@ -189,6 +189,8 @@ GEM
     image_processing (1.12.1)
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
+    jbuilder (2.11.2)
+      activesupport (>= 5.0.0)
     jmespath (1.4.0)
     jwt (2.2.2)
     listen (3.5.1)
@@ -414,6 +416,7 @@ DEPENDENCIES
   hotwire-rails
   image_processing (~> 1.2)
   impressionist!
+  jbuilder (~> 2.7)
   listen (~> 3.3)
   omniauth-github
   omniauth-rails_csrf_protection

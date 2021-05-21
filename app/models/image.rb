@@ -13,6 +13,7 @@ class Image < ApplicationRecord
 
   has_one_attached :file
 
+  include ActionText::Attachable
   include PolymorphicNameable
 
   delegate :filename, to: :file, allow_nil: true

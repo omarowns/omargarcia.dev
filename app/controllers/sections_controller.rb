@@ -1,6 +1,7 @@
 class SectionsController < AdminController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
   before_action :set_profile, only: [:index, :new]
+  before_action :load_images_for_attachments, only: [:new, :edit]
 
   # GET /sections
   def index
@@ -67,5 +68,9 @@ class SectionsController < AdminController
           :content
         ]
       )
+    end
+
+    def load_images_for_attachments
+      @images = Image.all
     end
 end

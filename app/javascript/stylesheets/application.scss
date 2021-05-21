@@ -32,3 +32,22 @@ body:not(.admin) {
     @apply text-yellow-400 underline;
   }
 }
+
+.dropdown {
+  @apply relative inline-block;
+
+  &-toggle {
+    @apply p-3 bg-blue-300 inline-flex justify-center rounded-md border border-blue-600 shadow-sm text-gray-50;
+  }
+
+  &-menu {
+    @apply origin-top-left absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-gray-50 ring-1 ring-black;
+    display: none;
+
+    &--expanded {
+      div.dropdown-menu {
+        display: initial
+      }
+    }
+  }
+}
