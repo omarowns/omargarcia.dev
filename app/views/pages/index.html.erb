@@ -12,7 +12,9 @@
     </header>
     <article class="mx-auto h-full w-5/6 p-3 mt-3 flex flex-col lg:flex-row items-center">
       <div class="w-2/3 mx-auto mt-3 lg:mt-0 lg:flex-shrink">
-        <%= render ImageComponent.new(image: @profile.main_image, alt: 'Profile Picture', class: 'rounded-full') %>
+        <% if @profile.main_image.file.attached? %>
+          <%= image_tag(@profile.main_image.file.variant(resize: '500x500'), width: 500, height: 500, alt: 'Profile Picture', class: 'rounded-full', loading: 'lazy') %>
+        <% end %>
       </div>
 
       <div class="flex-grow ml-3">
