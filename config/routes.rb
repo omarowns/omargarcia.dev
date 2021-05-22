@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  root 'pages#index'
-  get '/about', to: 'pages#about', as: 'about_me'
+  # public facing routes
+  scope "(:locale)", locale: /en|es/ do
+    root 'pages#index'
+    get '/about', to: 'pages#about', as: 'about_me'
+  end
+
   get 'authenticables/destroy'
-  get '/lnkdin', to: 'pages#lnkdin', as: 'lnkdin'
 
   devise_for :users,
              path: 'auth',
@@ -19,33 +22,26 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     scope '/admin' do
-      unauthenticated :user do
-        root 'users/sessions#new', as: :unauthenticated_user_root
-        match '/:all', to: redirect('/auth/login'), via: :all
+      root 'profiles#index', as: :authenticated_user_root
+
+      resources :feature_flags
+
+      resources :users, except: [:edit, :destroy] do
+        get :edit, to: 'users/registrations#edit'
+        resources :authenticables, only: :destroy, shallow: true
       end
 
-      authenticated :user do
-        root 'profiles#index', as: :authenticated_user_root
+      resources :profiles do
+        resources :sections, only: [:index, :new]
+        resources :image_proxies, only: [:index, :new]
+      end
 
-        resources :feature_flags
+      resources :sections
 
-        resources :users, except: [:edit, :destroy] do
-          get :edit, to: 'users/registrations#edit'
-          resources :authenticables, only: :destroy, shallow: true
-        end
+      resources :image_proxies
 
-        resources :profiles do
-          resources :sections, only: [:index, :new]
-          resources :image_proxies, only: [:index, :new]
-        end
-
-        resources :sections
-
-        resources :image_proxies
-
-        resources :images do
-          resources :image_proxies, only: [:index, :new]
-        end
+      resources :images do
+        resources :image_proxies, only: [:index, :new]
       end
     end
   end

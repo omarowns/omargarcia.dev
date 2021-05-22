@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  around_action :switch_locale
+  before_action :switch_locale
   before_action :set_pattern
 
   TLD_LOCALES = {
@@ -24,8 +24,14 @@ class ApplicationController < ActionController::Base
   end
 
   def switch_locale(&action)
-    locale = extract_locale_from_tld || extract_locale_from_accept_language_header || I18n.default_locale
-    I18n.with_locale(locale, &action)
+    locale = extract_locale
+    I18n.locale = locale
+  end
+
+  def extract_locale
+    return params[:locale] if params[:locale].present?
+
+    extract_locale_from_tld || extract_locale_from_accept_language_header || I18n.default_locale
   end
 
   def extract_locale_from_tld
