@@ -1,0 +1,58 @@
+<h1>Impression <%= @impression.id %></h1>
+
+<%= render Admin::ArticleComponent.new do |c| %>
+  <%= c.section do %>
+    <p>
+      <strong>Impressionable Type:</strong>
+      <%= @impression.impressionable_type %>
+    </p>
+    <p>
+      <strong>Impressionable ID:</strong>
+      <%= @impression.impressionable_id %>
+    </p>
+    <p>
+      <strong>User ID:</strong>
+      <%= @impression.user_id %>
+    </p>
+    <p>
+      <strong>Controller Name:</strong>
+      <%= @impression.controller_name %>
+    </p>
+    <p>
+      <strong>Action Name:</strong>
+      <%= @impression.action_name %>
+    </p>
+    <p>
+      <strong>View Name:</strong>
+      <%= @impression.view_name %>
+    </p>
+    <p>
+      <strong>Request Hash:</strong>
+      <%= @impression.request_hash.to_s %>
+    </p>
+    <p>
+      <strong>IP Address:</strong>
+      <%= @impression.ip_address %>
+    </p>
+    <p>
+      <strong>Session Hash:</strong>
+      <%= @impression.session_hash.to_s %>
+    </p>
+    <p>
+      <strong>Message:</strong>
+      <%= @impression.message %>
+    </p>
+    <p>
+      <strong>Referrer:</strong>
+      <%= @impression.referrer %>
+    </p>
+    <p>
+      <strong>Params:</strong>
+      <%= @impression.params %>
+    </p>
+
+  <% end %>
+  <%= c.footer do %>
+    <%= link_to 'Back', impressions_path %>
+  <% end %>
+<% end %>

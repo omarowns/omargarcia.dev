@@ -43,6 +43,8 @@ Rails.application.routes.draw do
       resources :images do
         resources :image_proxies, only: [:index, :new]
       end
+
+      resources :impressions, only: [:index, :show]
     end
   end
 

@@ -54,7 +54,8 @@ module.exports = {
   },
   variants: {
     extend: {
-      animation: ['hover']
+      animation: ['hover'],
+      textOverflow: ['hover']
     },
   },
   plugins: [

@@ -116,3 +116,12 @@ body:not(.admin) {
     @apply sr-only;
   }
 }
+
+.impression {
+  @apply flex flex-shrink mb-3;
+  @apply h-10 rounded-md transition transform scale-100 hover:scale-110;
+
+  &-block {
+    @apply items-center p-2 bg-white;
+  }
+}

@@ -1,0 +1,11 @@
+<%= turbo_frame_tag(impression) do %>
+  <%= link_to(impression, class: 'impression', data: { turbo: false } ) do %>
+    <div class="impression-block">
+        <p>
+          Entity <strong><%= impression.ip_address %></strong> visited
+          <strong><%= impression.controller_name %>#<%= impression.action_name %></strong>
+          about <strong><%= time_ago_in_words(impression.created_at) %></strong> ago.
+        </p>
+    </div>
+  <% end %>
+<% end %>
