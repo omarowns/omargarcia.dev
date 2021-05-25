@@ -1,4 +1,19 @@
-<section>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-</section>
+<%= render FlashMessageComponent.new(flash: flash) %>
+<%= yield :header %>
+
+<div
+  class="toggle"
+  data-controller="localization"
+  data-localization-locale-value="<%= I18n.locale %>"
+  data-localization-active-value="false"
+  data-localization-active-class="toggle-label__dot--active">
+  <div class="toggle-container">
+    <label for="lang-toggle" class="toggle-label localization-label">
+      <div class="toggle-label__container" data-action="click->localization#switch">
+        <input type="checkbox" id="lang-toggle" class="toggle-input">
+        <div class="toggle-label__fill"></div>
+        <div class="toggle-label__dot" data-localization-target="dot"></div>
+      </div>
+    </label>
+  </div>
+</div>
