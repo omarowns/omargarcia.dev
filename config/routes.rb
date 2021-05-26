@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   # public facing routes
   scope "(:locale)", locale: /en|es/ do
@@ -45,6 +47,8 @@ Rails.application.routes.draw do
       end
 
       resources :impressions, only: [:index, :show]
+
+      mount Sidekiq::Web, at: '/sidekiq'
     end
   end
 

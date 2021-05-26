@@ -1,0 +1,9 @@
+<p>
+  <strong><%= visitor %></strong> visited
+  <% if parsed_message.present? %>
+    <strong><%= parsed_message['host'] %><%= parsed_message['path'] %></strong>
+  <% else %>
+    <strong><%= controller_action %></strong>
+  <% end %>
+  about <strong><%= viewed_at %></strong> ago.
+</p>
