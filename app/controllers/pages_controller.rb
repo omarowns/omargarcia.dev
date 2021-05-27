@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   # impressionist actions: %i(index)
   before_action :load_profile
-  after_action :create_impression
+  after_action :create_impression_and_visit
 
   def index
     @section = @profile.sections.find_by(type: 'intro')
@@ -13,6 +13,11 @@ class PagesController < ApplicationController
 
   private
 
+  def create_impression_and_visit
+    impression = create_impression
+    create_visit(impression)
+  end
+
   def create_impression
     data = {
       host: request.host,
@@ -20,6 +25,10 @@ class PagesController < ApplicationController
       ua: request.user_agent
     }
     impressionist(@profile, data.to_json)
+  end
+
+  def create_visit(impression)
+    Visit.create(impression_id: impression&.id, ip: impression&.ip_address)
   end
 
   def load_profile

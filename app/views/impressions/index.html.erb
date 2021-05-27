@@ -1,4 +1,5 @@
 <%= turbo_frame_tag "impressions", class: "w-11/12 mx-auto" do %>
+  <h2>Visitors</h2>
   <%= render @impressions %>
-  <%= paginate @impressions %>
+  <%= paginate @impressions, data: { turbo_frame: "impressions" } %>
 <% end %>

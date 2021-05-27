@@ -41,7 +41,7 @@ class Visit < ApplicationRecord
   def search!
     results = Geocoder.search(geocode)
     %i(country state city postal_code address).each do |attribute|
-      send("#{attribute}=".to_sym, results.first.send(attribute))
+      send("#{attribute}=".to_sym, results&.first&.send(attribute))
     end
     save
   end
