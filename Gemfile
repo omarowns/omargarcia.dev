@@ -21,16 +21,17 @@ gem 'omniauth-twitter'
 gem 'omniauth-rails_csrf_protection'
 gem 'aws-sdk-s3', require: false
 gem 'hotwire-rails'
-gem 'geo_pattern'
 # TODO: Update with 'charlotte-ruby/impressionist' when https://github.com/charlotte-ruby/impressionist/pull/295 gets merged
 gem 'impressionist', github: 'rposborne/impressionist'
 gem 'activejob-uniqueness'
 gem 'sidekiq'
 gem 'kaminari'
+gem 'geocoder'
 
 # 3rd party APIs
 gem 'twitter'
 gem 'rspotify', github: 'guilhermesad/rspotify'
+gem 'geo_pattern'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'

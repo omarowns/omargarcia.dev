@@ -9,4 +9,7 @@ class Impression < ApplicationRecord
   after_save :impressionable_counter_cache_updatable?
 
   broadcasts inserts_by: :prepend
+
+  has_one :visit, dependent: :destroy
+  after_create_commit -> { create_visit(ip: ip_address) }
 end

@@ -1,5 +1,6 @@
 class ImpressionsController < AdminController
-  before_action :set_impression, only: [:show, :edit, :update, :destroy]
+  before_action :set_impression, only: [:show]
+  before_action :set_visit, only: [:show]
 
   # GET /impressions
   def index
@@ -14,5 +15,9 @@ class ImpressionsController < AdminController
     # Use callbacks to share common setup or constraints between actions.
     def set_impression
       @impression = Impression.find(params[:id])
+    end
+
+    def set_visit
+      @visit = Visit.find_by(impression_id: params[:id])
     end
 end

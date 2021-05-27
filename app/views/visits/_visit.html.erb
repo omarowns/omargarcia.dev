@@ -1,0 +1,10 @@
+<%= render Admin::ArticleComponent.new do |c| %>
+  <%= c.section do %>
+    <p>
+      Visitor from: <strong><%= visit.address %></strong>
+    </p>
+    <address>
+      <%= link_to 'View on Google Maps', google_maps_link_path(lat: visit.latitude, long: visit.longitude), target: '_blank', rel: 'noopener noreferrer' %>
+    </address>
+  <% end %>
+<% end %>

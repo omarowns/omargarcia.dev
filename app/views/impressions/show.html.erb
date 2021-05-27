@@ -1,5 +1,7 @@
 <h1>Impression <%= @impression.id %></h1>
 
+<%= render @visit %>
+
 <%= render Admin::ArticleComponent.new do |c| %>
   <%= c.section do %>
     <p>

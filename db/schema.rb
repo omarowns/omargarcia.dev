@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_19_220124) do
+ActiveRecord::Schema.define(version: 2021_05_27_015435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -190,6 +190,21 @@ ActiveRecord::Schema.define(version: 2021_05_19_220124) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "visits", force: :cascade do |t|
+    t.bigint "impression_id", null: false
+    t.string "ip"
+    t.string "country"
+    t.string "state"
+    t.string "city"
+    t.string "postal_code"
+    t.string "address"
+    t.string "latitude"
+    t.string "longitude"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["impression_id"], name: "index_visits_on_impression_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "authenticables", "users"
@@ -198,4 +213,5 @@ ActiveRecord::Schema.define(version: 2021_05_19_220124) do
   add_foreign_key "players", "users"
   add_foreign_key "section_translations", "sections"
   add_foreign_key "sections", "profiles"
+  add_foreign_key "visits", "impressions"
 end
