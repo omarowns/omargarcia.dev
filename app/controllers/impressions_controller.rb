@@ -3,8 +3,7 @@ class ImpressionsController < AdminController
 
   # GET /impressions
   def index
-    @impressions = Impression.all.order(created_at: :desc).limit(50)
-    @service = ImpressionsAnalyticsService.new(Impression.all)
+    @impressions = Impression.all.order(created_at: :desc).page(params[:page]).per(15)
   end
 
   # GET /impressions/1

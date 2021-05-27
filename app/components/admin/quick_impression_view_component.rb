@@ -28,4 +28,8 @@ class Admin::QuickImpressionViewComponent < ViewComponent::Base
   def viewed_at
     time_ago_in_words(@impression.created_at)
   end
+
+  def from
+    @impression.referrer
+  end
 end

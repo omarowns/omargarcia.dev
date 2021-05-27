@@ -47,6 +47,10 @@ Rails.application.routes.draw do
       end
 
       resources :impressions, only: [:index, :show]
+      resources :analytics, only: [:index]
+      resources :graphs, only: [] do
+        get :impressions, on: :collection
+      end
 
       mount Sidekiq::Web, at: '/sidekiq'
     end

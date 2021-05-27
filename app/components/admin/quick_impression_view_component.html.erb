@@ -5,5 +5,8 @@
   <% else %>
     <strong><%= controller_action %></strong>
   <% end %>
+  <% if from.present? %>
+  from <%= from %> 
+  <% end %>
   about <strong><%= viewed_at %></strong> ago.
 </p>

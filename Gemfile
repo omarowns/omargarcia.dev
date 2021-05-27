@@ -26,6 +26,7 @@ gem 'geo_pattern'
 gem 'impressionist', github: 'rposborne/impressionist'
 gem 'activejob-uniqueness'
 gem 'sidekiq'
+gem 'kaminari'
 
 # 3rd party APIs
 gem 'twitter'

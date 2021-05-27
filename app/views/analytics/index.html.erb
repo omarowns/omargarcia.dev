@@ -1,0 +1,55 @@
+<% content_for :morris do %>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+<% end %>
+
+<h1 class="bg-gray-900 text-white font-bold">Impression/Analytics</h1>
+
+<section class="p-6 bg-gray-800 text-gray-100">
+  <div class="w-full mx-auto">
+    <div class="flex justify-center align-middle text-xl">
+      Overview
+    </div>
+  </div>
+  <div class="grid grid-cols-3 gap-6">
+		<div class="flex p-4 space-x-4 rounded-lg md:space-x-6">
+			<div class="flex flex-col justify-center align-middle">
+				<p class="text-3xl font-semibold leading-none"><%= @service.total_views %></p>
+				<p class="capitalize">Total Views</p>
+			</div>
+		</div>
+		<div class="flex p-4 space-x-4 rounded-lg md:space-x-6 text-gray-100">
+			<div class="flex flex-col justify-center align-middle">
+				<p class="text-3xl font-semibold leading-none flex items-center">
+          <%= @service.total_view_past_days(7) %>
+          <% if @service.trend.positive? %>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+          </svg>
+          <% else %>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+          </svg>
+          <% end %>
+        </p>
+				<p class="capitalize">This week</p>
+			</div>
+		</div>
+		<div class="flex p-4 space-x-4 rounded-lg md:space-x-6 text-gray-100">
+			<div class="flex flex-col justify-center align-middle">
+				<p class="text-3xl font-semibold leading-none"><%= @service.growth_percentage %>%</p>
+				<p class="capitalize">Growth</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="w-11/12 mx-auto my-3">
+  <%= turbo_frame_tag "impressions-graph", src: impressions_graphs_path %>
+</section>
+
+<section class="w-11/12 mx-auto">
+  <%= turbo_frame_tag "impressions", src: impressions_path %>
+</section>
