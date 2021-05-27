@@ -1,6 +1,4 @@
-<%= turbo_frame_tag "impressions" do %>
-  <section class="w-11/12 mx-auto">
-    <%= render @impressions %>
-    <%= paginate @impressions %>
-  </section>
+<%= turbo_frame_tag "impressions", class: "w-11/12 mx-auto" do %>
+  <%= render @impressions %>
+  <%= paginate @impressions %>
 <% end %>

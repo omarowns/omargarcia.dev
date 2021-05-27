@@ -3,7 +3,7 @@ class ImpressionsController < AdminController
 
   # GET /impressions
   def index
-    @impressions = Impression.all.order(created_at: :desc).page(params[:page]).per(15)
+    @impressions = Impression.all.order(id: :desc).page(params[:page]).per(15)
   end
 
   # GET /impressions/1
