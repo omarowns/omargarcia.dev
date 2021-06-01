@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_225359) do
+ActiveRecord::Schema.define(version: 2021_06_01_232701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,21 @@ ActiveRecord::Schema.define(version: 2021_06_01_225359) do
     t.string "token_secret"
     t.string "refresh_token"
     t.index ["user_id"], name: "index_authenticables_on_user_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.string "subject"
+    t.bigint "contact_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["contact_id"], name: "index_conversations_on_contact_id"
   end
 
   create_table "feature_flags", force: :cascade do |t|
@@ -143,6 +158,17 @@ ActiveRecord::Schema.define(version: 2021_06_01_225359) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["spotify_track_id"], name: "index_players_on_spotify_track_id"
     t.index ["user_id"], name: "index_players_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.bigint "conversation_id", null: false
+    t.string "author_type", null: false
+    t.bigint "author_id", null: false
+    t.string "message_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_type", "author_id"], name: "index_posts_on_author"
+    t.index ["conversation_id"], name: "index_posts_on_conversation_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -224,9 +250,11 @@ ActiveRecord::Schema.define(version: 2021_06_01_225359) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "authenticables", "users"
+  add_foreign_key "conversations", "contacts"
   add_foreign_key "image_proxies", "images"
   add_foreign_key "players", "spotify_tracks"
   add_foreign_key "players", "users"
+  add_foreign_key "posts", "conversations"
   add_foreign_key "section_translations", "sections"
   add_foreign_key "sections", "profiles"
   add_foreign_key "visits", "impressions"

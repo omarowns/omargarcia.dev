@@ -23,4 +23,6 @@ class User < ApplicationRecord
 
   has_many :authenticables, dependent: :destroy
   has_one :player
+
+  has_many :posts, as: :author
 end

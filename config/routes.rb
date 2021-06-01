@@ -53,6 +53,9 @@ Rails.application.routes.draw do
         get :impressions, on: :collection
       end
 
+      resources :conversations
+      resources :contacts
+
       mount Sidekiq::Web, at: '/sidekiq'
     end
   end
