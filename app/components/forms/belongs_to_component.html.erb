@@ -1,4 +1,8 @@
 <div class="field">
   <%= @form.label @attribute %>
-  <%= @form.select @attribute, @select_model.all.pluck(*@select_attrs) %>
+  <% if has_param?(@attribute) %>
+    <%= @form.select @attribute, @select_model.all.pluck(*@select_attrs), selected: fetch_param(@attribute) %>
+  <% else %>
+    <%= @form.select @attribute, @select_model.all.pluck(*@select_attrs) %>
+  <% end %>
 </div>

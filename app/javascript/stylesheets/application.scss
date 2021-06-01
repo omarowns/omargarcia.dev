@@ -53,7 +53,7 @@ body:not(.admin) {
 }
 
 .flash {
-  @apply w-screen flex flex-col;
+  @apply w-full flex flex-col;
 
   .notice, .alert {
     @apply px-3 h-10;

@@ -33,7 +33,7 @@
   </section>
   <% end %>
 
-  <%= render Forms::BelongsTo::ProfileComponent.new(form: form, model: section) %>
+  <%= render Forms::BelongsTo::ProfileComponent.new(form: form, model: section, params: params) %>
 
   <div class="actions">
     <%= form.submit %>

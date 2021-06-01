@@ -13,9 +13,9 @@
   </head>
 
   <body class="admin">
-    <%= render FlashMessageComponent.new(flash: flash) %>
     <%= render 'shared/admin_nav' %>
     <div class="ml-64 w-full">
+      <%= render FlashMessageComponent.new(flash: flash) %>
       <%= yield %>
     </div>
   </body>

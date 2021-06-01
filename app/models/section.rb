@@ -10,8 +10,8 @@
 #
 # Indexes
 #
-#  index_sections_on_profile_id  (profile_id)
-#  index_sections_on_type        (type) UNIQUE
+#  index_sections_on_profile_id           (profile_id)
+#  index_sections_on_type_and_profile_id  (type,profile_id) UNIQUE
 #
 # Foreign Keys
 #
@@ -23,7 +23,7 @@ class Section < ApplicationRecord
 
   belongs_to :profile, inverse_of: :sections
 
-  validates :type, uniqueness: true
+  validates :type, uniqueness: { scope: :profile_id }
 
   default_scope { includes :current_translation }
 

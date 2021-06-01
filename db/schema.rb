@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_27_015435) do
+ActiveRecord::Schema.define(version: 2021_06_01_150431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -153,7 +153,7 @@ ActiveRecord::Schema.define(version: 2021_05_27_015435) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "type"
     t.index ["profile_id"], name: "index_sections_on_profile_id"
-    t.index ["type"], name: "index_sections_on_type", unique: true
+    t.index ["type", "profile_id"], name: "index_sections_on_type_and_profile_id", unique: true
   end
 
   create_table "spotify_tracks", force: :cascade do |t|
