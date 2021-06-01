@@ -1,0 +1,15 @@
+<% content_for :header do %>
+  <%= render PageHeaderComponent.new(title: @section.title, subtitle: @profile.title, extra_line: @profile.animoji) %>
+<% end %>
+
+<div class="bg-background-cover h-screen w-screen fixed -z-999">
+  <div class="bg-gradient-to-bl from-white to-black via-white h-screen w-screen -z-999">
+  </div>
+</div>
+<main class="flex flex-col">
+  <section class="flex flex-col flex-grow h-full">
+    <article class="mx-auto h-full w-5/6 p-3 mt-3 flex flex-col lg:flex-row items-center">
+      <%= @section.content %>
+    </article>
+  </section>
+</main>

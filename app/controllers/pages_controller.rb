@@ -11,6 +11,10 @@ class PagesController < ApplicationController
     @section = @profile.sections.find_by(type: 'about')
   end
 
+  def contact
+    @section = @profile.sections.find_by(type: 'contact')
+  end
+
   private
 
   def create_impression_and_visit
@@ -32,6 +36,6 @@ class PagesController < ApplicationController
   end
 
   def load_profile
-    @profile = Profile.includes(helpers.profiles_include_hash).find_by(type: tld) || Profile.includes(helpers.profiles_include_hash).first
+    @profile = Profile.includes(helpers.profiles_include_hash).find_by(type: tld) || Profile.includes(helpers.profiles_include_hash).second
   end
 end

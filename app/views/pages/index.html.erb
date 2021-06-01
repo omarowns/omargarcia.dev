@@ -10,7 +10,7 @@
   <section class="flex flex-col flex-grow h-full">
     <article class="mx-auto h-full w-5/6 p-3 mt-3 flex flex-col lg:flex-row items-center">
       <div class="w-2/3 mx-auto mt-3 lg:mt-0 lg:flex-shrink">
-        <% if @profile.main_image.file.attached? %>
+        <% if @profile&.main_image&.file&.attached? %>
           <%= image_tag(@profile.main_image.file.variant(resize: '500x500'), width: 500, height: 500, alt: 'Profile Picture', class: 'rounded-full', loading: 'lazy') %>
         <% end %>
       </div>

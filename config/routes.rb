@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|es/ do
     root 'pages#index'
     get '/about', to: 'pages#about', as: 'about_me'
+    get '/contact', to: 'pages#contact', as: 'contact_me'
   end
 
   get 'authenticables/destroy'
