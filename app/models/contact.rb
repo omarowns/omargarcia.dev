@@ -9,6 +9,6 @@
 #  updated_at :datetime         not null
 #
 class Contact < ApplicationRecord
-  has_many :posts, as: :author
+  has_many :posts, as: :author, inverse_of: :author
   has_many :conversations
 end

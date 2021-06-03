@@ -34,14 +34,14 @@ body:not(.admin) {
 }
 
 .dropdown {
-  @apply relative inline-block;
+  @apply relative inline-block mt-1;
 
   &-toggle {
-    @apply p-3 bg-blue-300 inline-flex justify-center rounded-md border border-blue-600 shadow-sm text-gray-50;
+    @apply p-3 bg-indigo-400 inline-flex justify-center rounded-sm border border-indigo-800 shadow-sm text-gray-50;
   }
 
   &-menu {
-    @apply origin-top-left absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-gray-50 ring-1 ring-black;
+    @apply origin-top-left absolute left-0 mt-1 w-max rounded-sm shadow-sm bg-gray-50 ring-1 ring-black;
     display: none;
 
     &--expanded {

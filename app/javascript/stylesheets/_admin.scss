@@ -37,7 +37,7 @@ body.admin {
     }
   }
 
-  a {
+  a.default-link {
     @apply px-3 rounded-md shadow-md border border-gray-500;
   }
 
@@ -80,7 +80,7 @@ body.admin {
       @apply rounded-md border-gray-300 shadow-sm focus:border-green-400 focus:ring focus:ring-purple-300 focus:ring-opacity-50;
     }
 
-    input[type="submit"] {
+    .actions input[type="submit"] {
       @apply px-4 py-2 rounded-md border-gray-300 bg-green-100 shadow-md;
     }
   }

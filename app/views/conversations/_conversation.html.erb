@@ -1,3 +1,19 @@
 <%= tag.div id: dom_id(conversation) do %>
-  <h4><%= link_to conversation.subject, conversation %></h4>
+  <%= tag.section class: "flex p-3 m-3 rounded-sm shadow-sm border-2 cursor-pointer hover:bg-gray-50",
+                  data: {
+                    controller: 'link',
+                    link_url_value: conversation_path(conversation)
+                  } do %>
+    <div class="w-3/12">
+      <%= link_to conversation.contact.name, conversation.contact %>
+    </div>
+    <div class="flex-grow">
+      <%= conversation.subject %>
+    </div>
+    <div class="w-2/12">
+      <%= tag.time datetime: conversation.created_at do %>
+        <%= time_ago_in_words(conversation.created_at) %> ago
+      <% end %>
+    </div>
+  <% end %>
 <% end %>

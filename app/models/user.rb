@@ -24,5 +24,9 @@ class User < ApplicationRecord
   has_many :authenticables, dependent: :destroy
   has_one :player
 
-  has_many :posts, as: :author
+  has_many :posts, as: :author, inverse_of: :author
+
+  def name
+    "Omar Garcia"
+  end
 end

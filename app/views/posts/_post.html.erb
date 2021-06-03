@@ -1,4 +1,22 @@
-<%= tag.div id: dom_id(post) do %>
-  <p><%= post.author.name %>(<%= post.author.email %>)</p>
-  <%= post.body %>
+<%= tag.div id: dom_id(post), class: 'p-2' do %>
+  <section>
+    <header class="p-3 bg-yellow-300 border border-black flex justify-between">
+      <address class="items-center">
+        From: <strong><%= post.author.name %></strong> < <%= post.author.email %> >
+      </address>
+      <section class="flex-grow flex justify-end items-center">
+        <time datetime=<%= post.created_at %> >
+          <%= post.created_at.strftime("%d/%m/%Y %H:%M") %> (<%= time_ago_in_words(post.created_at) %> ago)
+        </time>
+        <%= button_to conversation_post_path(post.conversation, post), method: :delete, class: 'flex items-center mx-1' do %>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+          </svg>
+        <% end %>
+      </section>
+    </header>
+    <div class="p-3 border border-black">
+      <%= post.body %>
+    </div>
+  </section>
 <% end %>
