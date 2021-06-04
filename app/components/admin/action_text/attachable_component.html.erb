@@ -23,10 +23,11 @@
     aria-orientation="vertical"
     aria-labelledby="<%= dom_id(@object) %>-attachment-button"
     tabindex="-1">
-    <div class="py-2 px-1" role="none">
+    <div class="flex flex-col" role="none">
       <% @collection.each do |item| %>
         <button
           type="button"
+          class="py-2 px-1 border-b-2"
           data-action="attachments#attach"
           data-record-type="<%= item.class.to_s.downcase.pluralize %>"
           data-record-id="<%= item.id %>"
