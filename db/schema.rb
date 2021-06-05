@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_232701) do
+ActiveRecord::Schema.define(version: 2021_06_05_050504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,10 +83,11 @@ ActiveRecord::Schema.define(version: 2021_06_01_232701) do
 
   create_table "conversations", force: :cascade do |t|
     t.string "subject"
-    t.bigint "contact_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["contact_id"], name: "index_conversations_on_contact_id"
+    t.string "contact_type"
+    t.bigint "contact_id"
+    t.index ["contact_type", "contact_id"], name: "index_conversations_on_contact"
   end
 
   create_table "feature_flags", force: :cascade do |t|
@@ -250,7 +251,6 @@ ActiveRecord::Schema.define(version: 2021_06_01_232701) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "authenticables", "users"
-  add_foreign_key "conversations", "contacts"
   add_foreign_key "image_proxies", "images"
   add_foreign_key "players", "spotify_tracks"
   add_foreign_key "players", "users"

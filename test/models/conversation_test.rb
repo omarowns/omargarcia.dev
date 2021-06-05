@@ -2,19 +2,16 @@
 #
 # Table name: conversations
 #
-#  id         :bigint           not null, primary key
-#  subject    :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  contact_id :bigint           not null
+#  id           :bigint           not null, primary key
+#  contact_type :string
+#  subject      :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  contact_id   :bigint
 #
 # Indexes
 #
-#  index_conversations_on_contact_id  (contact_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (contact_id => contacts.id)
+#  index_conversations_on_contact  (contact_type,contact_id)
 #
 require "test_helper"
 
