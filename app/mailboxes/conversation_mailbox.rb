@@ -1,4 +1,6 @@
 class ConversationMailbox < ApplicationMailbox
+  MATCHER = /^hello@/
+
   def process
     conversation = Conversation.create(subject: mail.subject, contact: author)
     conversation.posts.create(
