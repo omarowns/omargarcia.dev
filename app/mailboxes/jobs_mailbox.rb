@@ -1,4 +1,4 @@
-class JobsMailbox < ApplicationMailbox
+class JobsMailbox < BaseMailbox
   MATCHER = /^jobs@/i
 
   def process

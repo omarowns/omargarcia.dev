@@ -1,4 +1,4 @@
-class ConversationMailbox < ApplicationMailbox
+class ConversationMailbox < BaseMailbox
   MATCHER = /^hello@/
 
   def process

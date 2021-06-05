@@ -1,4 +1,4 @@
-class ReplyMailbox < ApplicationMailbox
+class ReplyMailbox < BaseMailbox
   MATCHER = /^conversation-(\d+)@/
 
   def process
