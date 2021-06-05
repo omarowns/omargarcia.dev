@@ -18,7 +18,7 @@
 #
 FactoryBot.define do
   factory :conversation do
-    subject { "MyString" }
-    contact { nil }
+    subject { Faker::Hacker.say_something_smart }
+    contact { create(:contact) }
   end
 end

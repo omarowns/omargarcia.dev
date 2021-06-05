@@ -19,7 +19,12 @@
 class Conversation < ApplicationRecord
   belongs_to :contact
   has_many :posts, dependent: :destroy
-  has_many :authors, through: :posts
+  has_many :contacts, through: :posts, source: :author, source_type: 'Contact'
+  has_many :users, through: :posts, source: :author, source_type: 'User'
 
   broadcasts_to ->(conversation) { "conversations" }, inserts_by: :prepend, target: "conversations"
+
+  def authors
+    contacts + users
+  end
 end

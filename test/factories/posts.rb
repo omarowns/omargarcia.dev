@@ -21,9 +21,12 @@
 #
 FactoryBot.define do
   factory :post do
-    conversation { nil }
-    author { nil }
-    message_id { "MyString" }
-    body { nil }
+    message_id { nil }
+    body { Faker::Lorem.paragraph(sentence_count: 1, supplemental: false, random_sentences_to_add: 4) }
+
+    before_create do |post|
+      post.conversation = create(:conversation)
+      post.author = post.conversation.author
+    end
   end
 end

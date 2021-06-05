@@ -29,4 +29,6 @@ class Post < ApplicationRecord
   validates :body, presence: true
 
   broadcasts_to :conversation
+
+  after_create -> { ReplyJob.perform_later(self) }
 end

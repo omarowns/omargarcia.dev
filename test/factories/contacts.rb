@@ -10,7 +10,7 @@
 #
 FactoryBot.define do
   factory :contact do
-    name { "MyString" }
-    email { "MyString" }
+    name { Faker::JapaneseMedia::SwordArtOnline.real_name }
+    email { Faker::Internet.email }
   end
 end
