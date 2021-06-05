@@ -14,7 +14,7 @@
 #  index_conversations_on_contact  (contact_type,contact_id)
 #
 class Conversation < ApplicationRecord
-  belongs_to :contact
+  belongs_to :contact, polymorphic: true
   has_many :posts, dependent: :destroy
   has_many :contacts, through: :posts, source: :author, source_type: 'Contact'
   has_many :users, through: :posts, source: :author, source_type: 'User'
