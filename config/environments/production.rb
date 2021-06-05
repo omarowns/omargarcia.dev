@@ -69,7 +69,13 @@ Rails.application.configure do
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.smtp_settings {
+    address: 'email-smtp.us-west-2.amazonaws.com',
+    user_name: Rails.application.credentials.dig(:aws, :smtp_user_name),
+    password: Rails.application.credentials.dig(:aws, :smtp_password)
+  }
 
   config.action_mailer.default_url_options = { host: 'omargarcia.mx' }
   config.action_controller.default_url_options = { host: 'omargarcia.mx' }

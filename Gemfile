@@ -27,6 +27,7 @@ gem 'activejob-uniqueness'
 gem 'sidekiq'
 gem 'kaminari'
 gem 'geocoder'
+gem 'aws-sdk-ses'
 
 # 3rd party APIs
 gem 'twitter'
@@ -54,6 +55,7 @@ group :development, :test do
 
   gem 'factory_bot_rails'
   gem 'annotate'
+  gem 'letter_opener_web'
 end
 
 group :development do

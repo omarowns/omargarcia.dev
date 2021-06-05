@@ -59,6 +59,7 @@ Rails.application.routes.draw do
       resources :contacts
 
       mount Sidekiq::Web, at: '/sidekiq'
+      mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
     end
   end
 
