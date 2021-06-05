@@ -1,6 +1,4 @@
-class JobsMailbox < ApplicationMailbox
-  MATCHER = /^jobs@/i
-
+class ConversationMailbox < ApplicationMailbox
   def process
     conversation = Conversation.create(subject: mail.subject, contact: author)
     conversation.posts.create(

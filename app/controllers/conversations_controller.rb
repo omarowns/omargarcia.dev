@@ -3,7 +3,7 @@ class ConversationsController < AdminController
 
   # GET /conversations or /conversations.json
   def index
-    @conversations = Conversation.all.order(id: :asc)
+    @conversations = Conversation.all.order(id: :desc)
   end
 
   # GET /conversations/1 or /conversations/1.json
