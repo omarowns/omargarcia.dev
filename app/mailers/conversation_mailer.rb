@@ -1,5 +1,5 @@
 class ConversationMailer < ApplicationMailer
-  default from: 'Omar Garcia <noreply@omargarcia.mx>'
+  default from: 'noreply@omargarcia.mx'
 
   before_action do
     @post = params[:post]
