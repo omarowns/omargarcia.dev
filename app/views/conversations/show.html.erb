@@ -1,7 +1,7 @@
 <%= turbo_stream_from @conversation %>
 <%# render @conversation %>
 
-<section class="w-full">
+<section class="w-full conversation conversation-<%= @conversation.type %>">
   <hr>
   <h3 class="flex text-2xl font-bold p-3">
     <%= @conversation.subject %>
@@ -11,18 +11,16 @@
   </div>
 </section>
 
-<section class="w-full">
-  <hr>
+<section class="w-full conversation conversation-<%= @conversation.type %>">
   <h3 class="flex text-xl font-bold p-3">
     Reply
   </h3>
-  <div class="mx-3">
+  <div class="mx-3 px-3 bg-gray-50">
     <%= render "posts/form", conversation: @conversation, post: Post.new %>
   </div>
 </section>
 
 <div class="mx-3 mt-3">
-  <hr>
   <div class="w-2/3 mt-3 rounded-sm shadow-sm px-4 py-2 bg-gray-100">
     <%= link_to 'Back', :back %>
   </div>

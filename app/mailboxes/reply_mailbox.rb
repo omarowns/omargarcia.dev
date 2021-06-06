@@ -16,6 +16,6 @@ class ReplyMailbox < BaseMailbox
   end
 
   def conversation_id
-    mail.recipients.find { |recipient|  MATCHER.match?(recipient)[MATCHER, 1] }
+    mail.recipients.find { |recipient|  MATCHER.match(recipient)[1] }
   end
 end

@@ -28,6 +28,7 @@ gem 'sidekiq'
 gem 'kaminari'
 gem 'geocoder'
 gem 'aws-sdk-ses'
+gem 'enumerize'
 
 # 3rd party APIs
 gem 'twitter'

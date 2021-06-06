@@ -1,0 +1,53 @@
+.conversations {
+  @apply flex p-3 m-3 rounded-sm shadow-sm border-2 cursor-pointer;
+
+  &-default {
+    @apply bg-purple-100 hover:bg-purple-400;
+  }
+
+  &-hello {
+    @apply bg-purple-100 hover:bg-purple-400;
+  }
+
+  &-jobs {
+    @apply bg-red-100 hover:bg-red-400;
+  }
+
+  &-chat {
+    @apply bg-green-100 hover:bg-green-400;
+  }
+
+}
+
+.conversation {
+  @apply bg-gradient-to-b;
+
+  &-default:first-of-type {
+    @apply from-purple-400 to-purple-100;
+  }
+  &-default:nth-of-type(2) {
+    @apply from-purple-100 to-white;
+  }
+
+  &-hello:first-of-type {
+    @apply from-purple-400 to-purple-100;
+  }
+  &-hello:nth-of-type(2) {
+    @apply from-purple-100 to-white;
+  }
+
+  &-jobs:first-of-type {
+    @apply from-red-400 to-red-100;
+  }
+  &-jobs:nth-of-type(2) {
+    @apply from-red-100 to-white;
+  }
+
+  &-chat:first-of-type {
+    @apply from-green-400 to-green-100;
+  }
+  &-chat:nth-of-type(2) {
+    @apply from-green-100 to-white;
+  }
+
+}

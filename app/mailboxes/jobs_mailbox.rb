@@ -2,7 +2,11 @@ class JobsMailbox < BaseMailbox
   MATCHER = /^jobs@/i
 
   def process
-    conversation = Conversation.create(subject: mail.subject, contact: author)
+    conversation = Conversation.create(
+      subject: mail.subject,
+      contact: author,
+      type: :jobs
+    )
     conversation.posts.create(
       author: author,
       body: body,

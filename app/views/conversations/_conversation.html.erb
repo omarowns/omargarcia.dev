@@ -1,18 +1,24 @@
 <%= tag.div id: dom_id(conversation) do %>
-  <%= tag.section class: "flex p-3 m-3 rounded-sm shadow-sm border-2 cursor-pointer hover:bg-gray-50",
+  <%= tag.section class: "conversations conversations-#{conversation.type}",
                   data: {
                     controller: 'link',
                     link_url_value: conversation_path(conversation)
                   } do %>
-    <div class="w-3/12">
+    <div class="mx-3">
       <%= link_to conversation.contact.name, conversation.contact %>
     </div>
-    <div class="flex-grow">
+    <div class="mx-3 flex-grow">
       <%= conversation.subject %>
     </div>
-    <div class="w-2/12">
-      <%= tag.time datetime: conversation.created_at do %>
+    <div class="mx-3 flex items-center">
+      <%= tag.time datetime: conversation.created_at, class: 'mr-1' do %>
         <%= time_ago_in_words(conversation.created_at) %> ago
+      <% end %>
+      <% unless conversation.type.default? %>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+        </svg>
+        <%= conversation.type %>
       <% end %>
     </div>
   <% end %>
