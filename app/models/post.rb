@@ -30,5 +30,5 @@ class Post < ApplicationRecord
 
   broadcasts_to :conversation
 
-  after_create -> { ReplyJob.perform_later(self) }
+  after_create -> { ReplyJob.perform_later(post: self) }
 end

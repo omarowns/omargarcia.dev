@@ -3,7 +3,7 @@ class ReplyJob < ApplicationJob
 
   attr_reader :post
 
-  def perform(post)
+  def perform(post:)
     return if post.message_id?
     @post = post
 
