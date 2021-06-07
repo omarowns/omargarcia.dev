@@ -71,9 +71,13 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.smtp_settings = {
-    address: 'email-smtp.us-west-2.amazonaws.com',
-    user_name: Rails.application.credentials.dig(:aws, :smtp_user_name),
-    password: Rails.application.credentials.dig(:aws, :smtp_password)
+    address: 'smtp.sendgrid.net',
+    user_name: 'apikey',
+    password: Rails.application.credentials.dig(:sendgrid, :api_key),
+    domain: 'omargarcia.mx',
+    port: 587,
+    authentication: :plain,
+    enable_starttls_auto: true
   }
 
   config.action_mailer.default_url_options = { host: 'omargarcia.mx' }
