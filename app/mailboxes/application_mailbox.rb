@@ -4,5 +4,7 @@ class ApplicationMailbox < ActionMailbox::Base
   routing ::JobsMailbox::MATCHER => :jobs
   routing ::ReplyMailbox::MATCHER => :reply
   routing ::ChatMailbox::MATCHER => :chat
-  routing :all => :conversation
+  routing ::UnsubscribeMailbox::MATCHER => :unsubscribe
+  routing ::NoReplyMailbox::MATCHER => :no_reply
+  routing :all => :bouncer
 end

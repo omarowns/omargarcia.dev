@@ -12,7 +12,7 @@ class ChatMailbox < BaseMailbox
   private
 
   def chat_id
-    mail.recipients.find { |recipient| MATCHER.match(recipient)[2] }
+    mail.recipients.find { |recipient| MATCHER.match(recipient) }.match(MATCHER)[2]
   end
 
   def conversation

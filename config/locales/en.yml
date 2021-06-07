@@ -33,3 +33,5 @@ en:
   home: "Home"
   about_me: "About Me"
   contact: "Contact"
+  bouncer_mailer:
+    non_existing_email: 'Wrong email address.'

@@ -10,7 +10,7 @@ class ReplyJob < ApplicationJob
     mail = ConversationMailer.with(
       to: "noreply@omargarcia.mx",
       reply_to: reply_to_email,
-      bcc: recipients.map { |r| "#{r.name} <#{r.email}>"},
+      bcc: recipients.map { |recipient| "#{recipient.name} <#{recipient.email}>" },
       subject: subject,
       post: post,
       conversation: conversation,
@@ -30,7 +30,7 @@ class ReplyJob < ApplicationJob
   end
 
   def recipients
-    @recipients ||= conversation.authors - [post.author]
+    @recipients ||= conversation.authors - conversation.unsubscribed_contacts - [post.author]
   end
 
   def subject

@@ -33,3 +33,5 @@ es:
   home: "Inicio"
   about_me: "Acerca de mi"
   contact: "Contacto"
+  bouncer_mailer:
+    non_existing_email: 'Correo electronico inválido.'

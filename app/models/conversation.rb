@@ -23,6 +23,10 @@ class Conversation < ApplicationRecord
   has_many :contacts, through: :posts, source: :author, source_type: 'Contact'
   has_many :users, through: :posts, source: :author, source_type: 'User'
 
+  has_many :unsubscriptions, dependent: :destroy
+  has_many :unsubscribed_contacts, through: :unsubscriptions, source: :author, source_type: 'Contact'
+  has_many :unsubscribed_users, through: :unsubscriptions, source: :author, source_type: 'User'
+
   broadcasts_to ->(conversation) { "conversations" }, inserts_by: :prepend, target: "conversations"
 
   enumerize :type, in: %i(default hello jobs chat), default: :default

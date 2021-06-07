@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_06_215923) do
+ActiveRecord::Schema.define(version: 2021_06_07_160031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -222,6 +222,16 @@ ActiveRecord::Schema.define(version: 2021_06_06_215923) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "unsubscriptions", force: :cascade do |t|
+    t.bigint "conversation_id", null: false
+    t.string "author_type", null: false
+    t.bigint "author_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_type", "author_id"], name: "index_unsubscriptions_on_author"
+    t.index ["conversation_id"], name: "index_unsubscriptions_on_conversation_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -258,5 +268,6 @@ ActiveRecord::Schema.define(version: 2021_06_06_215923) do
   add_foreign_key "posts", "conversations"
   add_foreign_key "section_translations", "sections"
   add_foreign_key "sections", "profiles"
+  add_foreign_key "unsubscriptions", "conversations"
   add_foreign_key "visits", "impressions"
 end
