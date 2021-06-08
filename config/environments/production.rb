@@ -1,9 +1,6 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  # Prepare the ingress controller used to receive mail
-  config.action_mailbox.ingress = :sendgrid
-
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -66,18 +63,18 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+
+  # Prepare the ingress controller used to receive mail
+  config.action_mailbox.ingress = :postmark
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = true
 
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.sendgrid.net',
-    user_name: 'apikey',
-    password: Rails.application.credentials.dig(:sendgrid, :api_key),
-    domain: 'omargarcia.mx',
-    port: 587,
-    authentication: :plain,
-    enable_starttls_auto: true
+  config.action_mailer.delivery_method = :postmark
+
+  config.action_mailer.postmark_settings = {
+    api_token: Rails.application.credentials.dig(:postmark, :api_token)
   }
 
   config.action_mailer.default_url_options = { host: 'omargarcia.mx' }

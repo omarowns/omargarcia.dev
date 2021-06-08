@@ -29,6 +29,7 @@ gem 'kaminari'
 gem 'geocoder'
 gem 'aws-sdk-ses'
 gem 'enumerize'
+gem 'postmark-rails'
 
 # 3rd party APIs
 gem 'twitter'
