@@ -21,8 +21,8 @@ module OmargarciaDev
     config.i18n.default_locale = :"es-MX"
     # config.eager_load_paths << Rails.root.join("extras")
 
-    config.hosts << ".omargarcia.dev"
     config.hosts << ".omargarcia.mx"
+    config.hosts << "www.omargarcia.mx"
 
     RSpotify::authenticate(
       Rails.application.credentials.spotify[:client_id],
