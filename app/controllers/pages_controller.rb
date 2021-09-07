@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   # impressionist actions: %i(index)
   before_action :load_profile
-  after_action :create_impression_and_visit
+  after_action :create_impression_and_visit, unless: :user_signed_in?
 
   def index
     @section = @profile.sections.find_by(type: 'intro')
