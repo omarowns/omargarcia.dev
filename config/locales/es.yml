@@ -35,3 +35,39 @@ es:
   contact: "Contacto"
   bouncer_mailer:
     non_existing_email: 'Correo electronico inválido.'
+  datetime:
+    distance_in_words:
+      half_a_minute: "medio minuto"
+      less_than_x_seconds:
+        one:   "menos de un segundo"
+        other: "menos de %{count} segundos"
+      x_seconds:
+        one:   "un segundo"
+        other: "%{count} segundos"
+      less_than_x_minutes:
+        one:   "menos de un minuto"
+        other: "menos de %{count} minutos"
+      x_minutes:
+        one:   "un minuto"
+        other: "%{count} minutos"
+      about_x_hours:
+        one:   "aprox. 1 hora"
+        other: "aprox. %{count} horas"
+      x_days:
+        one:   "un día"
+        other: "%{count} días"
+      about_x_months:
+        one:   "aprox. 1 mes"
+        other: "aprox. %{count} meses"
+      x_months:
+        one:   "un mes"
+        other: "%{count} meses"
+      about_x_years:
+        one:   "aprox. 1 año"
+        other: "aprox. %{count} años"
+      over_x_years:
+        one:   "más de 1 año"
+        other: "más de %{count} años"
+      almost_x_years:
+        one:   "casi 1 año"
+        other: "casi %{count} años"
