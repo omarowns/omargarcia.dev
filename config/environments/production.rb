@@ -65,7 +65,7 @@ Rails.application.configure do
 
 
   # Prepare the ingress controller used to receive mail
-  config.action_mailbox.ingress = :postmark
+  config.action_mailbox.ingress = :mandrill
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
